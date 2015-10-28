@@ -1,15 +1,13 @@
 angular
     .module('Metis', [
         'angular-meteor',
-        'ionic'
+        'ui.router',
+        'ngMaterial'
     ]);
 
-if (Meteor.isCordova) {
-    angular.element(document).on('deviceready', onReady);
-}
-else {
-    angular.element(document).ready(onReady);
-}
+
+angular.element(document).ready(onReady);
+
 
 function onReady() {
     angular.bootstrap(document, ['Metis']);

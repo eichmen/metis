@@ -5,14 +5,16 @@
     <title>Metis</title>
 </head>
 
-<body>
-
-<ion-nav-bar class="bar-stable">
-    <ion-nav-back-button>
-    </ion-nav-back-button>
-</ion-nav-bar>
+<body layout="column">
 
 
-<ion-nav-view></ion-nav-view>
+<md-toolbar md-scroll-shrink layout="row" layout-align="start center" layout-padding>
+    <h2>
+        <a ui-sref="parties"><span class="md-title">Metis</span></a>
+    </h2>
+    <span flex></span>
+
+</md-toolbar>
+<div ui-view flex-gt-sm layout-gt-sm="row"></div>
 
 </body>

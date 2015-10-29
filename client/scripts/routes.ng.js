@@ -3,6 +3,17 @@ angular
     .config(config);
 
 function config($stateProvider, $urlRouterProvider) {
-    //TODO
-    //Define angular states
+    $stateProvider
+        .state('patients', {
+            url: '/patients',
+            templateUrl: 'client/templates/patients.ng.html',
+            controller: 'PatientsCtrl'
+        })
+        .state('patientDetails', {
+            url: '/patient/:patientId',
+            templateUrl: 'client/templates/patientDetails.ng.html',
+            controller: 'PatientDetailsCtrl'
+        }
+    );
+    $urlRouterProvider.otherwise('patients');
 }

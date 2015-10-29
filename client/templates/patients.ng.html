@@ -1,0 +1,11 @@
+<md-content layout-padding>
+    <md-list>
+        <md-list-item class="md-2-line" ng-repeat="patient in patients" ng-click="enter(patient)">
+            <img class="md-avatar" ng-src="{{patient.photo}}">
+            <div class="md-list-item-text">
+                <h3>{{patient.name}}</h3>
+                <p>{{patient.location}}</p>
+            </div>
+        </md-list-item>
+    </md-list>
+</md-content>

@@ -3,7 +3,12 @@ angular
         'angular-meteor',
         'ui.router',
         'ngMaterial'
-    ]);
+    ])
+    .config(function ($mdThemingProvider) {
+
+
+
+    });
 
 
 angular.element(document).ready(onReady);

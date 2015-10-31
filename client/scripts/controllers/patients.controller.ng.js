@@ -4,14 +4,19 @@ angular
 
 function PatientsCtrl ($scope,$meteor,$state) {
 
+    $scope.search="";
+
     //$scope.patients = $scope.$meteorCollection(Patients);
     $scope.patients = $meteor.collection(function() {
-        return Patients.find({});
+        return Patients.find({"name" : { '$regex' : '.*' + $scope.getReactively('search')  + '.*',"$options": "i"}});
     });
-    console.log($scope.patients);
+
     $scope.remove = remove;
 
     $scope.enter = enter;
+
+    $scope.createPatient = createPatient;
+
     ////////////
 
     function remove (patient) {
@@ -19,7 +24,11 @@ function PatientsCtrl ($scope,$meteor,$state) {
     }
 
     function enter(patient) {
-        $state.go('patientDetails',{patientId: patient._id});
+        $state.go('app.patientDetails',{patientId: patient._id});
+    }
+
+    function createPatient() {
+        $state.go('app.addPatient');
     }
 
 }

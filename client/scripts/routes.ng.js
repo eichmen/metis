@@ -4,15 +4,28 @@ angular
 
 function config($stateProvider, $urlRouterProvider) {
     $stateProvider
-        .state('patients', {
+
+        .state('app', {
+            url: '/app',
+            abstract: true,
+            templateUrl: 'client/templates/menu.ng.html',
+            controller: 'AppCtrl'
+        })
+
+        .state('app.patients', {
             url: '/patients',
             templateUrl: 'client/templates/patients.ng.html',
-            controller: 'PatientsCtrl'
+            controller: 'PatientsCtrl',
         })
-        .state('patientDetails', {
+        .state('app.patientDetails', {
             url: '/patient/:patientId',
             templateUrl: 'client/templates/patientDetails.ng.html',
             controller: 'PatientDetailsCtrl'
+        })
+        .state('app.addPatient', {
+            url: '/newPatient',
+            templateUrl: 'client/templates/addPatient.ng.html',
+            controller: 'AddPatientCtrl'
         }
     );
     $urlRouterProvider.otherwise('patients');

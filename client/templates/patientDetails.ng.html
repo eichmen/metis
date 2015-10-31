@@ -1,15 +1,20 @@
 <md-content layout-padding>
 
-    <md-card>
-        <img src="{{patient.photo}}" class="md-card-image" alt="image caption">
-        <md-card-content>
+
+
+
+    <div layout="row" >
+        <div flex layout-margin layout-padding>
+            <img class="md-avatar" ng-src="{{patient.photo}}" style="max-width: 200px;">
+        </div>
+        <div flex layout-margin layout-padding >
             <h2>{{patient.name}}</h2>
+
             <p>{{patient.location}}</p>
+
             <p>{{patient.birthdate | date:"MM/dd/yyyy"}}</p>
-        </md-card-content>
-        <md-card-footer>
-        </md-card-footer>
-    </md-card>
+        </div>
+    </div>
 
 </md-content>
 

@@ -1,16 +1,36 @@
-<div layout="row">
-    <md-sidenav md-component-id="left" class="md-sidenav-left">
-        Left Nav!
-    </md-sidenav>
+<md-sidenav  md-component-id="left"
+            class="md-sidenav-left">
+    <md-toolbar md-theme="custom" class="md-hue-1 md-whiteframe-z2">
+        <md-button layout="row" layout-align="center center" class="md-toolbar-tools md-warn">
+            <h1>METIS</h1>
+        </md-button>
+    </md-toolbar>
+    <md-menu-content>
+        <md-menu-item>
+            <md-button ng-click="$mdCloseMenu()" ui-sref="app.patients">Patients</md-button>
+        </md-menu-item>
+    </md-menu-content>
+</md-sidenav>
+<div layout="column" flex>
     <md-content>
-        <div ui-view name="patientContent" layout-column layout-fill></div>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-button ng-click="openLeftMenu()" hide-gt-md aria-label="Menu">
+                    <ng-md-icon icon="menu"></ng-md-icon>
+                </md-button>
+                <h3>
+                    Metis
+                </h3>
+                <span flex></span>
+                
+            </div>
+
+        </md-toolbar>
+       <!-- <md-button ng-click="openLeftMenu()">
+            Open Left Menu
+        </md-button>-->
     </md-content>
-    <md-sidenav md-component-id="right" md-is-locked-open="$mdMedia('min-width: 333px')" class="md-sidenav-right">
-        <form>
-            <md-input-container>
-                <label for="testInput">Test input</label>
-                <input id="testInput" type="text" ng-model="data" md-autofocus>
-            </md-input-container>
-        </form>
-    </md-sidenav>
+    <md-content flex class="md-padding page-content">
+        <div ui-view></div>
+    </md-content>
 </div>

@@ -6,7 +6,7 @@ function config($stateProvider, $urlRouterProvider) {
     $stateProvider
 
         .state('app', {
-            url: '/app',
+            url: '',
             abstract: true,
             templateUrl: 'client/templates/menu.ng.html',
             controller: 'AppCtrl'
@@ -16,6 +16,9 @@ function config($stateProvider, $urlRouterProvider) {
             url: '/patients',
             templateUrl: 'client/templates/patients.ng.html',
             controller: 'PatientsCtrl',
+            data: {
+                title: 'Patients'
+            }
         })
         .state('app.patientDetails', {
             url: '/patient/:patientId',

@@ -1,0 +1,29 @@
+
+    <md-content layout-padding layout="row" layout-sm="column">
+        <md-input-container>
+            <label>Name</label>
+            <input ng-model="newPatient.name">
+        </md-input-container>
+        <md-input-container>
+            <label>Email</label>
+            <input ng-model="newPatient.email" type="email">
+        </md-input-container>
+    </md-content>
+    <md-content layout-padding layout="column">
+        <form name="userForm">
+            <div layout layout-sm="column">
+                <md-input-container flex>
+                    <label>Location</label>
+                    <input ng-model="newPatient.address">
+                </md-input-container>
+                <md-datepicker ng-model="newPatient.birthdate" md-placeholder="Enter date"></md-datepicker>
+            </div>
+
+
+            <md-input-container class="md-block">
+                <label>Comments</label>
+                <textarea ng-model="newPatient.comments" columns="1" md-maxlength="300"></textarea>
+            </md-input-container>
+            <md-button class="md-raised md-primary" ng-click="savePatient()">Save</md-button>
+        </form>
+    </md-content>

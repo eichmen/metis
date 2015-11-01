@@ -29,7 +29,39 @@ function config($stateProvider, $urlRouterProvider) {
             url: '/newPatient',
             templateUrl: 'client/templates/addPatient.ng.html',
             controller: 'AddPatientCtrl'
-        }
-    );
+        })
+        .state('app.agenda', {
+            url: '/agenda',
+            templateUrl: 'client/templates/agenda.ng.html',
+            controller: 'AgendaCtrl',
+            data: {
+                title: 'Agenda'
+            }
+        })
+        .state('app.payments', {
+            url: '/payments',
+            templateUrl: 'client/templates/payments.ng.html',
+            controller: 'PaymentsCtrl',
+            data: {
+                title: 'Payments'
+            }
+        })
+        .state('app.recipes', {
+            url: '/recipes',
+            templateUrl: 'client/templates/recipes.ng.html',
+            controller: 'RecipesCtrl',
+            data: {
+                title: 'Recipes'
+            }
+        })
+        .state('app.education', {
+            url: '/education',
+            templateUrl: 'client/templates/education.ng.html',
+            controller: 'EducationCtrl',
+            data: {
+                title: 'Education'
+            }
+        })
+    ;
     $urlRouterProvider.otherwise('patients');
 }

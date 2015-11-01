@@ -1,0 +1,43 @@
+$gray: #eee;
+$almost-black: rgba(0, 0, 0, 0.870588);
+
+md-content.md-default-theme {
+  background-color: $gray;
+}
+
+.md-toolbar-tools-bottom {
+  font-size: small;
+  & :last-child {
+    opacity: 0.8;
+  }
+}
+md-toolbar:not(.md-hue-1),
+.md-fab {
+  fill: #fff;
+}
+md-sidenav {
+  fill: #737373;
+  ng-md-icon {
+    fill: $almost-black;
+    position: relative;
+    top: 5px; // adjust for svg viewbox
+  }
+}
+
+ng-md-icon {
+  fill: white;
+  -webkit-transition: fill 750ms ease-in-out;
+  -moz-transition: fill 750ms ease-in-out;
+  -o-transition: fill 750ms ease-in-out;
+  transition: fill 750ms ease-in-out;
+}
+ng-md-icon > svg {
+  -webkit-transition: width 750ms ease-in-out, height 750ms ease-in-out;
+  -moz-transition: width 750ms ease-in-out, height 750ms ease-in-out;
+  -o-transition: width 750ms ease-in-out, height 750ms ease-in-out;
+  transition: width 750ms ease-in-out, height 750ms ease-in-out;
+}
+
+md-content {
+  overflow: hidden ;
+}

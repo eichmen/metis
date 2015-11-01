@@ -1,14 +1,15 @@
 <md-content layout-padding>
 
-    <div layout-padding layout="row">
-        <md-input-container>
+    <div layout-padding layout="row" flex>
+        <md-input-container flex>
             <label>Search</label>
             <input type="text" ng-model="search"/>
         </md-input-container>
+        <md-button class="md-raised md-primary" ng-click="createPatient()">New Patient</md-button>
     </div>
-    <md-button class="md-primary" ng-click="createPatient()">New Patient</md-button>
 
-    <md-list>
+
+    <md-list flex>
         <md-list-item class="md-2-line" ng-repeat="patient in patients" ng-click="enter(patient)">
             <img class="md-avatar" ng-src="{{patient.photo}}">
             <div class="md-list-item-text">

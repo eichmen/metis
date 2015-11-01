@@ -1,19 +1,37 @@
 <md-content layout-padding>
 
-
-
-
-    <div layout="row" >
+    <div layout="row">
         <div flex layout-margin layout-padding>
             <img class="md-avatar" ng-src="{{patient.photo}}" style="max-width: 200px;">
         </div>
-        <div flex layout-margin layout-padding >
+        <div flex layout-margin layout-padding>
             <h2>{{patient.name}}</h2>
 
             <p>{{patient.location}}</p>
 
-            <p>{{patient.birthdate | date:"MM/dd/yyyy"}}</p>
+            <p>{{patient.birthdate | ageFilter }}</p>
         </div>
+    </div>
+    <div layout="row" flex>
+        <md-button class="md-raised md-warn">New Consultation</md-button>
+        <md-button class="md-raised md-warn">New Instruction</md-button>
+    </div>
+    <div layout="row" flex>
+        <md-list flex>
+            <md-toolbar layout-margin>
+                <div class="md-toolbar-tools">
+                    <h3 class="ng-binding">Consultation Records</h3>
+                </div>
+            </md-toolbar>
+            <md-list-item class="md-2-line" ng-repeat="consult in consultations" ng-click="" layout-margin>
+                <p>{{consult.date}}</p>
+
+                <div class="md-list-item-text">
+
+                    <p>{{consult.observations}}</p>
+                </div>
+            </md-list-item>
+        </md-list>
     </div>
 
 </md-content>

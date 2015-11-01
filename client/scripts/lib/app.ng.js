@@ -2,7 +2,8 @@ angular
     .module('Metis', [
         'angular-meteor',
         'ui.router',
-        'ngMaterial'
+        'ngMaterial',
+        'ngMdIcons'
     ])
     .config(function ($mdThemingProvider) {
 

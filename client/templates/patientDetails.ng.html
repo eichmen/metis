@@ -1,20 +1,37 @@
-<md-content layout-padding>
+<md-content layout-padding >
 
     <div layout="row">
-        <div flex layout-margin layout-padding>
-            <img class="md-avatar" ng-src="{{patient.photo}}" style="max-width: 200px;">
+        <div flex layout-margin layout-padding class="ng-cloak">
+
+            <img  class="md-avatar" ng-src="{{patient.photo}}" style="max-width: 200px;">
+
+
         </div>
-        <div flex layout-margin layout-padding>
-            <h2>{{patient.name}}</h2>
+        <div flex layout-margin layout-padding class="ng-cloak">
 
-            <p>{{patient.location}}</p>
+            <md-switch ng-model="edit" aria-label="Edit" class="md-block" style="margin:0px">
+                <p>Edit</p>
+            </md-switch>
 
-            <p>{{patient.birthdate | ageFilter }}</p>
+            <md-input-container>
+                <label>Name</label>
+                <input ng-model="patient.name" ng-disabled="!edit">
+            </md-input-container>
+            <md-input-container>
+                <label>Location</label>
+                <input ng-model="patient.location" ng-disabled="!edit">
+            </md-input-container>
+            <md-input-container>
+                <label>Age</label>
+                <input ng-model="patient.birthdate | ageFilter" disabled>
+            </md-input-container>
+
+
         </div>
     </div>
     <div layout="row" flex>
-        <md-button class="md-raised md-warn">New Consultation</md-button>
-        <md-button class="md-raised md-warn">New Instruction</md-button>
+        <md-button class="md-raised md-primary" ng-click="newConsultation()">New Consultation</md-button>
+        <md-button class="md-raised md-primary">New Instruction</md-button>
     </div>
     <div layout="row" flex>
         <md-list flex>
@@ -24,7 +41,7 @@
                 </div>
             </md-toolbar>
             <md-list-item class="md-2-line" ng-repeat="consult in consultations" ng-click="" layout-margin>
-                <p>{{consult.date}}</p>
+                <p>{{consult.date | date:"MM/dd/yyyy"}}</p>
 
                 <div class="md-list-item-text">
 

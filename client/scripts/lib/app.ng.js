@@ -3,7 +3,8 @@ angular
         'angular-meteor',
         'ui.router',
         'ngMaterial',
-        'ngMdIcons'
+        'ngMdIcons',
+        'gettext'
     ])
     .config(function ($mdThemingProvider) {
 

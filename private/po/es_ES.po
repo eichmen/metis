@@ -12,22 +12,66 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: es_ES\n"
 
-#: langkeys.js:6
+#: ../client/templates/agenda.ng.html:3 langkeys.js:6
 msgid "Agenda"
 msgstr "Agenda"
 
+#: ../client/templates/addPatient.ng.html:24
+msgid "Comments"
+msgstr "Comentarios"
+
+#: ../client/templates/patientDetails.ng.html:23
+msgid "Consultation Records"
+msgstr "Registros de consulta"
+
+#: ../client/templates/education.ng.html:3
+msgid "Education"
+msgstr "Educación"
+
+#: ../client/templates/addPatient.ng.html:8
+msgid "Email"
+msgstr "Email"
+
+#: ../client/templates/addPatient.ng.html:16
+msgid "Location"
+msgstr "Ubicación"
+
+#: ../client/templates/addPatient.ng.html:4
+msgid "Name"
+msgstr "Nombre"
+
+#: ../client/templates/patientDetails.ng.html:16
+msgid "New Consultation"
+msgstr "Nueva Consulta"
+
+#: ../client/templates/patientDetails.ng.html:17
+msgid "New Instruction"
+msgstr "Nueva instrucción"
+
+#: ../client/templates/patients.ng.html:8
+msgid "New Patient"
+msgstr "Nuevo Paciente"
+
 #: langkeys.js:9
 msgid "Nutritional Education"
-msgstr "Educación nutricional"
+msgstr "Educación Nutricional"
 
 #: langkeys.js:5
 msgid "Patients"
 msgstr "Pacientes"
 
-#: langkeys.js:7
+#: ../client/templates/payments.ng.html:3 langkeys.js:7
 msgid "Payments"
 msgstr "Pagos"
 
-#: langkeys.js:8
+#: ../client/templates/recipes.ng.html:3 langkeys.js:8
 msgid "Recipes"
 msgstr "Recetas"
+
+#: ../client/templates/addPatient.ng.html:27
+msgid "Save"
+msgstr "Guardar"
+
+#: ../client/templates/patients.ng.html:5
+msgid "Search"
+msgstr "Buscar"

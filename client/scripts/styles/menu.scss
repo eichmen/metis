@@ -1,5 +1,14 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 $gray: #eee;
 $almost-black: rgba(0, 0, 0, 0.870588);
+
+
+.md-button.md-primary {
+  background-color: #FF5722 !important;
+}
 
 md-content.md-default-theme {
   background-color: $gray;
@@ -38,6 +47,7 @@ ng-md-icon > svg {
   transition: width 750ms ease-in-out, height 750ms ease-in-out;
 }
 
+
 md-content {
-  overflow: hidden ;
+  overflow: visible  ;
 }

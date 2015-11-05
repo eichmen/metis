@@ -30,6 +30,11 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: 'client/templates/addPatient.ng.html',
             controller: 'AddPatientCtrl'
         })
+        .state('app.addConsultation', {
+            url: '/consultation/:patientId',
+            templateUrl: 'client/templates/addConsultation.ng.html',
+            controller: 'AddConsultationCtrl'
+        })
         .state('app.agenda', {
             url: '/agenda',
             templateUrl: 'client/templates/agenda.ng.html',

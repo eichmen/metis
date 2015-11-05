@@ -2,11 +2,17 @@ angular
     .module('Metis')
     .controller('PatientDetailsCtrl', PatientDetailsCtrl);
 
-function PatientDetailsCtrl ($scope,$meteor,$stateParams) {
+function PatientDetailsCtrl ($scope,$meteor,$state,$stateParams) {
 
-    $scope.patient = $meteor.object(Patients, $stateParams.patientId);
+    $scope.patient = $meteor.object(Patients, $stateParams.patientId,true);
 
-    $scope.consultations = [
+    $scope.consultations = $meteor.collection(function() {
+        return Consultations.find({"patientId" : $stateParams.patientId});
+    });
+
+    $scope.edit = false;
+
+    /*$scope.consultations = [
         {
             date: '01/11/2015',
             observations: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin quam a ' +
@@ -22,7 +28,12 @@ function PatientDetailsCtrl ($scope,$meteor,$stateParams) {
             observations: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin quam a ' +
             'sollicitudin ornare. Nulla facilisi. Phasellus imperdiet convallis hendrerit.'
         }
-    ];
+    ];*/
 
-    console.log($scope.patient);
+    $scope.newConsultation = newConsultation;
+
+    function newConsultation() {
+        $state.go('app.addConsultation',{patientId: $stateParams.patientId});
+    }
+
 }

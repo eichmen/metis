@@ -2,10 +2,7 @@
 
     <div layout="row">
         <div flex layout-margin layout-padding class="ng-cloak">
-
             <img class="md-avatar" ng-src="{{patient.photo}}" style="max-width: 200px;">
-
-
         </div>
         <div flex layout-margin layout-padding class="ng-cloak">
 
@@ -23,10 +20,8 @@
             </md-input-container>
             <md-input-container>
                 <label>Age</label>
-                <input ng-model="patient.birthdate | ageFilter" disabled>
+                <input value="{{::patient.birthdate | ageFilter}}" disabled>
             </md-input-container>
-
-
         </div>
     </div>
     <div layout="row" flex>

@@ -7,7 +7,7 @@ angular
     ])
     .config(function ($mdThemingProvider) {
 
-        var customBlueMap = $mdThemingProvider.extendPalette('light-green', {
+        var customBlueMap = $mdThemingProvider.extendPalette('teal', {
             'contrastDefaultColor': 'light',
             'contrastDarkColors': ['50'],
             '50': 'ffffff'

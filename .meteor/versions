@@ -61,6 +61,7 @@ reactive-var@1.0.6
 reload@1.1.4
 retry@1.0.4
 routepolicy@1.0.6
+rubenv:angular-gettext@2.1.0
 sebhero:angular-material-icons@0.5.0
 session@1.1.1
 spacebars@1.0.7

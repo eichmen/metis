@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: ../client/templates/agenda.ng.html:3
+#: langkeys.js:6
+msgid "Agenda"
+msgstr ""
+
+#: ../client/templates/addPatient.ng.html:24
+msgid "Comments"
+msgstr ""
+
+#: ../client/templates/patientDetails.ng.html:23
+msgid "Consultation Records"
+msgstr ""
+
+#: ../client/templates/education.ng.html:3
+msgid "Education"
+msgstr ""
+
+#: ../client/templates/addPatient.ng.html:8
+msgid "Email"
+msgstr ""
+
+#: ../client/templates/addPatient.ng.html:16
+msgid "Location"
+msgstr ""
+
+#: ../client/templates/addPatient.ng.html:4
+msgid "Name"
+msgstr ""
+
+#: ../client/templates/patientDetails.ng.html:16
+msgid "New Consultation"
+msgstr ""
+
+#: ../client/templates/patientDetails.ng.html:17
+msgid "New Instruction"
+msgstr ""
+
+#: ../client/templates/patients.ng.html:8
+msgid "New Patient"
+msgstr ""
+
+#: langkeys.js:9
+msgid "Nutritional Education"
+msgstr ""
+
+#: langkeys.js:5
+msgid "Patients"
+msgstr ""
+
+#: ../client/templates/payments.ng.html:3
+#: langkeys.js:7
+msgid "Payments"
+msgstr ""
+
+#: ../client/templates/recipes.ng.html:3
+#: langkeys.js:8
+msgid "Recipes"
+msgstr ""
+
+#: ../client/templates/addPatient.ng.html:27
+msgid "Save"
+msgstr ""
+
+#: ../client/templates/patients.ng.html:5
+msgid "Search"
+msgstr ""

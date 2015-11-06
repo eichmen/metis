@@ -3,7 +3,8 @@ angular
         'angular-meteor',
         'ui.router',
         'ngMaterial',
-        'ngMdIcons'
+        'ngMdIcons',
+        'gettext'
     ])
     .config(function ($mdThemingProvider) {
 
@@ -21,6 +22,8 @@ angular
             .accentPalette('pink');
         $mdThemingProvider.theme('input', 'default')
             .primaryPalette('grey')
+    }).run(function (gettextCatalog) {
+        gettextCatalog.setCurrentLanguage('es_ES');
     });
 
 

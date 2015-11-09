@@ -24,3 +24,6 @@ angularui:angular-ui-router
 fourseven:scss
 sebhero:angular-material-icons
 rubenv:angular-gettext
+angular:angular-mocks
+sanjo:jasmine
+velocity:html-reporter

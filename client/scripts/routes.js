@@ -8,13 +8,13 @@ function config($stateProvider, $urlRouterProvider) {
         .state('app', {
             url: '',
             abstract: true,
-            templateUrl: 'client/templates/menu.ng.html',
+            templateUrl: 'client/templates/menu.html',
             controller: 'AppCtrl'
         })
 
         .state('app.patients', {
             url: '/patients',
-            templateUrl: 'client/templates/patients.ng.html',
+            templateUrl: 'client/templates/patients.html',
             controller: 'PatientsCtrl',
             data: {
                 title: 'Patients'
@@ -22,22 +22,22 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.patientDetails', {
             url: '/patient/:patientId',
-            templateUrl: 'client/templates/patientDetails.ng.html',
+            templateUrl: 'client/templates/patientDetails.html',
             controller: 'PatientDetailsCtrl'
         })
         .state('app.addPatient', {
             url: '/newPatient',
-            templateUrl: 'client/templates/addPatient.ng.html',
+            templateUrl: 'client/templates/addPatient.html',
             controller: 'AddPatientCtrl'
         })
         .state('app.addConsultation', {
             url: '/consultation/:patientId',
-            templateUrl: 'client/templates/addConsultation.ng.html',
+            templateUrl: 'client/templates/addConsultation.html',
             controller: 'AddConsultationCtrl'
         })
         .state('app.agenda', {
             url: '/agenda',
-            templateUrl: 'client/templates/agenda.ng.html',
+            templateUrl: 'client/templates/agenda.html',
             controller: 'AgendaCtrl',
             data: {
                 title: 'Agenda'
@@ -45,7 +45,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.payments', {
             url: '/payments',
-            templateUrl: 'client/templates/payments.ng.html',
+            templateUrl: 'client/templates/payments.html',
             controller: 'PaymentsCtrl',
             data: {
                 title: 'Payments'
@@ -53,7 +53,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.recipes', {
             url: '/recipes',
-            templateUrl: 'client/templates/recipes.ng.html',
+            templateUrl: 'client/templates/recipes.html',
             controller: 'RecipesCtrl',
             data: {
                 title: 'Recipes'
@@ -61,7 +61,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.education', {
             url: '/education',
-            templateUrl: 'client/templates/education.ng.html',
+            templateUrl: 'client/templates/education.html',
             controller: 'EducationCtrl',
             data: {
                 title: 'Education'

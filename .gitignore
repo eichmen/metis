@@ -1,2 +1,4 @@
 .meteor/local
 private/node_modules
+.electrify/
+.idea/

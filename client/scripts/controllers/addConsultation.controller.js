@@ -11,13 +11,9 @@ function AddConsultationCtrl ($scope,$meteor,$state,$stateParams) {
     $scope.saveConsultation = saveConsultation;
 
     function saveConsultation() {
-
         $scope.newConsultation.patientId=$stateParams.patientId;
-
-        $scope.consultations.push($scope.newConsultation);
-
+        $meteor.call('insertConsultation', $scope.newConsultation);
         $state.go('app.patients');
-
     }
 
 

@@ -76,13 +76,10 @@ Meteor.startup(function () {
 
         Patients.find({}).forEach(patient => {
             consultations.forEach(consultation => {
-            consultation.observations+=" "+patient.name,
-            consultation.patientId = patient._id;
-        Consultations.insert(consultation);
-    }
-)
-})
-;
+                consultation.patientId = patient._id;
+                Consultations.insert(consultation);
+            })
+        });
 
 }
 })

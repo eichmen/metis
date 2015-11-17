@@ -3,8 +3,8 @@ angular
     .config(config);
 
 function config($stateProvider, $urlRouterProvider) {
-    $stateProvider
 
+    $stateProvider
         .state('app', {
             url: '',
             abstract: true,
@@ -23,7 +23,12 @@ function config($stateProvider, $urlRouterProvider) {
         .state('app.patientDetails', {
             url: '/patient/:patientId',
             templateUrl: 'client/templates/patientDetails.html',
-            controller: 'PatientDetailsCtrl'
+            controller: 'PatientDetailsCtrl',
+            resolve: {
+                "currentUser": function ($meteor) {
+                    return $meteor.requireUser();
+                }
+            }
         })
         .state('app.addPatient', {
             url: '/newPatient',

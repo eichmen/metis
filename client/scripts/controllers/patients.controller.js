@@ -2,14 +2,16 @@ angular
     .module('Metis')
     .controller('PatientsCtrl', PatientsCtrl);
 
-function PatientsCtrl ($scope,$meteor,$state) {
+function PatientsCtrl($scope, $meteor, $state) {
 
-    $scope.search="";
+    $scope.search = "";
 
     //$scope.patients = $scope.$meteorCollection(Patients);
-    $scope.patients = $meteor.collection(function() {
-        return Patients.find({"name" : { '$regex' : '.*' + $scope.getReactively('search')  + '.*',"$options": "i"}});
-    });
+    /*  $scope.patients = $meteor.collection(function() {
+     return Patients.find({"name" : { '$regex' : '.*' + $scope.getReactively('search')  + '.*',"$options": "i"}});
+     });*/
+
+    $scope.patients = $meteor.collection(Patients).subscribe('patients',{},$scope.getReactively('search'));
 
     $scope.remove = remove;
 
@@ -19,12 +21,12 @@ function PatientsCtrl ($scope,$meteor,$state) {
 
     ////////////
 
-    function remove (patient) {
+    function remove(patient) {
         $scope.patients.remove(patient);
     }
 
     function enter(patient) {
-        $state.go('app.patientDetails',{patientId: patient._id});
+        $state.go('app.patientDetails', {patientId: patient._id});
     }
 
     function createPatient() {

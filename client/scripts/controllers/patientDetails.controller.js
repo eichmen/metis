@@ -4,11 +4,13 @@ angular
 
 function PatientDetailsCtrl ($scope,$meteor,$state,$stateParams) {
 
-    $scope.patient = $meteor.object(Patients, $stateParams.patientId,true);
+    //$scope.patient = $meteor.object(Patients, $stateParams.patientId,true);
+    $scope.patient = $meteor.object(Patients, $stateParams.patientId).subscribe('patients');
 
-    $scope.consultations = $meteor.collection(function() {
+    /*$scope.consultations = $meteor.collection(function() {
         return Consultations.find({"patientId" : $stateParams.patientId});
-    });
+    });*/
+    $scope.consultations = $meteor.collection(Consultations).subscribe('consultations');
 
     $scope.edit = false;
 

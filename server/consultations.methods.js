@@ -1,9 +1,10 @@
-Meteor.publish("consultations", function () {
+Meteor.publish("consultations", function (patientSelected) {
     return Consultations.find({
 
         $and:[
             {owner: this.userId},
-            {owner: {$exists: true}}
+            {owner: {$exists: true}},
+            {patientId : patientSelected}
         ]
 
 });

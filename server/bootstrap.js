@@ -59,26 +59,24 @@ Meteor.startup(function () {
         var consultations = [
             {
                 date: new Date(2015, 10, 1),
-                observations: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin quam a ' +
-                'sollicitudin ornare. Nulla facilisi. Phasellus imperdiet convallis hendrerit.',
+                observations: 'Consultation 1',
                 owner : metis._id
             },
             {
                 date: new Date(2015, 9, 15),
-                observations: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin quam a ' +
-                'sollicitudin ornare. Nulla facilisi. Phasellus imperdiet convallis hendrerit.',
+                observations: 'Consultation 2',
                 owner : metis._id
             },
             {
                 date: new Date(2015, 9, 1),
-                observations: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sollicitudin quam a ' +
-                'sollicitudin ornare. Nulla facilisi. Phasellus imperdiet convallis hendrerit.',
+                observations: 'Consultation 3',
                 owner : metis._id
             }
         ];
 
         Patients.find({}).forEach(patient => {
             consultations.forEach(consultation => {
+            consultation.observations+=" "+patient.name,
             consultation.patientId = patient._id;
         Consultations.insert(consultation);
     }

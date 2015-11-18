@@ -1,0 +1,14 @@
+<!--<md-content layout-padding layout="row" layout-sm="column">
+        <am-datepicker ng-model="consultation.date"></am-datepicker>
+        <md-datepicker ng-model="consultation.date" md-placeholder="Enter date"></md-datepicker>
+</md-content>-->
+<md-input-container>
+    <label>Date</label>
+    <input type="date" ng-model="consultation.date" />
+</md-input-container>
+<!--<md-button class="md-raised md-warn" ng-click="showPicker($event)" aria-label="show picker">Select Date</md-button>-->
+<md-input-container class="md-block">
+    <label>Comments</label>
+    <textarea ng-model="consultation.observations" columns="1" md-maxlength="300"></textarea>
+</md-input-container>
+<md-button class="md-raised md-primary" ng-click="saveConsultation()">Save</md-button>

@@ -1,0 +1,52 @@
+<md-content layout-padding>
+
+    <div layout="row">
+        <div flex layout-margin layout-padding class="ng-cloak">
+            <img class="md-avatar" ng-src="{{patient.photo}}" style="max-width: 200px;">
+        </div>
+        <div flex layout-margin layout-padding class="ng-cloak">
+
+            <md-switch ng-model="edit" aria-label="Edit" class="md-block" style="margin:0px">
+                <p>Edit</p>
+            </md-switch>
+
+            <md-input-container>
+                <label>Name</label>
+                <input ng-model="patient.name" ng-disabled="!edit">
+            </md-input-container>
+            <md-input-container>
+                <label>Location</label>
+                <input ng-model="patient.location" ng-disabled="!edit">
+            </md-input-container>
+            <md-input-container>
+                <label>Age</label>
+                <input value="{{::patient.birthdate | ageFilter}}" disabled>
+            </md-input-container>
+        </div>
+    </div>
+    <div layout="row" flex>
+        <md-button class="md-raised md-primary" ng-click="newConsultation()"><translate>New Consultation</translate></md-button>
+        <md-button class="md-raised md-primary"><translate>New Instruction</translate></md-button>
+    </div>
+    <div layout="row" flex>
+        <md-list flex>
+            <md-toolbar layout-margin>
+                <div class="md-toolbar-tools">
+                    <h3 class="ng-binding" translate>Consultation Records</h3>
+                </div>
+            </md-toolbar>
+            <md-list-item class="md-2-line" style="border-bottom:1px solid lightgrey" ng-repeat="consult in consultations" ng-click="" layout-margin>
+
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{consult.date | date:"MM/dd/yyyy"}}</h3>
+                </div>
+                <div class="md-list-item-text">
+                    <p>{{consult.observations}}</p>
+                </div>
+                <md-button class="md-raised md-primary" ng-click="editConsultation(consult._id)">Edit</md-button>
+                <md-button class="md-raised md-warn" ng-click="deleteConsultation(consult._id)">Remove</md-button>
+            </md-list-item>
+        </md-list>
+    </div>
+
+</md-content>

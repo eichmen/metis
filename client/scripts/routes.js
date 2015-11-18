@@ -14,7 +14,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('app.patients', {
             url: '/patients',
-            templateUrl: 'client/templates/patients.html',
+            templateUrl: 'client/templates/patients/patients.html',
             controller: 'PatientsCtrl',
             data: {
                 title: 'Patients'
@@ -22,7 +22,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.patientDetails', {
             url: '/patient/:patientId',
-            templateUrl: 'client/templates/patientDetails.html',
+            templateUrl: 'client/templates/patients/patientDetails.html',
             controller: 'PatientDetailsCtrl',
             resolve: {
                 "currentUser": function ($meteor) {
@@ -32,13 +32,18 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.addPatient', {
             url: '/newPatient',
-            templateUrl: 'client/templates/addPatient.html',
+            templateUrl: 'client/templates/patients/addPatient.html',
             controller: 'AddPatientCtrl'
         })
         .state('app.addConsultation', {
             url: '/consultation/:patientId',
-            templateUrl: 'client/templates/addConsultation.html',
+            templateUrl: 'client/templates/consultations/consultationDetail.html',
             controller: 'AddConsultationCtrl'
+        })
+        .state('app.consultationDetails', {
+            url: '/consultationDetails/:consultationId',
+            templateUrl: 'client/templates/consultations/consultationDetail.html',
+            controller: 'ConsultationDetailsCtrl'
         })
         .state('app.agenda', {
             url: '/agenda',

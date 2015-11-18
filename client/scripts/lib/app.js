@@ -5,7 +5,8 @@ angular
         'accounts.ui',
         'ngMaterial',
         'ngMdIcons',
-        'gettext'
+        'gettext',
+        'mdPickers'
     ])
     .config(function ($mdThemingProvider) {
 

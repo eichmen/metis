@@ -52,6 +52,7 @@ insecure@1.0.4
 jquery@1.11.4
 lai:collection-extensions@0.1.4
 launch-screen@1.0.4
+lbd41innovation:mdpickers@0.2.0
 less@2.5.1
 livedata@1.0.15
 localstorage@1.0.5
@@ -62,6 +63,7 @@ minifiers@1.1.7
 minimongo@1.0.10
 mobile-experience@1.0.1
 mobile-status-bar@1.0.6
+momentjs:moment@2.10.6
 mongo@1.1.3
 mongo-id@1.0.1
 npm-bcrypt@0.7.8_2

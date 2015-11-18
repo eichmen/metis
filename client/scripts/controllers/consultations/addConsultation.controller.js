@@ -4,8 +4,8 @@ angular
 
 function AddConsultationCtrl ($scope,$meteor,$state,$stateParams,$mdDatePicker) {
 
-  $scope.newConsultation = {};
-  $scope.newConsultation.date = new Date();
+  $scope.consultation = {};
+  $scope.consultation.date = new Date();
 
   $scope.saveConsultation = saveConsultation;
 
@@ -19,8 +19,8 @@ function AddConsultationCtrl ($scope,$meteor,$state,$stateParams,$mdDatePicker) 
   }*/
 
   function saveConsultation() {
-    $scope.newConsultation.patientId=$stateParams.patientId;
-    $meteor.call('insertConsultation', $scope.newConsultation);
+    $scope.consultation.patientId=$stateParams.patientId;
+    $meteor.call('insertConsultation', $scope.consultation);
     $state.go('app.patientDetails', {patientId: $stateParams.patientId});
   }
 

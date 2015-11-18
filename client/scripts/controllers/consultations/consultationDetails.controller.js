@@ -6,7 +6,7 @@ function ConsultationDetailsCtrl ($scope,$meteor,$state,$stateParams) {
 
   $scope.consultation = Consultations.findOne({_id:$stateParams.consultationId});
 
-  $scope.updateConsultation = updateConsultation;
+  $scope.saveConsultation = saveConsultation;
 
   function saveConsultation() {
     $meteor.call('updateConsultation', $scope.consultation).then(goToPatient);

@@ -43,9 +43,10 @@
                 <div class="md-list-item-text">
                     <p>{{consult.observations}}</p>
                 </div>
+                <md-button class="md-raised md-primary" ng-click="editConsultation(consult._id)">Edit</md-button>
+                <md-button class="md-raised md-warn" ng-click="deleteConsultation(consult._id)">Remove</md-button>
             </md-list-item>
         </md-list>
     </div>
 
 </md-content>
-

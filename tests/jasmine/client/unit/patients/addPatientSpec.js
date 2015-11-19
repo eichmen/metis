@@ -17,6 +17,10 @@ describe('AddPatientCtrl', function () {
             spyOn(state, 'go');
             $scope = {
                 savePatient: function () {
+                },
+                patients: {
+                    push : function() {
+                    }
                 }
             };
             $meteor = {
@@ -35,7 +39,5 @@ describe('AddPatientCtrl', function () {
             $scope.savePatient();
             expect(state.go).toHaveBeenCalledWith('app.patients');
         });
-
     });
-
 });

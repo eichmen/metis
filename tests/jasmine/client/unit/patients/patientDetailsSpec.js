@@ -17,11 +17,17 @@ describe('PatientDetailsCtrl', function () {
             spyOn(state, 'go');
             $scope = {
                 newConsultation: function () {
-                }
+                },
+                $meteorSubscribe: function () {
+                    return {then: function () {}}
+                },
             };
             $meteor = {
                 object: function () {
-
+                    return {
+                        subscribe: function () {
+                        }
+                    }
                 }, collection: function () {
 
                 }

@@ -19,10 +19,16 @@ describe('PatientsCtrl', function () {
                 enter: function () {
                 },
                 createPatient: function () {
+                },
+                getReactively: function () {
                 }
             };
             $meteor = {
                 collection: function () {
+                    return {
+                        subscribe: function () {
+                        }
+                    }
                 }
             };
             controller = $controller('PatientsCtrl', {$scope: $scope, $meteor: $meteor});

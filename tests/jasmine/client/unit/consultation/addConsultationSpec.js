@@ -10,30 +10,29 @@ describe('AddConsultationCtrl', function () {
     }));
 
     describe('StateChanges', function () {
-        var $scope, controller, $meteor, state;
+        var $scope, controller, $meteor, state, $stateParams;
 
         beforeEach(inject(function ($state) {
             state = $state;
             spyOn(state, 'go');
-            $scope = {
-                savePatient: function () {
-                }
-            };
+            $scope = {};
             $meteor = {
-                collection: function () {
-                    return {
-                        push: function () {
-
-                        }
-                    }
+                call: function () {
                 }
             };
-            controller = $controller('AddConsultationCtrl', {$scope: $scope, $meteor: $meteor});
+            $stateParams = {
+                patientId: 1
+            };
+            controller = $controller('AddConsultationCtrl', {
+                $scope: $scope,
+                $meteor: $meteor,
+                $stateParams: $stateParams
+            });
         }));
 
         it('should go to app.patients when calling to saveConsultation', function () {
             $scope.saveConsultation();
-            expect(state.go).toHaveBeenCalledWith('app.patients');
+            expect(state.go).toHaveBeenCalledWith('app.patientDetails', {patientId: 1});
         });
 
     });

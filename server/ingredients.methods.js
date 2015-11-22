@@ -20,6 +20,11 @@ Meteor.publish("ingredients", function (options,searchString) {
 
 Meteor.methods({
 
+    checkIngredients : function () {
+        console.log('checking ingredients');
+        return Ingredients.find().count()>0?true:false;
+    },
+
     loadIngredients : function () {
         var ingredients=[];
         var allJson = Assets.getText('abbrv/all.json');
@@ -30,6 +35,7 @@ Meteor.methods({
             Ingredients.insert(JSON.parse(ingredient));
             console.log('ingredient inserted');
         });
+        return true;
     }
 
 })

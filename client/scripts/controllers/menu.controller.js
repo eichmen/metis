@@ -35,6 +35,11 @@ function AppCtrl($scope, $mdSidenav) {
             icon: 'insert_emoticon',
             sref: 'app.education'
         },
+        {
+            name:'Settings',
+            icon: 'settings',
+            sref: 'app.settings'
+        }
     ]
 
     $scope.openLeftMenu = function () {

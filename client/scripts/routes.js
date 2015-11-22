@@ -71,7 +71,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.ingredients', {
             url: '/ingredients',
-            templateUrl: 'client/templates/ingredients.html',
+            templateUrl: 'client/templates/ingredients/ingredients.html',
             controller: 'IngredientsCtrl',
             data: {
                 title: 'Ingredients'
@@ -79,7 +79,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.ingredientDetails', {
             url: '/ingredientDetails/:ingredientId',
-            templateUrl: 'client/templates/ingredientDetail.html',
+            templateUrl: 'client/templates/ingredients/ingredientDetail.html',
             controller: 'IngredientDetailsCtrl'
         })
         .state('app.education', {
@@ -88,6 +88,14 @@ function config($stateProvider, $urlRouterProvider) {
             controller: 'EducationCtrl',
             data: {
                 title: 'Education'
+            }
+        })
+        .state('app.settings', {
+            url: '/settings',
+            templateUrl: 'client/templates/settings.html',
+            controller: 'SettingsCtrl',
+            data: {
+                title: 'Setttings'
             }
         })
     ;

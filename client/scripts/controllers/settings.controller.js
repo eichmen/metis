@@ -10,6 +10,7 @@ function SettingsCtrl ($scope,$meteor,$state) {
 
     $scope.checkIngredients = checkIngredients;
     $scope.loadIngredients = loadIngredients;
+    $scope.logout = logout;
 
     function checkIngredients() {
         $meteor.call('checkIngredients').then(
@@ -36,5 +37,10 @@ function SettingsCtrl ($scope,$meteor,$state) {
                 $scope.loading=false;
                 console.log('failed', err);
             });;
+    }
+
+    function logout() {
+        $meteor.logout();
+        $state.go('login');
     }
 }

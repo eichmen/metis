@@ -5,6 +5,13 @@ angular
 function config($stateProvider, $urlRouterProvider) {
 
     $stateProvider
+
+        .state('login', {
+            url: '/login',
+            templateUrl: 'client/templates/login.html',
+            controller: 'LoginCtrl'
+        })
+
         .state('app', {
             url: '',
             abstract: true,
@@ -99,5 +106,5 @@ function config($stateProvider, $urlRouterProvider) {
             }
         })
     ;
-    $urlRouterProvider.otherwise('patients');
+    $urlRouterProvider.otherwise('login');
 }

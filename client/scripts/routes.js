@@ -69,6 +69,19 @@ function config($stateProvider, $urlRouterProvider) {
                 title: 'Recipes'
             }
         })
+        .state('app.ingredients', {
+            url: '/ingredients',
+            templateUrl: 'client/templates/ingredients.html',
+            controller: 'IngredientsCtrl',
+            data: {
+                title: 'Ingredients'
+            }
+        })
+        .state('app.ingredientDetails', {
+            url: '/ingredientDetails/:ingredientId',
+            templateUrl: 'client/templates/ingredientDetail.html',
+            controller: 'IngredientDetailsCtrl'
+        })
         .state('app.education', {
             url: '/education',
             templateUrl: 'client/templates/education.html',

@@ -1,0 +1,24 @@
+<md-content layout-padding>
+
+    <div layout="row">
+
+        <div flex layout-margin layout-padding class="ng-cloak">
+
+            <md-switch ng-model="edit" aria-label="Edit" class="md-block" style="margin:0px">
+                <p>Edit</p>
+            </md-switch>
+
+            <md-input-container>
+                <label>Name</label>
+                <input ng-model="ingredient.nomenclature.english.shrtDesc" ng-disabled="!edit">
+            </md-input-container>
+            <md-input-container>
+                <label>Location</label>
+                <input ng-model="ingredient.nomenclature.english.foodGroup" ng-disabled="!edit">
+            </md-input-container>
+
+        </div>
+    </div>
+
+
+</md-content>

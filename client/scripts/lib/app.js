@@ -6,6 +6,7 @@ angular
         'ngMaterial',
         'ngMdIcons',
         'gettext',
+        'md.data.table',
         'mdPickers'
     ])
     .config(function ($mdThemingProvider) {

@@ -26,10 +26,20 @@ function AppCtrl($scope, $mdSidenav) {
             sref: 'app.recipes'
         },
         {
+            name:'Ingredients',
+            icon: '',
+            sref: 'app.ingredients'
+        },
+        {
             name:'Nutritional Education',
             icon: 'insert_emoticon',
             sref: 'app.education'
         },
+        {
+            name:'Settings',
+            icon: 'settings',
+            sref: 'app.settings'
+        }
     ]
 
     $scope.openLeftMenu = function () {

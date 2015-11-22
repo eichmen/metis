@@ -1,0 +1,58 @@
+<md-content layout-padding>
+
+   <div layout-padding layout="row" flex>
+        <md-input-container flex>
+            <label translate>Search</label>
+            <input type="text" ng-model="search"/>
+        </md-input-container>
+
+    </div>
+
+    <!-- <div>
+        <select ng-model="orderProperty">
+            <option value="1">Ascending</option>
+            <option value="-1">Descending</option>
+        </select>
+    </div>
+    <md-list flex>
+        <md-list-item class="md-2-line"
+                      dir-paginate="ingredient in ingredients | itemsPerPage: perPage"
+                      total-items="ingredientsCount.count"
+                      ng-click="enter(ingredient)">
+            <div class="md-list-item-text">
+                <h3>{{ingredient.nomenclature.english.shrtDesc}}</h3>
+                <p>{{ingredient.nomenclature.english.foodGroup}}</p>
+            </div>
+        </md-list-item>
+    </md-list>-->
+
+    <md-data-table-container>
+        <table md-data-table md-row-select="selected" md-progress="deferred">
+            <thead md-order="query.order" md-trigger="onOrderChange">
+            <tr>
+                <th name="Ingredient" order-by="ingredient.nomenclature.english.shrtDesc" >Ingredient</th>
+                <th name="Group" >Group</th>
+                <th numeric unit="kcal/100g" order-by="ingredient.proximates.energKcal.value" name="Kcal">Kcal</th>
+                <th numeric unit="g/100g" order-by="ingredient.proximates.protein.value" name="Protein">Protein</th>
+                <th numeric unit="g/100g" order-by="ingredient.proximates.lipidTot.value" name="Lipid Total">Lipid Total</th>
+                <th numeric unit="g/100g" order-by="ingredient.proximates.carbohydrt.value" name="Carbohydrt">Carbohydrt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr md-auto-select ng-repeat="ingredient in ingredients" ng-click="enter(ingredient)">
+                <td>{{ingredient.nomenclature.english.shrtDesc}}</td>
+                <td>{{ingredient.nomenclature.english.foodGroup}}</td>
+                <td>{{ingredient.proximates.energKcal.value}}</td>
+                <td>{{ingredient.proximates.protein.value}}</td>
+                <td>{{ingredient.proximates.lipidTot.value}}</td>
+                <td>{{ingredient.proximates.carbohydrt.value}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </md-data-table-container>
+    <md-data-table-pagination md-limit="perPage"
+                              md-page="page"
+                              md-total="{{ingredientsCount.count}}"
+                              md-trigger="onPaginationChange"></md-data-table-pagination>
+
+</md-content>

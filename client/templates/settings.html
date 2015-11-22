@@ -1,0 +1,18 @@
+<md-content layout-padding>
+
+    <div layout-padding layout="row" flex translate>
+        Settings
+    </div>
+    <md-button ng-show="hasIngredients" class="md-raised md-primary" ng-click="checkIngredients()">Check Ingredients</md-button>
+
+    <div ng-show="!hasIngredients" layout-padding layout="row" flex>
+        <md-button ng-show="!loading" class="md-raised md-primary" ng-click="loadIngredients()">Load Ingredients</md-button>
+        <md-progress-circular ng-show="loading" md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div ng-show="hasIngredients && loadedIngredients" layout-padding layout="row" flex>
+        Ingredients have been loaded
+    </div>
+
+    <md-button class="md-raised md-primary" ng-click="logout()">Logout</md-button>
+
+</md-content>

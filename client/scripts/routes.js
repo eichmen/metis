@@ -5,6 +5,13 @@ angular
 function config($stateProvider, $urlRouterProvider) {
 
     $stateProvider
+
+        .state('login', {
+            url: '/login',
+            templateUrl: 'client/templates/login.html',
+            controller: 'LoginCtrl'
+        })
+
         .state('app', {
             url: '',
             abstract: true,
@@ -69,6 +76,19 @@ function config($stateProvider, $urlRouterProvider) {
                 title: 'Recipes'
             }
         })
+        .state('app.ingredients', {
+            url: '/ingredients',
+            templateUrl: 'client/templates/ingredients/ingredients.html',
+            controller: 'IngredientsCtrl',
+            data: {
+                title: 'Ingredients'
+            }
+        })
+        .state('app.ingredientDetails', {
+            url: '/ingredientDetails/:ingredientId',
+            templateUrl: 'client/templates/ingredients/ingredientDetail.html',
+            controller: 'IngredientDetailsCtrl'
+        })
         .state('app.education', {
             url: '/education',
             templateUrl: 'client/templates/education.html',
@@ -77,6 +97,14 @@ function config($stateProvider, $urlRouterProvider) {
                 title: 'Education'
             }
         })
+        .state('app.settings', {
+            url: '/settings',
+            templateUrl: 'client/templates/settings.html',
+            controller: 'SettingsCtrl',
+            data: {
+                title: 'Setttings'
+            }
+        })
     ;
-    $urlRouterProvider.otherwise('patients');
+    $urlRouterProvider.otherwise('login');
 }

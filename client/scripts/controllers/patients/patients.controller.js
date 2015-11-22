@@ -6,8 +6,17 @@ function PatientsCtrl($scope, $meteor, $state) {
 
     $scope.search = "";
 
-    $scope.patients = $meteor.collection(Patients).
-      subscribe('patients',{},$scope.getReactively('search'));
+    $scope.patients = $meteor.collection(function() {
+        return Patients.find({})
+    });
+
+    $meteor.autorun($scope, function() {
+        $meteor.subscribe('patients', {},
+            $scope.getReactively('search'));
+    });
+
+   /* $scope.patients = $meteor.collection(Patients).
+      subscribe('patients',{},$scope.getReactively('search'));*/
 
     $scope.remove = remove;
 

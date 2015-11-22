@@ -4,4 +4,6 @@ angular
 
 function RecipesCtrl ($scope,$meteor,$state) {
 
+
+
 }

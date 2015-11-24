@@ -29,21 +29,27 @@ function IngredientsCtrl ($scope,$meteor,$state) {
             $scope.sort = {name: parseInt($scope.orderProperty)};
     });
 
-    $meteor.autorun($scope, function() {
+    $scope.$meteorAutorun(function() {
 
-        $meteor.subscribe('ingredients', {
+
+        console.log('Begin');
+        console.log($scope.getReactively('perPage'));
+        console.log($scope.getReactively('page'));
+
+        $scope.$meteorSubscribe('ingredients', {
                 limit: parseInt($scope.getReactively('perPage')),
                 skip: (parseInt($scope.getReactively('page')) - 1) * parseInt($scope.getReactively('perPage')),
                 sort: $scope.getReactively('sort')
             },
             $scope.getReactively('search')).then(function(){
-                $scope.ingredientsCount = $meteor.object(Counts ,'numberOfIngredients', false);
-                console.log($scope.ingredientsCount);
+                $scope.ingredientsCount = $scope.$meteorObject(Counts ,'numberOfIngredients', false);
+
             });
 
     });
 
     function enter(ingredient) {
+        console.log('Lista:'+ingredient._id);
         $state.go('app.ingredientDetails', {ingredientId: ingredient._id});
     }
 

@@ -27,7 +27,7 @@ md-toolbar:not(.md-hue-1),
 md-sidenav {
   fill: #737373;
   ng-md-icon {
-    fill: $almost-black;
+    fill: rgb(0,105,92);
     position: relative;
     top: 5px; // adjust for svg viewbox
   }

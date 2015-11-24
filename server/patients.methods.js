@@ -3,6 +3,11 @@ Meteor.publish("patients", function (options,searchString) {
         searchString = '';
     }
 
+    if (options == null || options.limit == null || options.limit > 15) {
+        console.log(options);
+        options.limit=8;
+    }
+
     Counts.publish(this, 'numberOfPatients', Patients.find({
         'name' : { '$regex' : '.*' + searchString ||
         '' + '.*', '$options' : 'i' }}),

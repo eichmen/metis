@@ -4,18 +4,22 @@ Meteor.publish("ingredients", function (options,searchString) {
         searchString = '';
     }
 
+    if (options == null || options.limit == null || options.limit > 15) {
+        console.log(options);
+        options.limit=8;
+    }
+
     Counts.publish(this, 'numberOfIngredients', Ingredients.find({
         'nomenclature.english.shrtDesc' : { '$regex' : '.*' + searchString ||
         '' + '.*', '$options' : 'i' }}),
         { noReady: true });
 
 
-    console.log(searchString);
+    console.log('Searching string:' +searchString);
     return Ingredients.find({
         'nomenclature.english.shrtDesc' : { '$regex' : '.*' + searchString ||
         '' + '.*', '$options' : 'i' },
     },options);
-    /*return Ingredients.find();*/
 });
 
 Meteor.methods({

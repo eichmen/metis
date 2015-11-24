@@ -9,7 +9,7 @@
     </div>
 
 
-    <md-list flex>
+    <!--<md-list flex>
         <md-list-item class="md-2-line" ng-repeat="patient in patients" ng-click="enter(patient)">
             <img class="md-avatar" ng-src="{{patient.photo}}">
             <div class="md-list-item-text">
@@ -18,5 +18,31 @@
             </div>
             <ng-md-icon ng-show="patient.public" icon="beenhere" style="fill:#777"></ng-md-icon>
         </md-list-item>
-    </md-list>
+    </md-list>-->
+
+    <md-data-table-container>
+        <table md-data-table md-row-select="selected" md-progress="deferred">
+            <thead md-order="query.order" md-trigger="onOrderChange">
+            <tr>
+                <th name="Photo">Photo</th>
+                <th name="Name" order-by="patient.name" >Name</th>
+                <th name="Location">Location</th>
+                <th name="Public">Public</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr md-auto-select ng-repeat="patient in patients" ng-click="enter(patient)">
+                <td><img class="avatar-md-table" ng-src="{{patient.photo}}"></td>
+                <td>{{patient.name}}</td>
+                <td>{{patient.location}}</td>
+                <td><ng-md-icon ng-show="patient.public" icon="beenhere" style="fill:#777"></ng-md-icon></td>
+            </tr>
+            </tbody>
+        </table>
+    </md-data-table-container>
+    <md-data-table-pagination md-limit="perPage"
+                              md-page="page"
+                              md-total="{{patientsCount.count}}"
+                              md-trigger="onPaginationChange"></md-data-table-pagination>
+
 </md-content>

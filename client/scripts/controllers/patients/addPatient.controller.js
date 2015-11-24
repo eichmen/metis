@@ -11,7 +11,8 @@ function AddPatientCtrl ($scope,$meteor,$state) {
 
     function savePatient() {
         $scope.newPatient.owner = Meteor.userId(),
-        $scope.patients.push($scope.newPatient);
+        $scope.newPatient.photo="resources/default-avatar.png";
+        Patients.insert($scope.newPatient);
         $scope.newPatient = {};
         $state.go('app.patients');
 

@@ -4,8 +4,8 @@ angular
 
 function PatientDetailsCtrl ($scope,$meteor,$state,$stateParams) {
 
-    $scope.patient = $meteor.
-      object(Patients, $stateParams.patientId).subscribe('patients');
+    $scope.patient = $scope.$meteorObject
+    (Patients, $stateParams.patientId).subscribe('patients');
 
     /* $scope.$meteorSubscribe method will automatically close the subscription
      when the scope gets destroyed

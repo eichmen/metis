@@ -2,6 +2,12 @@ Meteor.publish("patients", function (options,searchString) {
     if (searchString == null) {
         searchString = '';
     }
+
+    Counts.publish(this, 'numberOfPatients', Patients.find({
+        'name' : { '$regex' : '.*' + searchString ||
+        '' + '.*', '$options' : 'i' }}),
+        { noReady: true });
+
     return Patients.find({
         'name' : { '$regex' : '.*' + searchString || '' + '.*', '$options' : 'i' },
         $or: [

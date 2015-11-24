@@ -4,6 +4,6 @@ angular
 
 function IngredientDetailsCtrl ($scope,$meteor,$state,$stateParams) {
 
-    $scope.ingredient = $meteor.object(Ingredients, $stateParams.ingredientId);
-    $scope.$meteorSubscribe('ingredients');
+    $scope.ingredient = $scope.$meteorObject
+    (Ingredients, $stateParams.ingredientId).subscribe('ingredients');
 }

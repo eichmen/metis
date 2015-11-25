@@ -76,15 +76,31 @@ function PatientsCtrl($scope, $meteor, $state,$mdDialog) {
         $state.go('app.addPatient');
     }
 
+    $scope.showAlert=showAlert;
+
+    // Internal method
+    function showAlert() {
+      alert = $mdDialog.alert({
+        title: 'Attention',
+        content: 'This is an example of how easy dialogs can be!',
+        ok: 'Close'
+      });
+      $mdDialog
+        .show( alert )
+        .finally(function() {
+          alert = undefined;
+        });
+    }
+
     $scope.showConfirm = function(ev) {
 
-        var confirm = $mdDialog.confirm()
-            .title('Would you like to delete these patients?')
-            .textContent('All the information referred to these clients will be removed.')
+        confirm = $mdDialog.confirm()
             .ariaLabel('')
+            .title('Are you sure to delete the patient?')
             .targetEvent(ev)
             .ok('Yes')
             .cancel('No! Sound really bad');
+
         $mdDialog.show(confirm).then(function() {
             deletePatients();
         }, function() {

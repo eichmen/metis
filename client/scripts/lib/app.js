@@ -7,7 +7,8 @@ angular
         'ngMdIcons',
         'gettext',
         'md.data.table',
-        'mdPickers'
+        'mdPickers',
+        'ui.calendar'
     ])
     .config(function ($mdThemingProvider) {
 

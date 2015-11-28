@@ -39,6 +39,10 @@ function IngredientsCtrl ($scope,$meteor,$state) {
         $scope.query.sort = sort;
     };
 
+    $scope.$watch('query.search', function() {
+        $scope.query.page = 1;
+    });
+
     $scope.$meteorAutorun(function() {
 
         $scope.$meteorSubscribe('ingredients', {

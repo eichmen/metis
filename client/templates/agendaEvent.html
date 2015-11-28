@@ -1,0 +1,19 @@
+<md-content layout-padding>
+    <div layout="row">
+        <md-input-container class="md-block">
+            <label>Title</label>
+            <textarea ng-model="event.title" columns="1" md-maxlength="300"></textarea>
+        </md-input-container>
+    </div>
+    <div layout="row">
+        <md-input-container>
+            <label>Start Date</label>
+            <input type="time" ng-model="event.start"/>
+        </md-input-container>
+        <md-input-container>
+            <label>End Date</label>
+                <input type="date" ng-model="event.end"/>
+        </md-input-container>
+    </div>
+
+</md-content>

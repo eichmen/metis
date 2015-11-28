@@ -2,6 +2,7 @@ Meteor.startup(function () {
 
         Patients.remove({});
         Consultations.remove({});
+        AgendaEvents.remove({});
 
         if (Accounts.findUserByEmail('metis@metis.com') == null) {
             Accounts.createUser({
@@ -79,6 +80,31 @@ Meteor.startup(function () {
                 consultation.patientId = patient._id;
                 Consultations.insert(consultation);
             })
+        });
+
+
+        var agendaEvents = [
+            {
+                start: new Date(2015,11,1,11,30,0,0),
+                end: new Date(2015,11,1,12,00,0,0),
+                owner: metis._id,
+                title: 'Robert Drill',
+                patientId: Patients.findOne({name: 'Robert Drill'})._id,
+                stick:true
+            },
+
+            {
+                start: new Date(2015,11,2,9,30,0,0),
+                end: new Date(2015,11,2,10,00,0,0),
+                owner: metis._id,
+                title: 'Pepe B. Brown',
+                patientId: Patients.findOne({name: 'Pepe B. Brown'})._id,
+                stick:true
+            }
+        ]
+
+        agendaEvents.forEach(agendaEvent => {
+            AgendaEvents.insert(agendaEvent);
         });
 
 }

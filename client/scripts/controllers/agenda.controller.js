@@ -2,7 +2,19 @@ angular
     .module('Metis')
     .controller('AgendaCtrl', AgendaCtrl);
 
-function AgendaCtrl ($scope,$meteor,$state,$compile,uiCalendarConfig) {
+function AgendaCtrl ($scope,$meteor,$state,$compile,uiCalendarConfig,$mdDialog,$mdMedia) {
+
+    $scope.search = "";
+    $scope.selectedEvent=null;
+
+    $scope.events = $meteor.collection(function() {
+        return AgendaEvents.find();
+    });
+
+    $scope.$meteorAutorun(function() {
+        console.log('Begin');
+        $scope.$meteorSubscribe('agendaEvents');
+    });
 
     var date = new Date();
     var d = date.getDate();
@@ -10,23 +22,15 @@ function AgendaCtrl ($scope,$meteor,$state,$compile,uiCalendarConfig) {
     var y = date.getFullYear();
 
     /* event source that contains custom events on the scope */
-    $scope.events = [
+    $scope.events2 = [
         {title: 'Rober Drill',start: new Date(y, m, 1)},
-        {title: 'Rebeca Faraday',start: new Date(y, m, d - 5)}
-
-    ];
-    /* event source that calls a function on every view switch */
-    $scope.eventsF = function (start, end, timezone, callback) {
-        var s = new Date(start).getTime() / 1000;
-        var e = new Date(end).getTime() / 1000;
-        var m = new Date(start).getMonth();
-        var events = [{title: 'Feed Me ' + m,start: s + (50000),end: s + (100000),allDay: false, className: ['customFeed']}];
-        callback(events);
-    };
+        {title: 'Rebeca Faraday',start: new Date(y, m, d - 5)}];
 
     /* alert on eventClick */
-    $scope.alertOnEventClick = function( date, jsEvent, view){
-        console.log(date.title + ' was clicked ');
+    $scope.alertOnEventClick = function( event, jsEvent, view){
+        console.log(event.title + ' was clicked ');
+        $scope.selectedEvent = AgendaEvents.findOne(event._id);
+        showAdvanced($scope.selectedEvent);
     };
     /* alert on Drop */
     $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
@@ -101,6 +105,33 @@ function AgendaCtrl ($scope,$meteor,$state,$compile,uiCalendarConfig) {
     };
 
     /* event sources array*/
-    $scope.eventSources = [$scope.events];
+    $scope.eventSources = [$scope.events ,$scope.events2];
+
+    $scope.showAdvanced = showAdvanced;
+
+
+
+        function showAdvanced(event) {
+        $mdDialog.show({
+            templateUrl: 'client/templates/agendaEvent.html',
+            parent: angular.element(document.body),
+            targetEvent: event,
+            clickOutsideToClose:true,
+            locals: {
+                event: event
+            },
+            controller: AgendaEventController
+        })
+            .then(function(answer) {
+                $scope.status = 'You said the information was "' + answer + '".';
+            }, function() {
+                $scope.status = 'You cancelled the dialog.';
+            });
+            function AgendaEventController($scope, $mdDialog, event) {
+                $scope.event = event;
+                $scope.closeDialog = function() {
+                    $mdDialog.hide();
+                }
+            }    };
 
 }

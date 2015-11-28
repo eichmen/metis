@@ -60,14 +60,12 @@ function AgendaCtrl ($scope,$meteor,$state,$compile,uiCalendarConfig,$mdDialog,$
         }
     };
     /* add custom event*/
-    $scope.addEvent = function() {
-        $scope.events.push({
-            title: 'Open Sesame',
-            start: new Date(y, m, 28),
-            end: new Date(y, m, 29),
-            className: ['openSesame']
-        });
-    };
+    $scope.addEvent =addEvent;
+
+    function addEvent(event) {
+        $scope.events.push(event);
+    }
+
     /* remove event */
     $scope.remove = function(index) {
         $scope.events.splice(index,1);
@@ -105,7 +103,7 @@ function AgendaCtrl ($scope,$meteor,$state,$compile,uiCalendarConfig,$mdDialog,$
             eventResize: $scope.alertOnResize,
             eventRender: $scope.eventRender,
             select: function(start, end, allDay, jsEvent) {
-                console.log("Select");
+                showAdvanced(null,start.toDate());
             }
         }
     };
@@ -117,14 +115,16 @@ function AgendaCtrl ($scope,$meteor,$state,$compile,uiCalendarConfig,$mdDialog,$
 
 
 
-        function showAdvanced(event) {
+
+        function showAdvanced(event,day) {
         $mdDialog.show({
             templateUrl: 'client/templates/agendaEvent.html',
             parent: angular.element(document.body),
             targetEvent: event,
             clickOutsideToClose:true,
             locals: {
-                event: event
+                event: event,
+                day: day
             },
             controller: AgendaEventController
         })
@@ -133,9 +133,42 @@ function AgendaCtrl ($scope,$meteor,$state,$compile,uiCalendarConfig,$mdDialog,$
             }, function() {
                 $scope.status = 'You cancelled the dialog.';
             });
-            function AgendaEventController($scope, $mdDialog, event) {
-                $scope.event = event;
-                $scope.closeDialog = function() {
+            function AgendaEventController($scope, $mdDialog, event,day) {
+
+                /* New event */
+                if (event==null) {
+                    $scope.newEvent=true;
+                    $scope.event = {};
+                    $scope.event.start=day;
+                    $scope.event.end=day;
+
+                /* Edit event */
+                } else {
+                    $scope.event = event;
+                }
+
+                $scope.save = save;
+                $scope.update = update;
+                $scope.closeDialog = closeDialog;
+
+                function save () {
+                    $scope.event.owner =Meteor.userId();
+                    $scope.event.stick=true;
+                    AgendaEvents.insert($scope.event);
+                    closeDialog();
+                }
+
+                function update() {
+                    AgendaEvents.update($scope.event._id, {
+                        $set : {
+                            start : $scope.event.start,
+                            end : $scope.event.end
+                        }
+                    })
+                    closeDialog();
+                }
+
+               function closeDialog() {
                     $mdDialog.hide();
                 }
             }    };

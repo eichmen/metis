@@ -5,7 +5,6 @@ angular
 function AgendaCtrl ($scope,$meteor,$state,$compile,uiCalendarConfig,$mdDialog,$mdMedia) {
 
     $scope.search = "";
-    $scope.selectedEvent=null;
 
     $scope.events = $meteor.collection(function() {
         return AgendaEvents.find();
@@ -34,7 +33,14 @@ function AgendaCtrl ($scope,$meteor,$state,$compile,uiCalendarConfig,$mdDialog,$
     };
     /* alert on Drop */
     $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
-        console.log('Event Droped to make dayDelta ' + delta);
+        AgendaEvents.update(event._id,{
+        $set: {
+            start : new Date(event.start),
+            end: new Date(event.end)
+        }
+    })
+
+
     };
     /* alert on Resize */
     $scope.alertOnResize = function(event, delta, revertFunc, jsEvent, ui, view ){

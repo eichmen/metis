@@ -21,6 +21,8 @@ describe('PatientDetailsCtrl', function () {
                 $meteorSubscribe: function () {
                     return {then: function () {}}
                 },
+                $meteorObject: function () {
+                }
             };
             $meteor = {
                 object: function () {

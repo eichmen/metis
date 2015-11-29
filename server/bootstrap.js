@@ -1,5 +1,7 @@
 Meteor.startup(function () {
 
+        createIndexesMongoDB();
+
         Patients.remove({});
         Consultations.remove({});
         AgendaEvents.remove({});
@@ -108,5 +110,16 @@ Meteor.startup(function () {
         });
 
 }
+
 })
 ;
+
+function createIndexesMongoDB(){
+    //Ingredients collection
+    Ingredients._ensureIndex({'nomenclature.english.shrtDesc' : 1});
+    Ingredients._ensureIndex({'nomenclature.english.foodGroup' : 1});
+    Ingredients._ensureIndex({'proximates.energKcal.value' : 1});
+    Ingredients._ensureIndex({'proximates.protein.value' : 1});
+    Ingredients._ensureIndex({'proximates.lipidTot.value' : 1});
+    Ingredients._ensureIndex({'proximates.carbohydrt.value' : 1});
+}

@@ -1,5 +1,5 @@
 <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2"
-            md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            md-component-id="left">
 
     <md-toolbar class="md-tall md-hue-2">
         <span flex></span>
@@ -9,7 +9,7 @@
         </div>
     </md-toolbar>
     <md-list>
-        <md-item ng-repeat="item in menuItems" ui-sref="{{item.sref}}">
+        <md-item ng-repeat="item in menuItems" ui-sref="{{item.sref}}" ng-click="openLeftMenu()">
 
                 <md-item-content md-ink-ripple layout="row"
                                  layout-align="start center">
@@ -33,7 +33,7 @@
     <md-content>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <md-button ng-click="openLeftMenu()" hide-gt-md aria-label="Menu">
+                <md-button ng-click="openLeftMenu()" aria-label="Menu">
                     <ng-md-icon icon="menu"></ng-md-icon>
                 </md-button>
                 <!-- fill up the space between left and right area -->

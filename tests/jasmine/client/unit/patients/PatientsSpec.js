@@ -21,6 +21,10 @@ describe('PatientsCtrl', function () {
                 createPatient: function () {
                 },
                 getReactively: function () {
+                },
+                $watch: function () {
+                },
+                $meteorAutorun: function () {
                 }
             };
             $meteor = {

@@ -1,0 +1,43 @@
+<md-content layout-padding>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2 ng-show="newEvent">New event</h2>
+            <h2 ng-show="!newEvent">Edit event</h2>
+            <span flex></span>
+            <ng-md-icon icon="clear" style="fill:white" size="24" ng-click="removeEvent()"></ng-md-icon>
+        </div>
+    </md-toolbar>
+
+    <md-input-container class="md-block">
+        <label>Title</label>
+        <textarea ng-model="event.title" columns="1" style="min-width: 400px"></textarea>
+    </md-input-container>
+
+    <div layout layout-sm="column">
+        <md-input-container flex>
+            <label>Start</label>
+            <input type="date" ng-model="event.start" disabled/>
+        </md-input-container>
+    </div>
+
+    <div layout layout-sm="column">
+        <md-input-container flex>
+            <label>Start</label>
+            <input type="time" ng-model="event.start"/>
+        </md-input-container>
+        <md-input-container flex>
+            <label>End</label>
+            <input type="time" ng-model="event.end"/>
+        </md-input-container>
+    </div>
+
+    <div layout layout-align="end center">
+        <md-button class="md-raised md-primary" ng-show="newEvent" ng-click="save()">
+            Save
+        </md-button>
+        <md-button class="md-raised md-primary" ng-show="!newEvent" ng-click="update()">
+            Update
+        </md-button>
+    </div>
+</md-content>

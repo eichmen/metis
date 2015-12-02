@@ -1,7 +1,10 @@
 Meteor.startup(function () {
 
+        createIndexesMongoDB();
+
         Patients.remove({});
         Consultations.remove({});
+        AgendaEvents.remove({});
 
         if (Accounts.findUserByEmail('metis@metis.com') == null) {
             Accounts.createUser({
@@ -81,6 +84,42 @@ Meteor.startup(function () {
             })
         });
 
+
+        var agendaEvents = [
+            {
+                start: new Date(2015,11,1,11,30,0,0),
+                end: new Date(2015,11,1,12,00,0,0),
+                owner: metis._id,
+                title: 'Robert Drill',
+                patientId: Patients.findOne({name: 'Robert Drill'})._id,
+                stick:true
+            },
+
+            {
+                start: new Date(2015,11,2,9,30,0,0),
+                end: new Date(2015,11,2,10,00,0,0),
+                owner: metis._id,
+                title: 'Pepe B. Brown',
+                patientId: Patients.findOne({name: 'Pepe B. Brown'})._id,
+                stick:true
+            }
+        ]
+
+        agendaEvents.forEach(agendaEvent => {
+            AgendaEvents.insert(agendaEvent);
+        });
+
 }
+
 })
 ;
+
+function createIndexesMongoDB(){
+    //Ingredients collection
+    Ingredients._ensureIndex({'nomenclature.english.shrtDesc' : 1});
+    Ingredients._ensureIndex({'nomenclature.english.foodGroup' : 1});
+    Ingredients._ensureIndex({'proximates.energKcal.value' : 1});
+    Ingredients._ensureIndex({'proximates.protein.value' : 1});
+    Ingredients._ensureIndex({'proximates.lipidTot.value' : 1});
+    Ingredients._ensureIndex({'proximates.carbohydrt.value' : 1});
+}

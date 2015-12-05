@@ -2,7 +2,7 @@ angular
     .module('Metis')
     .controller('IngredientsCtrl', IngredientsCtrl);
 
-function IngredientsCtrl ($scope,$meteor,$state) {
+function IngredientsCtrl ($scope,$meteor,$state, $stateParams) {
 
     $scope.selected = [];
 
@@ -63,8 +63,8 @@ function IngredientsCtrl ($scope,$meteor,$state) {
     });
 
     function enter(ingredient) {
-        console.log('Lista:'+ingredient._id);
-        //$state.go('app.ingredientDetails', {ingredientId: ingredient._id});
+        console.log('Ingredient to show: ' + ingredient.nomenclature.english.shrtDesc);
+        $state.go('app.ingredientDetails', {ingredientId: ingredient._id});
     }
 
 }

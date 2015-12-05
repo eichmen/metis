@@ -7,6 +7,12 @@ md-data-table-toolbar.ng-hide {
   display: none;
 }
 
+#table-ingredients {
+  md-checkbox {
+      display: none;
+  }
+}
+
 .pink {
   background-color: rgba(255, 64, 129, 0.87) !important;
   color: white !important;

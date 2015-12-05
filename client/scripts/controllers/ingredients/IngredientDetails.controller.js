@@ -2,11 +2,18 @@ angular
     .module('Metis')
     .controller('IngredientDetailsCtrl', IngredientDetailsCtrl);
 
-function IngredientDetailsCtrl ($scope,$meteor,$state,$stateParams) {
-    console.log('Detalle:'+$stateParams.ingredientId);
+function IngredientDetailsCtrl($scope, $meteor, $state, $stateParams) {
 
-    $scope.$meteorSubscribe('ingredients', {},{});
+    $scope.ingredientId = $stateParams.ingredientId;
+    $scope.previousSearchInList = $stateParams.query;
 
-    $scope.ingredient = $scope.$meteorObject
-    (Ingredients, $stateParams.ingredientId);
+    $scope.proximatesShowed = true;
+    $scope.mineralsShowed = false;
+    $scope.vitaminsShowed = false;
+    $scope.lipidsShowed = false;
+
+    $scope.$meteorAutorun(function(){
+        $scope.$meteorSubscribe('ingredient-details', $scope.getReactively('ingredientId'));
+        $scope.ingredient = $scope.$meteorObject(Ingredients, $scope.getReactively('ingredientId'), false);
+    });
 }

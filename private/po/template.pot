@@ -4,45 +4,186 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: ../client/templates/agenda.ng.html:3
+#: ../client/templates/ingredients/ingredientDetail.html:8
+#: ../client/templates/ingredients/ingredients.html:25
+msgid "{{ingredient.nomenclature.english.foodGroup}}"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredientDetail.html:35
+msgid "{{lipid.desc}}"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredientDetail.html:21
+msgid "{{mineral.desc}}"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredientDetail.html:14
+msgid "{{proximate.desc}}"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredientDetail.html:28
+msgid "{{vitamin.desc}}"
+msgstr ""
+
+#: ../client/templates/agenda.html:3
+msgid ""
+"<div layout=\"row\" layout-align=\"end\">\n"
+"            <md-button class=\"md-raised md-primary\" ng-click=\"changeView('agendaDay', 'metisCalendar')\"><translate>Day</translate></md-button>\n"
+"            <md-button class=\"md-raised md-primary\" ng-click=\"changeView('agendaWeek', 'metisCalendar')\"><translate>Week</translate></md-button>\n"
+"            <md-button class=\"md-raised md-primary\" ng-click=\"changeView('month', 'metisCalendar')\"><translate>Month</translate></md-button>\n"
+"        </div>\n"
+"\n"
+"        <div layout=\"row\">\n"
+"        <div ui-calendar=\"uiConfig.calendar\" class=\"span8 calendar\" calendar=\"metisCalendar\" ng-model=\"eventSources\"></div>\n"
+"        </div>"
+msgstr ""
+
 #: langkeys.js:6
 msgid "Agenda"
 msgstr ""
 
-#: ../client/templates/addPatient.ng.html:24
+#: ../client/templates/patients/patients.html:4
+msgid "Alert"
+msgstr ""
+
+#: langkeys.js:38
+msgid "American Indian/Alaska Native Foods"
+msgstr ""
+
+#: langkeys.js:17
+msgid "Baby Foods"
+msgstr ""
+
+#: langkeys.js:32
+msgid "Baked Products"
+msgstr ""
+
+#: langkeys.js:27
+msgid "Beef Products"
+msgstr ""
+
+#: langkeys.js:28
+msgid "Beverages"
+msgstr ""
+
+#: langkeys.js:22
+msgid "Breakfast Cereals"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredients.html:19
+msgid "Carbohydrat"
+msgstr ""
+
+#: langkeys.js:34
+msgid "Cereal Grains and Pasta"
+msgstr ""
+
+#: ../client/templates/patients/addPatient.html:24
 msgid "Comments"
 msgstr ""
 
-#: ../client/templates/patientDetails.ng.html:23
+#: ../client/templates/patients/patientDetails.html:35
 msgid "Consultation Records"
 msgstr ""
 
-#: ../client/templates/education.ng.html:3
+#: langkeys.js:15
+msgid "Dairy and Egg Products"
+msgstr ""
+
+#: ../client/templates/agenda.html:6
+msgid "Day"
+msgstr ""
+
+#: ../client/templates/education.html:3
 msgid "Education"
 msgstr ""
 
-#: ../client/templates/addPatient.ng.html:8
+#: ../client/templates/patients/addPatient.html:8
 msgid "Email"
 msgstr ""
 
-#: ../client/templates/addPatient.ng.html:16
+#: langkeys.js:35
+msgid "Fast Foods"
+msgstr ""
+
+#: langkeys.js:18
+msgid "Fats and Oils"
+msgstr ""
+
+#: langkeys.js:29
+msgid "Finfish and Shellfish Products"
+msgstr ""
+
+#: langkeys.js:23
+msgid "Fruits and Fruit Juices"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredients.html:15
+msgid "Group"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredients.html:14
+msgid "Ingredient"
+msgstr ""
+
+#: langkeys.js:11
+msgid "Ingredients"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredients.html:16
+msgid "Kcal"
+msgstr ""
+
+#: langkeys.js:31
+msgid "Lamb, Veal, and Game Products"
+msgstr ""
+
+#: langkeys.js:30
+msgid "Legumes and Legume Products"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredientDetail.html:33
+msgid "Lipids"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredients.html:18
+msgid "Lipids Total"
+msgstr ""
+
+#: ../client/templates/patients/addPatient.html:16
 msgid "Location"
 msgstr ""
 
-#: ../client/templates/addPatient.ng.html:4
+#: langkeys.js:36
+msgid "Meals, Entrees, and Side Dishes"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredientDetail.html:19
+msgid "Minerals"
+msgstr ""
+
+#: ../client/templates/agenda.html:8
+msgid "Month"
+msgstr ""
+
+#: ../client/templates/patients/addPatient.html:4
 msgid "Name"
 msgstr ""
 
-#: ../client/templates/patientDetails.ng.html:16
+#: ../client/templates/patients/patientDetails.html:28
 msgid "New Consultation"
 msgstr ""
 
-#: ../client/templates/patientDetails.ng.html:17
+#: ../client/templates/patients/patientDetails.html:29
 msgid "New Instruction"
 msgstr ""
 
-#: ../client/templates/patients.ng.html:8
+#: ../client/templates/patients/patients.html:5
 msgid "New Patient"
+msgstr ""
+
+#: langkeys.js:26
+msgid "Nut and Seed Products"
 msgstr ""
 
 #: langkeys.js:9
@@ -53,20 +194,78 @@ msgstr ""
 msgid "Patients"
 msgstr ""
 
-#: ../client/templates/payments.ng.html:3
+#: ../client/templates/payments.html:3
 #: langkeys.js:7
 msgid "Payments"
 msgstr ""
 
-#: ../client/templates/recipes.ng.html:3
+#: langkeys.js:24
+msgid "Pork Products"
+msgstr ""
+
+#: langkeys.js:19
+msgid "Poultry Products"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredients.html:17
+msgid "Protein"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredientDetail.html:12
+msgid "Proximates"
+msgstr ""
+
+#: ../client/templates/recipes.html:3
 #: langkeys.js:8
 msgid "Recipes"
 msgstr ""
 
-#: ../client/templates/addPatient.ng.html:27
+#: langkeys.js:39
+msgid "Restaurant Foods"
+msgstr ""
+
+#: langkeys.js:21
+msgid "Sausages and Luncheon Meats"
+msgstr ""
+
+#: ../client/templates/patients/addPatient.html:27
 msgid "Save"
 msgstr ""
 
-#: ../client/templates/patients.ng.html:5
+#: ../client/templates/ingredients/ingredients.html:5
+#: ../client/templates/patients/patients.html:10
 msgid "Search"
+msgstr ""
+
+#: ../client/templates/settings.html:3
+#: langkeys.js:10
+msgid "Settings"
+msgstr ""
+
+#: langkeys.js:37
+msgid "Snacks"
+msgstr ""
+
+#: langkeys.js:20
+msgid "Soups, Sauces, and Gravies"
+msgstr ""
+
+#: langkeys.js:16
+msgid "Spices and Herbs"
+msgstr ""
+
+#: langkeys.js:33
+msgid "Sweets"
+msgstr ""
+
+#: langkeys.js:25
+msgid "Vegetables and Vegetable Products"
+msgstr ""
+
+#: ../client/templates/ingredients/ingredientDetail.html:26
+msgid "Vitamins"
+msgstr ""
+
+#: ../client/templates/agenda.html:7
+msgid "Week"
 msgstr ""

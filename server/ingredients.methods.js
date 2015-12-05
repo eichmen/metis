@@ -22,6 +22,12 @@ Meteor.publish("ingredients", function (options,searchString) {
     },options);
 });
 
+Meteor.publish("ingredient-details", function (idToSearch) {
+    return Ingredients.find({
+        '_id' : idToSearch
+    });
+});
+
 Meteor.methods({
 
     checkIngredients : function () {

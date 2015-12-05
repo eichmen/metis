@@ -7,22 +7,22 @@
         </md-input-container>
     </div>
 
-    <md-data-table-container>
+    <md-data-table-container id="table-ingredients">
         <table md-data-table md-row-select="selected" md-progress="deferred">
             <thead md-order="query.order" md-trigger="onOrderChange">
             <tr>
-                <th name="Ingredient" order-by="nomenclature.english.shrtDesc" >Ingredient</th>
-                <th name="Group" >Group</th>
-                <th numeric unit="kcal/100g" order-by="proximates.energKcal.value" name="Kcal">Kcal</th>
-                <th numeric unit="g/100g" order-by="proximates.protein.value" name="Protein">Protein</th>
-                <th numeric unit="g/100g" order-by="proximates.lipidTot.value" name="Lipid Total">Lipid Total</th>
-                <th numeric unit="g/100g" order-by="proximates.carbohydrt.value" name="Carbohydrt">Carbohydrt</th>
+                <th name="Ingredient" order-by="nomenclature.english.shrtDesc"><translate>Ingredient</translate></th>
+                <th name="Group" translate>Group</th>
+                <th numeric unit="kcal/100g" order-by="proximates.energKcal.value" name="Kcal"><translate>Kcal</translate></th>
+                <th numeric unit="g/100g" order-by="proximates.protein.value" name="Protein"><translate>Protein</translate></th>
+                <th numeric unit="g/100g" order-by="proximates.lipidTot.value" name="Lipid Total"><translate>Lipids Total</translate></th>
+                <th numeric unit="g/100g" order-by="proximates.carbohydrt.value" name="Carbohydrt"><translate>Carbohydrat</translate></th>
             </tr>
             </thead>
             <tbody>
             <tr md-auto-select ng-repeat="ingredient in ingredients" ng-click="enter(ingredient)">
                 <td>{{ingredient.nomenclature.english.shrtDesc}}</td>
-                <td>{{ingredient.nomenclature.english.foodGroup}}</td>
+                <td translate>{{ingredient.nomenclature.english.foodGroup | translate}}</td>
                 <td>{{ingredient.proximates.energKcal.value}}</td>
                 <td>{{ingredient.proximates.protein.value}}</td>
                 <td>{{ingredient.proximates.lipidTot.value}}</td>

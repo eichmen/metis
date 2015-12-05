@@ -14,8 +14,38 @@ function IngredientsCtrl ($scope,$meteor,$state, $stateParams) {
         search: '',
         sort: {
             'nomenclature.english.shrtDesc' : 1
-        }
+        },
+        group: ''
     }
+
+    //This is rather static, so we don´t go to database for it.
+    $scope.foodGroups = [
+        "Dairy and Egg Products",
+        "Spices and Herbs",
+        "Baby Foods",
+        "Fats and Oils",
+        "Poultry Products",
+        "Soups, Sauces, and Gravies",
+        "Sausages and Luncheon Meats",
+        "Breakfast Cereals",
+        "Fruits and Fruit Juices",
+        "Pork Products",
+        "Vegetables and Vegetable Products",
+        "Nut and Seed Products",
+        "Beef Products",
+        "Beverages",
+        "Finfish and Shellfish Products",
+        "Legumes and Legume Products",
+        "Lamb, Veal, and Game Products",
+        "Baked Products",
+        "Sweets",
+        "Cereal Grains and Pasta",
+        "Fast Foods",
+        "Meals, Entrees, and Side Dishes",
+        "Snacks",
+        "American Indian/Alaska Native Foods",
+        "Restaurant Foods"
+    ];
 
     $scope.enter = enter;
 
@@ -57,7 +87,8 @@ function IngredientsCtrl ($scope,$meteor,$state, $stateParams) {
                         'proximates.carbohydrt.value': 1
                     }
             },
-            $scope.getReactively('query.search')).then(function(){
+            $scope.getReactively('query.search'),
+            $scope.getReactively('query.group')).then(function(){
                 $scope.ingredientsCount = $scope.$meteorObject(Counts ,'numberOfIngredients', false);
             });
     });

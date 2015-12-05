@@ -20,6 +20,10 @@ msgstr "Agenda"
 msgid "Alert"
 msgstr "Alerta"
 
+#: ../client/templates/ingredients/ingredients.html:11
+msgid "All"
+msgstr "Todos"
+
 #: langkeys.js:38
 msgid "American Indian/Alaska Native Foods"
 msgstr "Comida Nativa Americana"
@@ -44,7 +48,7 @@ msgstr "Bebidas"
 msgid "Breakfast Cereals"
 msgstr "Cereales para el Desayuno"
 
-#: ../client/templates/ingredients/ingredients.html:19
+#: ../client/templates/ingredients/ingredients.html:28
 msgid "Carbohydrat"
 msgstr "Carbohidrato"
 
@@ -92,11 +96,12 @@ msgstr "Peces y Mariscos"
 msgid "Fruits and Fruit Juices"
 msgstr "Frutas y Zumos de Frutas"
 
-#: ../client/templates/ingredients/ingredients.html:15
+#: ../client/templates/ingredients/ingredients.html:24
+#: ../client/templates/ingredients/ingredients.html:9
 msgid "Group"
 msgstr "Grupo"
 
-#: ../client/templates/ingredients/ingredients.html:14
+#: ../client/templates/ingredients/ingredients.html:23
 msgid "Ingredient"
 msgstr "Ingrediente"
 
@@ -104,7 +109,7 @@ msgstr "Ingrediente"
 msgid "Ingredients"
 msgstr "Ingredientes"
 
-#: ../client/templates/ingredients/ingredients.html:16
+#: ../client/templates/ingredients/ingredients.html:25
 msgid "Kcal"
 msgstr "Kcal"
 
@@ -120,7 +125,7 @@ msgstr "Legumbres y Derivados"
 msgid "Lipids"
 msgstr "Grasas"
 
-#: ../client/templates/ingredients/ingredients.html:18
+#: ../client/templates/ingredients/ingredients.html:27
 msgid "Lipids Total"
 msgstr "Total de Grasas"
 
@@ -180,7 +185,7 @@ msgstr "Cerdo y Derivados"
 msgid "Poultry Products"
 msgstr "Aves y Derivados"
 
-#: ../client/templates/ingredients/ingredients.html:17
+#: ../client/templates/ingredients/ingredients.html:26
 msgid "Protein"
 msgstr "Proteínas"
 

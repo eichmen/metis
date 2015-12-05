@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 
 #: ../client/templates/ingredients/ingredientDetail.html:8
-#: ../client/templates/ingredients/ingredients.html:25
-msgid "{{ingredient.nomenclature.english.foodGroup}}"
+#: ../client/templates/ingredients/ingredients.html:34
+msgid "{{ingredient.nomenclature.english.foodGroup | translate}}"
 msgstr ""
 
 #: ../client/templates/ingredients/ingredientDetail.html:35
@@ -46,6 +46,10 @@ msgstr ""
 msgid "Alert"
 msgstr ""
 
+#: ../client/templates/ingredients/ingredients.html:11
+msgid "All"
+msgstr ""
+
 #: langkeys.js:38
 msgid "American Indian/Alaska Native Foods"
 msgstr ""
@@ -70,7 +74,7 @@ msgstr ""
 msgid "Breakfast Cereals"
 msgstr ""
 
-#: ../client/templates/ingredients/ingredients.html:19
+#: ../client/templates/ingredients/ingredients.html:28
 msgid "Carbohydrat"
 msgstr ""
 
@@ -118,11 +122,12 @@ msgstr ""
 msgid "Fruits and Fruit Juices"
 msgstr ""
 
-#: ../client/templates/ingredients/ingredients.html:15
+#: ../client/templates/ingredients/ingredients.html:24
+#: ../client/templates/ingredients/ingredients.html:9
 msgid "Group"
 msgstr ""
 
-#: ../client/templates/ingredients/ingredients.html:14
+#: ../client/templates/ingredients/ingredients.html:23
 msgid "Ingredient"
 msgstr ""
 
@@ -130,7 +135,7 @@ msgstr ""
 msgid "Ingredients"
 msgstr ""
 
-#: ../client/templates/ingredients/ingredients.html:16
+#: ../client/templates/ingredients/ingredients.html:25
 msgid "Kcal"
 msgstr ""
 
@@ -146,7 +151,7 @@ msgstr ""
 msgid "Lipids"
 msgstr ""
 
-#: ../client/templates/ingredients/ingredients.html:18
+#: ../client/templates/ingredients/ingredients.html:27
 msgid "Lipids Total"
 msgstr ""
 
@@ -207,7 +212,7 @@ msgstr ""
 msgid "Poultry Products"
 msgstr ""
 
-#: ../client/templates/ingredients/ingredients.html:17
+#: ../client/templates/ingredients/ingredients.html:26
 msgid "Protein"
 msgstr ""
 

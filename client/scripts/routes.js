@@ -37,6 +37,16 @@ function config($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('app.patientTabs', {
+            url: '/patientTabs/:patientId',
+            templateUrl: 'client/templates/patients/patientTabs.html',
+            controller: 'PatientTabsCtrl',
+            resolve: {
+                "currentUser": function ($meteor) {
+                    return $meteor.requireUser();
+                }
+            }
+        })
         .state('app.addPatient', {
             url: '/newPatient',
             templateUrl: 'client/templates/patients/addPatient.html',

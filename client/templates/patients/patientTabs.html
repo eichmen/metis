@@ -1,0 +1,74 @@
+<md-content class="md-padding">
+    <md-tabs class="md-accent" md-dynamic-height md-border-bottom md-selected="selectedTab" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+        <md-tab id="general">
+            <md-tab-label>General Data</md-tab-label>
+            <md-tab-body>
+                <div layout="row">
+                    <md-input-container flex="33">
+                        <label>First Name</label>
+                        <input ng-model="patient.name" ng-disabled="!edit">
+                    </md-input-container>
+                    <md-input-container flex="33">
+                        <label>Last Name</label>
+                        <input ng-model="patient.lastname" ng-disabled="!edit">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Gender</label>
+                        <md-select ng-model="patient.gender" ng-disabled="!edit">
+                            <md-option ng-repeat="gender in genderList" value="{{gender}}">
+                                {{gender}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container flex="33">
+                        <label>Birthdate</label>
+                        <input type="date" ng-model="patient.birthdate" ng-disabled="!edit">
+                    </md-input-container>
+                    <md-input-container flex="33">
+                        <label>RegisterDate</label>
+                        <input type="date" ng-model="patient.registerDate" ng-disabled="!edit">
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container>
+                        <label>Phone Number</label>
+                        <input ng-model="patient.phone" type="text">
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container>
+                        <label>Email</label>
+                        <input ng-model="patient.email" type="email">
+                    </md-input-container>
+                </div>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="anthropometric">
+            <md-tab-label>Anthropometric</md-tab-label>
+            <md-tab-body>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="generalHabits">
+            <md-tab-label>General Habits</md-tab-label>
+            <md-tab-body>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="alimentaryHabits">
+            <md-tab-label>Alimentary Habits</md-tab-label>
+            <md-tab-body>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="medicalHistory">
+            <md-tab-label>MedicalHistory</md-tab-label>
+            <md-tab-body>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="psychological">
+            <md-tab-label>Psychological</md-tab-label>
+            <md-tab-body>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+</md-content>

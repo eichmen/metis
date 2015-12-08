@@ -26,7 +26,7 @@ angular
             .accentPalette('pink');
         $mdThemingProvider.theme('input', 'default')
             .primaryPalette('grey')
-    }).run(function ($rootScope, $state,gettextCatalog) {
+    }).run(function ($rootScope, $state,gettextCatalog, $meteor) {
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
             // We can catch the error thrown when the $requireUser promise is rejected
             // and redirect the user back to the main page
@@ -34,7 +34,11 @@ angular
                 $state.go('app.patients');
             }
         });
-        gettextCatalog.setCurrentLanguage('es_ES');
+        if(Meteor.user().profile.language === 'spanish') {
+            gettextCatalog.setCurrentLanguage('es_ES');
+        } else {
+            gettextCatalog.setCurrentLanguage('en_US');
+        }
     });
 
 

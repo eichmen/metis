@@ -1,18 +1,33 @@
 <md-content layout-padding>
 
-    <div layout-padding layout="row" flex translate>
-        Settings
-    </div>
-    <md-button ng-show="hasIngredients" class="md-raised md-primary" ng-click="checkIngredients()">Check Ingredients</md-button>
 
-    <div ng-show="!hasIngredients" layout-padding layout="row" flex>
-        <md-button ng-show="!loading" class="md-raised md-primary" ng-click="loadIngredients()">Load Ingredients</md-button>
-        <md-progress-circular ng-show="loading" md-mode="indeterminate"></md-progress-circular>
-    </div>
-    <div ng-show="hasIngredients && loadedIngredients" layout-padding layout="row" flex>
-        Ingredients have been loaded
+    <div layout-padding layout="column" flex>
+        <div translate>
+            Settings
+        </div>
+        <div layout="row">
+            <md-button class="md-raised md-primary" ng-click="setLanguage('es')">
+                <span class="flag-icon flag-icon-es"></span>
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="setLanguage('gb')">
+                <span class="flag-icon flag-icon-gb"></span>
+            </md-button>
+        </div>
+
+        <div>
+            <md-button ng-show="hasIngredients" class="md-raised md-primary" ng-click="checkIngredients()">Check Ingredients</md-button>
+        </div>
+        <div ng-show="!hasIngredients" layout-padding layout="row">
+            <md-button ng-show="!loading" class="md-raised md-primary" ng-click="loadIngredients()">Load Ingredients</md-button>
+            <md-progress-circular ng-show="loading" md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div ng-show="hasIngredients && loadedIngredients" layout-padding>
+            Ingredients have been loaded
+        </div>
+        <div>
+            <md-button class="md-raised md-primary" ng-click="logout()">Logout</md-button>
+        </div>
     </div>
 
-    <md-button class="md-raised md-primary" ng-click="logout()">Logout</md-button>
 
 </md-content>

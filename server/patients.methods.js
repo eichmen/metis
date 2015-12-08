@@ -31,3 +31,33 @@ Meteor.publish("patients", function (options,searchString) {
         ]
     },options);
 });
+
+Meteor.methods({
+
+    updatePatientGeneral: function (patient) {
+        // Make sure the user is logged in before inserting a task
+        console.log('[server] updatePatientGeneral');
+        if (! Meteor.userId()) {
+            throw new Meteor.Error('not-authorized');
+        }
+        if (!patient.owner) {
+            patient.owner = Meteor.userId();
+        }
+        console.log('[server] pre updatePatientGeneral');
+        console.log(patient)
+        var id = patient._id;
+
+        Patients.update({_id: id}, { 
+            $set: {
+                name: patient.name,
+                lastname: patient.lastname,
+                gender: patient.gender,
+                birthdate: patient.birthdate,
+                phone: patient.phone,
+                email: patient.email,
+                owner: patient.owner
+            }
+        });
+    }
+    
+});

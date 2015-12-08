@@ -8,7 +8,8 @@ angular
         'gettext',
         'md.data.table',
         'mdPickers',
-        'ui.calendar'
+        'ui.calendar',
+        'ngMessages'
     ])
     .config(function ($mdThemingProvider) {
 

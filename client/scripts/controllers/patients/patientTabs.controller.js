@@ -2,14 +2,14 @@ angular
     .module('Metis')
     .controller('PatientTabsCtrl', PatientTabsCtrl);
 
-function PatientTabsCtrl ($scope,$meteor,$state,$stateParams) {
+function PatientTabsCtrl ($scope,$meteor,$state,$stateParams,$mdDialog) {
 
     $scope.genderList=['','Man','Woman'];
 
     $scope.$meteorSubscribe('patients', {},{});
 
     $scope.patient = $scope.$meteorObject
-    (Patients, $stateParams.patientId);
+    (Patients, $stateParams.patientId,false);
 
     /* $scope.$meteorSubscribe method will automatically close the subscription
      when the scope gets destroyed
@@ -29,6 +29,11 @@ function PatientTabsCtrl ($scope,$meteor,$state,$stateParams) {
     $scope.newConsultation = newConsultation;
     $scope.deleteConsultation = deleteConsultation;
     $scope.editConsultation = editConsultation;
+    $scope.updatePatientGeneral = updatePatientGeneral;
+
+    function updatePatientGeneral() {
+        $meteor.call('updatePatientGeneral', $scope.patient.getRawObject()).then(showAlert('Update','General information updated!'));
+    }
 
     function newConsultation() {
         $state.go('app.addConsultation',{patientId: $stateParams.patientId});
@@ -40,5 +45,18 @@ function PatientTabsCtrl ($scope,$meteor,$state,$stateParams) {
 
     function editConsultation(consultationId) {
         $state.go('app.consultationDetails',{consultationId: consultationId});
+    }
+
+    function showAlert(title,text) {
+      alert = $mdDialog.alert({
+        title: title,
+        content: text,
+        ok: 'Close'
+      });
+      $mdDialog
+        .show( alert )
+        .finally(function() {
+          alert = undefined;
+        });
     }
 }

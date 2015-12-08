@@ -1,48 +1,78 @@
 <md-content class="md-padding">
-    <md-tabs class="md-accent" md-dynamic-height md-border-bottom md-selected="selectedTab" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
-        <md-tab id="general">
+    <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+        <md-tab id="general">  
             <md-tab-label>General Data</md-tab-label>
-            <md-tab-body>
-                <div layout="row">
-                    <md-input-container flex="33">
+            <md-tab-body class="md-margin">
+                <form name="generalForm" novalidate style="padding-top:20px">
+                <div layout="row" layout-padding layout-margin layout-fill>
+                    <md-input-container flex="33" class="md-icon-float md-block">
                         <label>First Name</label>
-                        <input ng-model="patient.name" ng-disabled="!edit">
+                        <ng-md-icon icon="person" style="fill:teal"></ng-md-icon> 
+                        <input ng-model="patient.name" name="name" required >
+                        <div ng-messages="generalForm.name.$error">
+                          <div ng-message="required">Name is required.</div>
+                          <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                        </div>
                     </md-input-container>
                     <md-input-container flex="33">
                         <label>Last Name</label>
-                        <input ng-model="patient.lastname" ng-disabled="!edit">
+                        <input ng-model="patient.lastname" required >
+                        <div ng-messages="generalForm.lastname.$error">
+                          <div ng-message="required">Last Name is required.</div>
+                          <div ng-message="md-maxlength">The last name has to be less than 30 characters long.</div>
+                        </div>
                     </md-input-container>
                     <md-input-container>
                         <label>Gender</label>
-                        <md-select ng-model="patient.gender" ng-disabled="!edit">
+                        <md-select ng-model="patient.gender" name="gender" required >
                             <md-option ng-repeat="gender in genderList" value="{{gender}}">
                                 {{gender}}
                             </md-option>
                         </md-select>
+                        <div ng-messages="generalForm.gender.$error">
+                          <div ng-message="required">Gender is required.</div>
+                        </div>
                     </md-input-container>
                 </div>
-                <div layout="row">
-                    <md-input-container flex="33">
+                <div layout="row" layout-padding layout-margin layout-fill>
+                    <md-input-container flex="33" class="md-icon-float md-block">
                         <label>Birthdate</label>
-                        <input type="date" ng-model="patient.birthdate" ng-disabled="!edit">
+                        <ng-md-icon icon="event" style="fill:teal"></ng-md-icon> 
+                        <input type="date" ng-model="patient.birthdate" >
                     </md-input-container>
                     <md-input-container flex="33">
                         <label>RegisterDate</label>
-                        <input type="date" ng-model="patient.registerDate" ng-disabled="!edit">
+                        <input type="date" ng-model="patient.registerDate" >
                     </md-input-container>
                 </div>
-                <div layout="row">
-                    <md-input-container>
+                <div layout="row" layout-padding layout-margin layout-fill>
+                    <md-input-container class="md-icon-float md-block">
                         <label>Phone Number</label>
-                        <input ng-model="patient.phone" type="text">
+                        <ng-md-icon icon="phone" style="fill:teal"></ng-md-icon>
+                        <input ng-model="patient.phone" name="phone" type="number" required>
+                        <div ng-messages="generalForm.phone.$error">
+                          <div ng-message="required">Phone number is required.</div>
+                        </div>
                     </md-input-container>
                 </div>
-                <div layout="row">
-                    <md-input-container>
+                <div layout="row" layout-padding layout-margin layout-fill>
+                    <md-input-container class="md-icon-float md-block">
                         <label>Email</label>
-                        <input ng-model="patient.email" type="email">
+                        <ng-md-icon icon="email" style="fill:teal"></ng-md-icon>
+                        <input required ng-model="patient.email" type="email" name="emailField"
+                        minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" >
+                        <div ng-messages="generalForm.emailField.$error">
+                          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                            Your email must be between 10 and 100 characters long and look like an e-mail address.
+                          </div>
+                        </div>
                     </md-input-container>
                 </div>
+                <div layout="row" layout-align="end">
+                    <md-button type="submit" ng-disabled="generalForm.$invalid" 
+                    ng-click="updatePatientGeneral()" class="md-raised md-primary">Save</md-button>
+                </div>
+                </form>
             </md-tab-body>
         </md-tab>
         <md-tab id="anthropometric">

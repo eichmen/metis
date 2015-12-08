@@ -35,3 +35,4 @@ sanjo:jasmine
 velocity:html-reporter
 angularui:ui-calendar
 planettraining:jquery-fullcalendar
+angular:angular-messages

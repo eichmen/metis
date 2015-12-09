@@ -1,10 +1,18 @@
 <md-content class="md-padding">
     <md-card>
     <div layout="row" ng-if="patient._id != null">
-        <div flex layout-margin layout-padding class="ng-cloak">
+        <div flex-10 layout-margin layout-padding class="ng-cloak">
             <img class="metis-avatar" ng-src="{{patient.photo}}" style="max-width: 100px;">
         </div>
-        <md-input-container flex>
+        <div layout="column">
+            <h1 flex style="color:#03a9f4">{{patient.name}}</h1>
+            <h4 flex style="color:#03a9f4">{{patient.location}}</h4>
+            <h4 flex>{{::patient.birthdate | ageFilter}}</h4>
+        </div>
+
+
+
+        <!--<md-input-container flex>
             <label>Name</label>
             <input ng-model="patient.name" disabled>
         </md-input-container>
@@ -15,7 +23,7 @@
         <md-input-container flex>
             <label>Age</label>
             <input value="{{::patient.birthdate | ageFilter}}" disabled>
-        </md-input-container>
+        </md-input-container>-->
     </div>
     </md-card>
 

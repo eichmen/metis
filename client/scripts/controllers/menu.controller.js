@@ -2,7 +2,9 @@ angular
     .module('Metis')
     .controller('AppCtrl', AppCtrl);
 
-function AppCtrl($scope, $mdSidenav) {
+function AppCtrl($scope, $mdSidenav,$state) {
+
+    $scope.state = $state.current;
 
     $scope.menuItems = [
         {

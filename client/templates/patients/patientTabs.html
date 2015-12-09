@@ -1,0 +1,167 @@
+<md-content class="md-padding">
+    <md-card>
+    <div layout="row" ng-if="patient._id != null">
+        <div flex layout-margin layout-padding class="ng-cloak">
+            <img class="metis-avatar" ng-src="{{patient.photo}}" style="max-width: 100px;">
+        </div>
+        <md-input-container flex>
+            <label>Name</label>
+            <input ng-model="patient.name" disabled>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Location</label>
+            <input ng-model="patient.location" disabled>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Age</label>
+            <input value="{{::patient.birthdate | ageFilter}}" disabled>
+        </md-input-container>
+    </div>
+    </md-card>
+
+    <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+
+        <md-tab id="consultations">
+            <md-tab-label>Consultations</md-tab-label>
+            <md-tab-body>
+                <md-card>
+                    <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
+                                    md-direction="{{demo.selectedDirection}}">
+                        <md-fab-trigger class="align-with-text">
+                            <md-button class="md-fab md-primary" aria-label="menu">
+                                <md-tooltip md-direction="top" md-visible="tooltipVisible">New Elements</md-tooltip>
+                                <ng-md-icon class="md-fab-24" icon="add" size="24"></ng-md-icon>
+                            </md-button>
+                        </md-fab-trigger>
+                        <md-toolbar>
+                            <md-fab-actions class="md-toolbar-tools">
+                                <md-button class="md-raised md-accent" ng-click="newConsultation()"><translate>New Consultation</translate></md-button>
+                                <md-button class="md-raised md-accent"><translate>New Instruction</translate></md-button>
+                            </md-fab-actions>
+                        </md-toolbar>
+                    </md-fab-toolbar>
+                    <div layout="row" flex>
+                    <md-list flex>
+                        <md-list-item class="md-2-line" style="border-bottom:1px solid lightgrey" ng-repeat="consult in consultations" ng-click="" layout-margin>
+
+                            <div class="md-list-item-text" layout="column">
+                                <h3>{{consult.date | date:"MM/dd/yyyy"}}</h3>
+                            </div>
+                            <div class="md-list-item-text">
+                                <p>{{consult.observations}}</p>
+                            </div>
+                            <md-button class="md-raised md-primary" ng-click="editConsultation(consult._id)">Edit</md-button>
+                            <md-button class="md-raised md-warn" ng-click="deleteConsultation(consult._id)">Remove</md-button>
+                        </md-list-item>
+                    </md-list>
+                </div>
+                </md-card>
+            </md-tab-body>
+
+        </md-tab>
+
+        <md-tab id="general">
+            <md-tab-label>General Data</md-tab-label>
+            <md-tab-body class="md-margin">
+            <md-card>
+                <form name="generalForm" novalidate style="padding-top:20px">
+                <div layout="row" layout-padding layout-margin layout-fill>
+                    <md-input-container flex="33" class="md-icon-float md-block">
+                        <label>First Name</label>
+                        <ng-md-icon icon="person" style="fill:#082D3F"></ng-md-icon> 
+                        <input ng-model="patient.name" name="name" required >
+                        <div ng-messages="generalForm.name.$error">
+                          <div ng-message="required">Name is required.</div>
+                          <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex="33">
+                        <label>Last Name</label>
+                        <input ng-model="patient.lastname" name="lastname" required >
+                        <div ng-messages="generalForm.lastname.$error">
+                          <div ng-message="required">Last Name is required.</div>
+                          <div ng-message="md-maxlength">The last name has to be less than 30 characters long.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Gender</label>
+                        <md-select ng-model="patient.gender" name="gender" required >
+                            <md-option ng-repeat="gender in genderList" value="{{gender}}">
+                                {{gender}}
+                            </md-option>
+                        </md-select>
+                        <div ng-messages="generalForm.gender.$error">
+                          <div ng-message="required">Gender is required.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-padding layout-margin layout-fill>
+                    <md-input-container flex="33" class="md-icon-float md-block">
+                        <label>Birthdate</label>
+                        <ng-md-icon icon="event" style="fill:#082D3F"></ng-md-icon> 
+                        <input type="date" ng-model="patient.birthdate" >
+                    </md-input-container>
+                    <md-input-container flex="33">
+                        <label>RegisterDate</label>
+                        <input type="date" ng-model="patient.registerDate" >
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-padding layout-margin layout-fill>
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Phone Number</label>
+                        <ng-md-icon icon="phone" style="fill:#082D3F"></ng-md-icon>
+                        <input ng-model="patient.phone" name="phone" type="number" required>
+                        <div ng-messages="generalForm.phone.$error">
+                          <div ng-message="required">Phone number is required.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-padding layout-margin layout-fill>
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Email</label>
+                        <ng-md-icon icon="email" style="fill:#082D3F"></ng-md-icon>
+                        <input required ng-model="patient.email" type="email" name="emailField"
+                        minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" >
+                        <div ng-messages="generalForm.emailField.$error">
+                          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                            Your email must be between 10 and 100 characters long and look like an e-mail address.
+                          </div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-align="end">
+                    <md-button type="submit" ng-disabled="generalForm.$invalid" 
+                    ng-click="updatePatientGeneral()" class="md-raised md-primary">Save</md-button>
+                </div>
+                </form>
+                </md-card>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="anthropometric">
+            <md-tab-label>Anthropometric</md-tab-label>
+            <md-tab-body>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="generalHabits">
+            <md-tab-label>General Habits</md-tab-label>
+            <md-tab-body>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="alimentaryHabits">
+            <md-tab-label>Alimentary Habits</md-tab-label>
+            <md-tab-body>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="medicalHistory">
+            <md-tab-label>MedicalHistory</md-tab-label>
+            <md-tab-body>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="psychological">
+            <md-tab-label>Psychological</md-tab-label>
+            <md-tab-body>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+
+</md-content>

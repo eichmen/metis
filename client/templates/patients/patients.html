@@ -1,18 +1,19 @@
 <md-content layout-padding>
 
-    <div layout-padding layout="row" flex>
-        <md-button class="md-raised md-primary" ng-click="createPatient()">
-            <translate>New Patient</translate>
-        </md-button>
-    </div>
-
+<md-card layout-padding>
+    
     <md-data-table-toolbar ng-hide="selected.length" aria-hidden="false" class="" style="">
         <md-input-container flex>
             <label translate>Search</label>
             <input type="text" ng-model="search"/>
         </md-input-container>
+        
+         <md-button class="md-fab" ng-click="createPatient()" aria-label="Add Patient">
+            <md-tooltip md-direction="top" md-visible="tooltipVisible">Add Patient</md-tooltip>
+            <ng-md-icon class="md-fab-24" icon="add" size="24"></ng-md-icon>
+        </md-button>
     </md-data-table-toolbar>
-
+    
     <md-data-table-toolbar class="alternate ng-hide" ng-show="selected.length" layout-align="space-between"
                            aria-hidden="true">
         <div>{{selected.length}} {{selected.length > 1 ? 'items' : 'item'}} selected</div>
@@ -21,8 +22,9 @@
         <md-button class="md-raised pink" ng-click="showConfirm($event)">Delete</md-button>
 
     </md-data-table-toolbar>
+</md-card>
 
-
+<md-card layout-padding>
     <md-data-table-container>
         <table md-data-table md-row-select="selected" md-progress="deferred">
             <thead md-order="query.order" md-trigger="onOrderChange">
@@ -50,4 +52,6 @@
                               md-total="{{patientsCount.count}}"
                               md-trigger="onPaginationChange"></md-data-table-pagination>
 
+</md-card>
 </md-content>
+

@@ -8,25 +8,17 @@ angular
         'gettext',
         'md.data.table',
         'mdPickers',
-        'ui.calendar'
+        'ui.calendar',
+        'ngMessages'
+
     ])
     .config(function ($mdThemingProvider) {
 
-        var customBlueMap = $mdThemingProvider.extendPalette('teal', {
-            'contrastDefaultColor': 'light',
-            'contrastDarkColors': ['50'],
-            '50': 'ffffff'
-        });
-        $mdThemingProvider.definePalette('customBlue', customBlueMap);
-        $mdThemingProvider.theme('default')
-            .primaryPalette('customBlue', {
-                'default': '500',
-                'hue-1': '50'
-            })
-            .accentPalette('pink');
-        $mdThemingProvider.theme('input', 'default')
-            .primaryPalette('grey')
-    }).run(function ($rootScope, $state,gettextCatalog, $meteor) {
+             $mdThemingProvider.theme('default')
+    .primaryPalette('blue')
+    .accentPalette('pink');
+
+    }).run(function ($rootScope, $state,gettextCatalog) {
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
             // We can catch the error thrown when the $requireUser promise is rejected
             // and redirect the user back to the main page

@@ -36,3 +36,4 @@ velocity:html-reporter
 angularui:ui-calendar
 planettraining:jquery-fullcalendar
 jss:flag-icon
+angular:angular-messages

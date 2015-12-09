@@ -40,7 +40,7 @@ describe('PatientsCtrl', function () {
 
         it('should go to app.patientDetails when calling to enter, with id of the patient', function () {
             $scope.enter({_id: 1});
-            expect(state.go).toHaveBeenCalledWith('app.patientDetails', {patientId: 1});
+            expect(state.go).toHaveBeenCalledWith('app.patientTabs', {patientId: 1});
         });
 
         it('should go to app.addPatient when calling createPatient', function () {

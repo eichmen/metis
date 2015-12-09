@@ -1,4 +1,14 @@
 Meteor.publish("consultations", function (options, patientSelected) {
+
+    Counts.publish(this, 'numberOfconsultations', Patients.find({
+            $and:[
+                {owner: this.userId},
+                {owner: {$exists: true}},
+                {patientId : patientSelected}
+            ]
+        }),
+        { noReady: true });
+
     return Consultations.find({
         $and:[
             {owner: this.userId},

@@ -69,7 +69,7 @@ function PatientsCtrl($scope, $meteor, $state,$mdDialog) {
     }
 
     function enter(patient) {
-        $state.go('app.patientDetails', {patientId: patient._id});
+        $state.go('app.patientTabs', {patientId: patient._id});
     }
 
     function createPatient() {

@@ -3,11 +3,12 @@
         <md-tab id="general">  
             <md-tab-label>General Data</md-tab-label>
             <md-tab-body class="md-margin">
+            <md-card>
                 <form name="generalForm" novalidate style="padding-top:20px">
                 <div layout="row" layout-padding layout-margin layout-fill>
                     <md-input-container flex="33" class="md-icon-float md-block">
                         <label>First Name</label>
-                        <ng-md-icon icon="person" style="fill:teal"></ng-md-icon> 
+                        <ng-md-icon icon="person" style="fill:#082D3F"></ng-md-icon> 
                         <input ng-model="patient.name" name="name" required >
                         <div ng-messages="generalForm.name.$error">
                           <div ng-message="required">Name is required.</div>
@@ -37,7 +38,7 @@
                 <div layout="row" layout-padding layout-margin layout-fill>
                     <md-input-container flex="33" class="md-icon-float md-block">
                         <label>Birthdate</label>
-                        <ng-md-icon icon="event" style="fill:teal"></ng-md-icon> 
+                        <ng-md-icon icon="event" style="fill:#082D3F"></ng-md-icon> 
                         <input type="date" ng-model="patient.birthdate" >
                     </md-input-container>
                     <md-input-container flex="33">
@@ -48,7 +49,7 @@
                 <div layout="row" layout-padding layout-margin layout-fill>
                     <md-input-container class="md-icon-float md-block">
                         <label>Phone Number</label>
-                        <ng-md-icon icon="phone" style="fill:teal"></ng-md-icon>
+                        <ng-md-icon icon="phone" style="fill:#082D3F"></ng-md-icon>
                         <input ng-model="patient.phone" name="phone" type="number" required>
                         <div ng-messages="generalForm.phone.$error">
                           <div ng-message="required">Phone number is required.</div>
@@ -58,7 +59,7 @@
                 <div layout="row" layout-padding layout-margin layout-fill>
                     <md-input-container class="md-icon-float md-block">
                         <label>Email</label>
-                        <ng-md-icon icon="email" style="fill:teal"></ng-md-icon>
+                        <ng-md-icon icon="email" style="fill:#082D3F"></ng-md-icon>
                         <input required ng-model="patient.email" type="email" name="emailField"
                         minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" >
                         <div ng-messages="generalForm.emailField.$error">
@@ -73,6 +74,7 @@
                     ng-click="updatePatientGeneral()" class="md-raised md-primary">Save</md-button>
                 </div>
                 </form>
+                </md-card>
             </md-tab-body>
         </md-tab>
         <md-tab id="anthropometric">

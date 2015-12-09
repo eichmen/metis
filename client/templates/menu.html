@@ -1,7 +1,7 @@
 <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2"
             md-component-id="left">
 
-    <md-toolbar class="md-tall md-hue-2">
+    <md-toolbar class="toolbar-bg md-tall md-hue-2">
         <span flex></span>
         <div layout="column" class="md-toolbar-tools-bottom inset">
             <user-avatar></user-avatar>
@@ -30,8 +30,8 @@
 </md-sidenav>
 
 <div layout="column" flex>
-    <md-content>
-        <md-toolbar>
+    <md-content >
+        <md-toolbar class="toolbar-bg">
             <div class="md-toolbar-tools">
                 <md-button ng-click="openLeftMenu()" aria-label="Menu">
                     <ng-md-icon icon="menu"></ng-md-icon>
@@ -42,7 +42,7 @@
         </md-toolbar>
 
     </md-content>
-    <md-content flex class="md-padding page-content">
-        <div ui-view></div>
+    <md-content flex class="md-padding page-content bg-global">
+        <div class="main-view" ui-view></div>
     </md-content>
 </div>

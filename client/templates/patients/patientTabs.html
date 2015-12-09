@@ -40,21 +40,30 @@
                             </md-fab-actions>
                         </md-toolbar>
                     </md-fab-toolbar>
-                    <div layout="row" flex>
-                    <md-list flex>
-                        <md-list-item class="md-2-line" style="border-bottom:1px solid lightgrey" ng-repeat="consult in consultations" ng-click="" layout-margin>
 
-                            <div class="md-list-item-text" layout="column">
-                                <h3>{{consult.date | date:"MM/dd/yyyy"}}</h3>
-                            </div>
-                            <div class="md-list-item-text">
-                                <p>{{consult.observations}}</p>
-                            </div>
-                            <md-button class="md-raised md-primary" ng-click="editConsultation(consult._id)">Edit</md-button>
-                            <md-button class="md-raised md-warn" ng-click="deleteConsultation(consult._id)">Remove</md-button>
-                        </md-list-item>
-                    </md-list>
-                </div>
+                       <md-data-table-container id="table-consultations">
+                            <table md-data-table md-row-select="selected" >
+                                <thead md-order="query.order" md-trigger="onOrderChange">
+                                <tr>
+                                    <th name="Date" order-by="date"><translate>Date</translate></th>
+                                    <th name="Observations">Observations</th>
+                                 </tr>
+                                </thead>
+                                <tbody>
+                                <tr md-auto-select ng-repeat="consultation in consultations" ng-click="editConsultation(consultation)">
+                                    <td>{{consultation.date | date:"MM/dd/yyyy"}}</td>
+                                    <td>{{consultation.observations}}</td>
+                                 </tr>
+                                </tbody>
+                            </table>
+                        </md-data-table-container>
+                        <md-data-table-pagination md-limit="query.perPage"
+                                                  md-page="query.page"
+                                                  md-total="{{consultCount.count}}"
+                                                  md-trigger="onPaginationChange">
+
+                        </md-data-table-pagination>
+
                 </md-card>
             </md-tab-body>
 

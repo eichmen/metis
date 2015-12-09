@@ -1,9 +1,10 @@
 <md-content class="md-padding">
+    <md-card>
     <div layout="row" ng-if="patient._id != null">
         <div flex layout-margin layout-padding class="ng-cloak">
-            <img class="md-avatar" ng-src="{{patient.photo}}" style="max-width: 100px;">
+            <img class="metis-avatar" ng-src="{{patient.photo}}" style="max-width: 100px;">
         </div>
-        <md-input-container fl  ex>
+        <md-input-container flex>
             <label>Name</label>
             <input ng-model="patient.name" disabled>
         </md-input-container>
@@ -16,21 +17,31 @@
             <input value="{{::patient.birthdate | ageFilter}}" disabled>
         </md-input-container>
     </div>
+    </md-card>
+
     <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+
         <md-tab id="consultations">
             <md-tab-label>Consultations</md-tab-label>
             <md-tab-body>
-                <div layout="row" flex>
-                    <md-button class="md-raised md-primary" ng-click="newConsultation()"><translate>New Consultation</translate></md-button>
-                    <md-button class="md-raised md-primary"><translate>New Instruction</translate></md-button>
-                </div>
-                <div layout="row" flex>
-                    <md-list flex>
-                        <md-toolbar layout-margin>
-                            <div class="md-toolbar-tools">
-                                <h3 class="ng-binding" translate>Consultation Records</h3>
-                            </div>
+                <md-card>
+                    <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
+                                    md-direction="{{demo.selectedDirection}}">
+                        <md-fab-trigger class="align-with-text">
+                            <md-button class="md-fab md-primary" aria-label="menu">
+                                <md-tooltip md-direction="top" md-visible="tooltipVisible">New Elements</md-tooltip>
+                                <ng-md-icon class="md-fab-24" icon="add" size="24"></ng-md-icon>
+                            </md-button>
+                        </md-fab-trigger>
+                        <md-toolbar>
+                            <md-fab-actions class="md-toolbar-tools">
+                                <md-button class="md-raised md-accent" ng-click="newConsultation()"><translate>New Consultation</translate></md-button>
+                                <md-button class="md-raised md-accent"><translate>New Instruction</translate></md-button>
+                            </md-fab-actions>
                         </md-toolbar>
+                    </md-fab-toolbar>
+                    <div layout="row" flex>
+                    <md-list flex>
                         <md-list-item class="md-2-line" style="border-bottom:1px solid lightgrey" ng-repeat="consult in consultations" ng-click="" layout-margin>
 
                             <div class="md-list-item-text" layout="column">
@@ -44,7 +55,9 @@
                         </md-list-item>
                     </md-list>
                 </div>
+                </md-card>
             </md-tab-body>
+
         </md-tab>
 
         <md-tab id="general">
@@ -150,4 +163,5 @@
             </md-tab-body>
         </md-tab>
     </md-tabs>
+
 </md-content>

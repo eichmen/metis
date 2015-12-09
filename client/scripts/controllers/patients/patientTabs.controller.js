@@ -4,6 +4,13 @@ angular
 
 function PatientTabsCtrl ($scope,$meteor,$state,$stateParams,$mdDialog) {
 
+    $scope.isOpen = false;
+    $scope.demo = {
+        isOpen: false,
+        count: 0,
+        selectedDirection: 'left'
+    };
+
     $scope.genderList=['','Man','Woman'];
 
     $scope.$meteorSubscribe('patients', {},{});

@@ -5,10 +5,22 @@
 $gray: #eee;
 $almost-black: rgba(0, 0, 0, 0.870588);
 
-
-.md-button.md-primary {
-  background-color: #FF5722 !important;
+.bg-global {
+  background-color: #FAFAFA;
 }
+
+.toolbar-bg {
+  background: url("resources/bg-2.jpg");
+}
+
+md-content .main-view md-content {
+  background-color: #FAFAFA;
+}
+
+
+/*.md-button.md-primary {
+  background-color: #FF5722 !important;
+}*/
 
 md-content.md-default-theme {
   background-color: $gray;
@@ -27,7 +39,7 @@ md-toolbar:not(.md-hue-1),
 md-sidenav {
   fill: #737373;
   ng-md-icon {
-    fill: rgb(0,105,92);
+    fill: #082D3F;
     position: relative;
     top: 5px; // adjust for svg viewbox
   }

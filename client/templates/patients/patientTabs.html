@@ -1,6 +1,53 @@
 <md-content class="md-padding">
+    <div layout="row" ng-if="patient._id != null">
+        <div flex layout-margin layout-padding class="ng-cloak">
+            <img class="md-avatar" ng-src="{{patient.photo}}" style="max-width: 100px;">
+        </div>
+        <md-input-container fl  ex>
+            <label>Name</label>
+            <input ng-model="patient.name" disabled>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Location</label>
+            <input ng-model="patient.location" disabled>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Age</label>
+            <input value="{{::patient.birthdate | ageFilter}}" disabled>
+        </md-input-container>
+    </div>
     <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
-        <md-tab id="general">  
+        <md-tab id="consultations">
+            <md-tab-label>Consultations</md-tab-label>
+            <md-tab-body>
+                <div layout="row" flex>
+                    <md-button class="md-raised md-primary" ng-click="newConsultation()"><translate>New Consultation</translate></md-button>
+                    <md-button class="md-raised md-primary"><translate>New Instruction</translate></md-button>
+                </div>
+                <div layout="row" flex>
+                    <md-list flex>
+                        <md-toolbar layout-margin>
+                            <div class="md-toolbar-tools">
+                                <h3 class="ng-binding" translate>Consultation Records</h3>
+                            </div>
+                        </md-toolbar>
+                        <md-list-item class="md-2-line" style="border-bottom:1px solid lightgrey" ng-repeat="consult in consultations" ng-click="" layout-margin>
+
+                            <div class="md-list-item-text" layout="column">
+                                <h3>{{consult.date | date:"MM/dd/yyyy"}}</h3>
+                            </div>
+                            <div class="md-list-item-text">
+                                <p>{{consult.observations}}</p>
+                            </div>
+                            <md-button class="md-raised md-primary" ng-click="editConsultation(consult._id)">Edit</md-button>
+                            <md-button class="md-raised md-warn" ng-click="deleteConsultation(consult._id)">Remove</md-button>
+                        </md-list-item>
+                    </md-list>
+                </div>
+            </md-tab-body>
+        </md-tab>
+
+        <md-tab id="general">
             <md-tab-label>General Data</md-tab-label>
             <md-tab-body class="md-margin">
                 <form name="generalForm" novalidate style="padding-top:20px">
@@ -16,7 +63,7 @@
                     </md-input-container>
                     <md-input-container flex="33">
                         <label>Last Name</label>
-                        <input ng-model="patient.lastname" required >
+                        <input ng-model="patient.lastname" name="lastname" required >
                         <div ng-messages="generalForm.lastname.$error">
                           <div ng-message="required">Last Name is required.</div>
                           <div ng-message="md-maxlength">The last name has to be less than 30 characters long.</div>

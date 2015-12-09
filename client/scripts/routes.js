@@ -16,7 +16,10 @@ function config($stateProvider, $urlRouterProvider) {
             url: '',
             abstract: true,
             templateUrl: 'client/templates/menu.html',
-            controller: 'AppCtrl'
+            controller: 'AppCtrl',
+            data: {
+                label: 'Home'
+            }
         })
 
         .state('app.patients', {
@@ -25,6 +28,9 @@ function config($stateProvider, $urlRouterProvider) {
             controller: 'PatientsCtrl',
             data: {
                 title: 'Patients'
+            },
+            data: {
+                label: 'Patients'
             }
         })
         .state('app.patientDetails', {
@@ -35,6 +41,9 @@ function config($stateProvider, $urlRouterProvider) {
                 "currentUser": function ($meteor) {
                     return $meteor.requireUser();
                 }
+            },
+            data: {
+                label: 'Patient information'
             }
         })
         .state('app.patientTabs', {
@@ -45,29 +54,41 @@ function config($stateProvider, $urlRouterProvider) {
                 "currentUser": function ($meteor) {
                     return $meteor.requireUser();
                 }
+            },
+            data: {
+                label: 'Patient information'
             }
         })
         .state('app.addPatient', {
             url: '/newPatient',
             templateUrl: 'client/templates/patients/addPatient.html',
-            controller: 'AddPatientCtrl'
+            controller: 'AddPatientCtrl',
+            data: {
+                label: 'New Patient'
+            }
         })
         .state('app.addConsultation', {
             url: '/consultation/:patientId',
             templateUrl: 'client/templates/consultations/consultationDetail.html',
-            controller: 'AddConsultationCtrl'
+            controller: 'AddConsultationCtrl',
+            data: {
+                label: 'New Consultation'
+            }
         })
         .state('app.consultationDetails', {
             url: '/consultationDetails/:consultationId',
             templateUrl: 'client/templates/consultations/consultationDetail.html',
-            controller: 'ConsultationDetailsCtrl'
+            controller: 'ConsultationDetailsCtrl',
+            data: {
+                label: 'Consultation Details'
+            }
         })
         .state('app.agenda', {
             url: '/agenda',
             templateUrl: 'client/templates/agenda.html',
             controller: 'AgendaCtrl',
             data: {
-                title: 'Agenda'
+                label: 'Agenda'
             }
         })
         .state('app.payments', {
@@ -75,7 +96,7 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: 'client/templates/payments.html',
             controller: 'PaymentsCtrl',
             data: {
-                title: 'Payments'
+                label: 'Payments'
             }
         })
         .state('app.recipes', {
@@ -83,7 +104,7 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: 'client/templates/recipes.html',
             controller: 'RecipesCtrl',
             data: {
-                title: 'Recipes'
+                label: 'Recipes'
             }
         })
         .state('app.ingredients', {
@@ -91,20 +112,23 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: 'client/templates/ingredients/ingredients.html',
             controller: 'IngredientsCtrl',
             data: {
-                title: 'Ingredients'
+                label: 'Ingredients'
             }
         })
         .state('app.ingredientDetails', {
             url: '/ingredientDetails/:ingredientId',
             templateUrl: 'client/templates/ingredients/ingredientDetail.html',
-            controller: 'IngredientDetailsCtrl'
+            controller: 'IngredientDetailsCtrl',
+            data: {
+                label: 'Ingredient Details'
+            }
         })
         .state('app.education', {
             url: '/education',
             templateUrl: 'client/templates/education.html',
             controller: 'EducationCtrl',
             data: {
-                title: 'Education'
+                label: 'Education'
             }
         })
         .state('app.settings', {
@@ -112,7 +136,7 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: 'client/templates/settings.html',
             controller: 'SettingsCtrl',
             data: {
-                title: 'Setttings'
+                label: 'Setttings'
             }
         })
     ;

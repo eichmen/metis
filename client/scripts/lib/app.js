@@ -10,6 +10,7 @@ angular
         'mdPickers',
         'ui.calendar',
         'ngMessages'
+
     ])
     .config(function ($mdThemingProvider) {
 

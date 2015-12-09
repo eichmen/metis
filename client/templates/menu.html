@@ -36,13 +36,20 @@
                 <md-button ng-click="openLeftMenu()" aria-label="Menu">
                     <ng-md-icon icon="menu"></ng-md-icon>
                 </md-button>
+
                 <!-- fill up the space between left and right area -->
-                <span flex>{{title}}</span>
+                <span flex>{{state.data.label}}</span>
+                <span flex></span>
+                <md-button ng-href="#/patients  ">
+                    <ng-md-icon icon="home"></ng-md-icon>
+                </md-button>
             </div>
         </md-toolbar>
 
     </md-content>
     <md-content flex class="md-padding page-content">
+        <md-subheader class="md-primary"><div ncy-breadcrumb></div></md-subheader>
+
         <div ui-view></div>
     </md-content>
 </div>

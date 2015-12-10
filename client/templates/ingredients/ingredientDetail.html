@@ -21,11 +21,10 @@
                 <md-card layout-padding>
                     <md-list layout="row" layout-wrap>
                         <md-list-item class="md-3-line" ng-repeat="item in type.value" flex="25">
-                            <md-input-container flex>
-                                <h5 class="ingredient-label" ng-if="item.value !== ''"
+                            <md-input-container ng-if="item.value !== ''" flex>
+                                <h5 class="ingredient-label"
                                     aria-label="item.desc">{{item.desc}}</h5>
-                                <input ng-if="item.value !== ''" ng-model="item.value" disabled>
-
+                                <input ng-model="item.value" disabled>
                                 <div class="hint">{{item.unit}}</div>
                             </md-input-container>
                         </md-list-item>

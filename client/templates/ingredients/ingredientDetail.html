@@ -1,42 +1,53 @@
 <md-content layout-padding>
 
-    <div layout="row">
-
-        <div flex layout-margin layout-padding layout="column" class="ng-cloak">
-            <div>
-                <h2>{{ingredient.nomenclature.english.shrtDesc}}</h2>
-                <h3 translate>{{ingredient.nomenclature.english.foodGroup | translate}}</h3>
-            </div>
-            <md-divider md-inset></md-divider>
-            <div id="proximates">
-                <h4><a ng-click="proximatesShowed = !proximatesShowed" translate>Proximates</a></h4>
-                <div ng-repeat="proximate in ingredient.proximates" ng-show="proximatesShowed">
-                    <p ng-if="proximate.value !== ''"><span translate>{{proximate.desc}}</span>: {{proximate.value}} {{proximate.unit}}</p>
-                </div>
-            </div>
-            <md-divider md-inset></md-divider>
-            <div id="minerals">
-                <h4><a ng-click="mineralsShowed = !mineralsShowed" translate>Minerals</a></h4>
-                <div ng-repeat="mineral in ingredient.minerals" ng-show="mineralsShowed">
-                    <p ng-if="mineral.value !== ''"><span translate>{{mineral.desc}}</span>: {{mineral.value}} {{mineral.unit}}</p>
-                </div>
-            </div>
-            <md-divider md-inset></md-divider>
-            <div id="vitamins">
-                <h4><a ng-click="vitaminsShowed = !vitaminsShowed" translate>Vitamins</a></h4>
-                <div ng-repeat="vitamin in ingredient.vitamins" ng-show="vitaminsShowed">
-                    <p ng-if="vitamin.value !== ''"><span translate>{{vitamin.desc}}</span>: {{vitamin.value}} {{vitamin.unit}}</p>
-                </div>
-            </div>
-            <md-divider md-inset></md-divider>
-            <div id="lipids">
-                <h4><a ng-click="lipidsShowed = !lipidsShowed" translate>Lipids</a></h4>
-                <div ng-repeat="lipid in ingredient.lipids" ng-show="lipidsShowed">
-                    <p ng-if="lipid.value !== ''"><span translate>{{lipid.desc}}</span>: {{lipid.value}} {{lipid.unit}}</p>
-                </div>
-            </div>
-        </div>
+  <md-card>
+    <div layout-padding>
+        <h2>{{ingredient.nomenclature.english.shrtDesc}}</h2>
+        <h3 translate>{{ingredient.nomenclature.english.foodGroup | translate}}</h3>
     </div>
+  </md-card>
 
+  <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
 
+      <md-tab id="proximates">
+          <md-tab-label translate>Proximates</md-tab-label>
+          <md-tab-body>
+              <md-card layout-padding>
+                <div ng-repeat="proximate in ingredient.proximates">
+                    <span ng-if="proximate.value !== ''">{{proximate.desc | translate}}: {{proximate.value}} {{proximate.unit}}</span>
+                </div>
+              </md-card>
+          </md-tab-body>
+      </md-tab>
+      <md-tab id="minerals">
+          <md-tab-label translate>Minerals</md-tab-label>
+          <md-tab-body>
+              <md-card layout-padding>
+                <div ng-repeat="mineral in ingredient.minerals">
+                    <span ng-if="mineral.value !== ''">{{mineral.desc | translate}}: {{mineral.value}} {{mineral.unit}}</span>
+                </div>
+              </md-card>
+          </md-tab-body>
+      </md-tab>
+      <md-tab id="vitamins">
+          <md-tab-label translate>Vitamins</md-tab-label>
+          <md-tab-body>
+              <md-card layout-padding>
+                  <div ng-repeat="vitamin in ingredient.vitamins">
+                      <span ng-if="vitamin.value !== ''">{{vitamin.desc | translate}}: {{vitamin.value}} {{vitamin.unit}}</span>
+                  </div>
+              </md-card>
+          </md-tab-body>
+      </md-tab>
+      <md-tab id="lipids">
+          <md-tab-label translate>Lipids</md-tab-label>
+          <md-tab-body>
+              <md-card layout-padding>
+                  <div ng-repeat="lipid in ingredient.lipids">
+                      <span ng-if="lipid.value !== ''">{{lipid.desc | translate}}: {{lipid.value}} {{lipid.unit}}</span>
+                  </div>
+              </md-card>
+          </md-tab-body>
+      </md-tab>
+  </md-tabs>
 </md-content>

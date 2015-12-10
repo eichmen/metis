@@ -26,7 +26,8 @@ angular
                 $state.go('app.patients');
             }
         });
-        if(Meteor.user().profile.language === 'spanish') {
+        if((typeof Meteor.user() !== 'undefined') &&
+            Meteor.user().profile.language === 'spanish') {
             gettextCatalog.setCurrentLanguage('es_ES');
         } else {
             gettextCatalog.setCurrentLanguage('en_US');

@@ -1,53 +1,38 @@
 <md-content layout-padding>
 
-  <md-card>
-    <div layout-padding>
-        <h2>{{ingredient.nomenclature.english.shrtDesc}}</h2>
-        <h3 translate>{{ingredient.nomenclature.english.foodGroup | translate}}</h3>
-    </div>
-  </md-card>
+    <md-card>
+        <div layout-padding layout="row">
+            <div flex="10">
+                <ng-md-icon style="fill:#082D3F" icon="local_restaurant" size="96"></ng-md-icon>
+            </div>
+            <div flex layout="column">
+                <h2 style="color:#03a9f4;margin-bottom:0px;">{{ingredient.nomenclature.english.shrtDesc}}</h2>
+                <h4 style="color:#082D3F" translate>{{ingredient.nomenclature.english.foodGroup | translate}}</h4>
+            </div>
+        </div>
+    </md-card>
 
-  <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+    <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab"
+             md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
 
-      <md-tab id="proximates">
-          <md-tab-label translate>Proximates</md-tab-label>
-          <md-tab-body>
-              <md-card layout-padding>
-                <div ng-repeat="proximate in ingredient.proximates">
-                    <span ng-if="proximate.value !== ''">{{proximate.desc | translate}}: {{proximate.value}} {{proximate.unit}}</span>
-                </div>
-              </md-card>
-          </md-tab-body>
-      </md-tab>
-      <md-tab id="minerals">
-          <md-tab-label translate>Minerals</md-tab-label>
-          <md-tab-body>
-              <md-card layout-padding>
-                <div ng-repeat="mineral in ingredient.minerals">
-                    <span ng-if="mineral.value !== ''">{{mineral.desc | translate}}: {{mineral.value}} {{mineral.unit}}</span>
-                </div>
-              </md-card>
-          </md-tab-body>
-      </md-tab>
-      <md-tab id="vitamins">
-          <md-tab-label translate>Vitamins</md-tab-label>
-          <md-tab-body>
-              <md-card layout-padding>
-                  <div ng-repeat="vitamin in ingredient.vitamins">
-                      <span ng-if="vitamin.value !== ''">{{vitamin.desc | translate}}: {{vitamin.value}} {{vitamin.unit}}</span>
-                  </div>
-              </md-card>
-          </md-tab-body>
-      </md-tab>
-      <md-tab id="lipids">
-          <md-tab-label translate>Lipids</md-tab-label>
-          <md-tab-body>
-              <md-card layout-padding>
-                  <div ng-repeat="lipid in ingredient.lipids">
-                      <span ng-if="lipid.value !== ''">{{lipid.desc | translate}}: {{lipid.value}} {{lipid.unit}}</span>
-                  </div>
-              </md-card>
-          </md-tab-body>
-      </md-tab>
-  </md-tabs>
+        <md-tab id="proximates" ng-repeat="type in types">
+            <md-tab-label translate>{{type.label}}</md-tab-label>
+            <md-tab-body>
+                <md-card layout-padding>
+                    <md-list layout="row" layout-wrap>
+                        <md-list-item class="md-3-line" ng-repeat="item in type.value" flex="25">
+                            <md-input-container flex>
+                                <h5 class="ingredient-label" ng-if="item.value !== ''"
+                                    aria-label="item.desc">{{item.desc}}</h5>
+                                <input ng-if="item.value !== ''" ng-model="item.value" disabled>
+
+                                <div class="hint">{{item.unit}}</div>
+                            </md-input-container>
+                        </md-list-item>
+                    </md-list>
+                </md-card>
+            </md-tab-body>
+        </md-tab>
+
+    </md-tabs>
 </md-content>

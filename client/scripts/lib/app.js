@@ -10,28 +10,24 @@ angular
         'mdPickers',
         'ui.calendar',
         'ngMessages'
-
     ])
     .config(function ($mdThemingProvider) {
-
-             $mdThemingProvider.theme('default')
-    .primaryPalette('blue')
-    .accentPalette('pink');
-
+        $mdThemingProvider.theme('default')
+            .primaryPalette('blue')
+            .accentPalette('pink');
     }).run(function ($rootScope, $state) {
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-            // We can catch the error thrown when the $requireUser promise is rejected
-            // and redirect the user back to the main page
-            if (error === 'AUTH_REQUIRED') {
+              if (error === 'AUTH_REQUIRED') {
                 $state.go('app.patients');
             }
         });
-        
+        $rootScope.$on('$stateChangeStart',
+            function (event, toState, toParams, fromState, fromParams) {
+                $rootScope.state = toState;
+            });
     });
 
-
 angular.element(document).ready(onReady);
-
 
 function onReady() {
     angular.bootstrap(document, ['Metis']);

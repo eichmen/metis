@@ -1,48 +1,64 @@
 <md-content layout-padding>
 
-   <div layout-padding layout="row" flex>
-        <md-input-container>
-            <label translate>Search</label>
-            <input type="text" ng-model="query.search"/>
-        </md-input-container>
-       <md-input-container>
-           <label translate>Group</label>
-           <md-select ng-model="query.group">
-               <md-option value=""><translate>All</translate></md-option>
-               <md-option ng-repeat="group in foodGroups" value="{{group}}">
-                   {{group | translate}}
-               </md-option>
-           </md-select>
-       </md-input-container>
-    </div>
+    <md-card layout-padding>
+        <div layout-padding layout="row" flex>
+            <md-input-container flex>
+                <label translate>Search</label>
+                <input type="text" ng-model="query.search"/>
+            </md-input-container>
+            <md-input-container flex>
+                <label translate>Group</label>
+                <md-select ng-model="query.group">
+                    <md-option value="">
+                        <translate>All</translate>
+                    </md-option>
+                    <md-option ng-repeat="group in foodGroups" value="{{group}}">
+                        {{group | translate}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+    </md-card>
 
-    <md-data-table-container id="table-ingredients">
-        <table md-data-table md-row-select="selected" md-progress="deferred">
-            <thead md-order="query.order" md-trigger="onOrderChange">
-            <tr>
-                <th name="Ingredient" order-by="nomenclature.english.shrtDesc"><translate>Ingredient</translate></th>
-                <th name="Group" translate>Group</th>
-                <th numeric unit="kcal/100g" order-by="proximates.energKcal.value" name="Kcal"><translate>Kcal</translate></th>
-                <th numeric unit="g/100g" order-by="proximates.protein.value" name="Protein"><translate>Protein</translate></th>
-                <th numeric unit="g/100g" order-by="proximates.lipidTot.value" name="Lipid Total"><translate>Lipids Total</translate></th>
-                <th numeric unit="g/100g" order-by="proximates.carbohydrt.value" name="Carbohydrt"><translate>Carbohydrat</translate></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr md-auto-select ng-repeat="ingredient in ingredients" ng-click="enter(ingredient)">
-                <td>{{ingredient.nomenclature.english.shrtDesc}}</td>
-                <td translate>{{ingredient.nomenclature.english.foodGroup | translate}}</td>
-                <td>{{ingredient.proximates.energKcal.value}}</td>
-                <td>{{ingredient.proximates.protein.value}}</td>
-                <td>{{ingredient.proximates.lipidTot.value}}</td>
-                <td>{{ingredient.proximates.carbohydrt.value}}</td>
-            </tr>
-            </tbody>
-        </table>
-    </md-data-table-container>
-    <md-data-table-pagination md-limit="query.perPage"
-                              md-page="query.page"
-                              md-total="{{ingredientsCount.count}}"
-                              md-trigger="onPaginationChange"></md-data-table-pagination>
+    <md-card layout-padding>
+        <md-data-table-container id="table-ingredients">
+            <table md-data-table md-row-select="selected" md-progress="deferred">
+                <thead md-order="query.order" md-trigger="onOrderChange">
+                <tr>
+                    <th name="Ingredient" order-by="nomenclature.english.shrtDesc">
+                        <translate>Ingredient</translate>
+                    </th>
+                    <th name="Group" translate>Group</th>
+                    <th numeric unit="kcal/100g" order-by="proximates.energKcal.value" name="Kcal">
+                        <translate>Kcal</translate>
+                    </th>
+                    <th numeric unit="g/100g" order-by="proximates.protein.value" name="Protein">
+                        <translate>Protein</translate>
+                    </th>
+                    <th numeric unit="g/100g" order-by="proximates.lipidTot.value" name="Lipid Total">
+                        <translate>Lipids Total</translate>
+                    </th>
+                    <th numeric unit="g/100g" order-by="proximates.carbohydrt.value" name="Carbohydrt">
+                        <translate>Carbohydrat</translate>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr md-auto-select ng-repeat="ingredient in ingredients" ng-click="enter(ingredient)">
+                    <td>{{ingredient.nomenclature.english.shrtDesc}}</td>
+                    <td translate>{{ingredient.nomenclature.english.foodGroup | translate}}</td>
+                    <td>{{ingredient.proximates.energKcal.value}}</td>
+                    <td>{{ingredient.proximates.protein.value}}</td>
+                    <td>{{ingredient.proximates.lipidTot.value}}</td>
+                    <td>{{ingredient.proximates.carbohydrt.value}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-data-table-container>
+        <md-data-table-pagination md-limit="query.perPage"
+                                  md-page="query.page"
+                                  md-total="{{ingredientsCount.count}}"
+                                  md-trigger="onPaginationChange"></md-data-table-pagination>
+    </md-card>
 
 </md-content>

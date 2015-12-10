@@ -27,9 +27,6 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: 'client/templates/patients/patients.html',
             controller: 'PatientsCtrl',
             data: {
-                title: 'Patients'
-            },
-            data: {
                 label: 'Patients'
             }
         })

@@ -2,7 +2,7 @@ angular
     .module('Metis')
     .controller('SettingsCtrl', SettingsCtrl);
 
-function SettingsCtrl ($scope,$meteor,$state, gettextCatalog) {
+function SettingsCtrl ($scope,$meteor,$state,translatorService) {
 
     $scope.hasIngredients = true;
     $scope.loadedIngredients = false;
@@ -12,6 +12,9 @@ function SettingsCtrl ($scope,$meteor,$state, gettextCatalog) {
     $scope.loadIngredients = loadIngredients;
     $scope.logout = logout;
     $scope.setLanguage = setLanguage;
+
+    $scope.ENGLISH = translatorService.ENGLISH;
+    $scope.SPANISH = translatorService.SPANISH;
 
     function checkIngredients() {
         $meteor.call('checkIngredients').then(
@@ -41,15 +44,7 @@ function SettingsCtrl ($scope,$meteor,$state, gettextCatalog) {
     }
 
     function setLanguage(language) {
-        if(language === 'es') {
-            console.log('Setting spanish');
-            gettextCatalog.setCurrentLanguage('es_ES');
-            Meteor.users.update({_id : Meteor.userId()}, {$set: {'profile.language': 'spanish'}});
-        } else {
-            console.log('Setting english');
-            gettextCatalog.setCurrentLanguage('en_US');
-            Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.language': 'english'}});
-        }
+        translatorService.setLanguage(language);
     }
 
     function logout() {

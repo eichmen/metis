@@ -9,7 +9,7 @@ function IngredientsCtrl ($scope,$meteor,$state, $stateParams) {
     $scope.query = {
         page: 1,
         perPage: 5,
-        order: 'nomenclature.english.shrtDesc',
+        order: 'nomenclature.english.desc',
         orderProperty: 1,
         search: '',
         sort: {
@@ -79,7 +79,7 @@ function IngredientsCtrl ($scope,$meteor,$state, $stateParams) {
                 skip: (parseInt($scope.getReactively('query.page')) - 1) * parseInt($scope.getReactively('query.perPage')),
                 sort: $scope.getReactively('query.sort'),
                 fields: {
-                        'nomenclature.english.shrtDesc' : 1,
+                        'nomenclature.english.desc' : 1,
                         'nomenclature.english.foodGroup': 1,
                         'proximates.energKcal.value': 1,
                         'proximates.protein.value': 1,
@@ -94,7 +94,7 @@ function IngredientsCtrl ($scope,$meteor,$state, $stateParams) {
     });
 
     function enter(ingredient) {
-        console.log('Ingredient to show: ' + ingredient.nomenclature.english.shrtDesc);
+        console.log('Ingredient to show: ' + ingredient.nomenclature.english.desc);
         $state.go('app.ingredientDetails', {ingredientId: ingredient._id});
     }
 

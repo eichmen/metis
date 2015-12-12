@@ -25,7 +25,7 @@
             <table md-data-table md-row-select="selected" md-progress="deferred">
                 <thead md-order="query.order" md-trigger="onOrderChange">
                 <tr>
-                    <th name="Ingredient" order-by="nomenclature.english.shrtDesc">
+                    <th name="Ingredient" order-by="nomenclature.english.desc">
                         <translate>Ingredient</translate>
                     </th>
                     <th name="Group" translate>Group</th>
@@ -45,7 +45,7 @@
                 </thead>
                 <tbody>
                 <tr md-auto-select ng-repeat="ingredient in ingredients" ng-click="enter(ingredient)">
-                    <td>{{ingredient.nomenclature.english.shrtDesc}}</td>
+                    <td>{{ingredient.nomenclature.english.desc}}</td>
                     <td translate>{{ingredient.nomenclature.english.foodGroup | translate}}</td>
                     <td>{{ingredient.proximates.energKcal.value}}</td>
                     <td>{{ingredient.proximates.protein.value}}</td>

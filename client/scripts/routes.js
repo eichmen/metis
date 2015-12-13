@@ -133,7 +133,7 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: 'client/templates/settings.html',
             controller: 'SettingsCtrl',
             data: {
-                label: 'Setttings'
+                label: 'Settings'
             }
         })
     ;

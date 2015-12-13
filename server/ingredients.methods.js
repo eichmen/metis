@@ -1,14 +1,19 @@
-Meteor.publish("ingredients", function (options,searchString, groupFood) {
+Meteor.publish("ingredients", function (options,searchString, groupFood, language) {
 
     if (searchString == null) {
         searchString = '';
     }
 
-    var query = {
-        'nomenclature.english.shrtDesc' : { '$regex' : '.*' + searchString || '' + '.*', '$options' : 'i' }
-    };
-
-    console.log('groupFood: ' + groupFood);
+    let query = {};
+    if(language == 'spanish') {
+        query = {
+            'nomenclature.spanish.desc' : { '$regex' : '.*' + searchString || '' + '.*', '$options' : 'i' }
+        };
+    } else {
+        query = {
+            'nomenclature.english.desc' : { '$regex' : '.*' + searchString || '' + '.*', '$options' : 'i' }
+        };
+    }
 
     if (groupFood !== null && groupFood !== '') {
         query['nomenclature.english.foodGroup'] = groupFood;
@@ -22,8 +27,6 @@ Meteor.publish("ingredients", function (options,searchString, groupFood) {
     Counts.publish(this, 'numberOfIngredients', Ingredients.find(query),
         { noReady: true });
 
-
-    console.log('Searching string:' +searchString);
     return Ingredients.find(query,options);
 });
 

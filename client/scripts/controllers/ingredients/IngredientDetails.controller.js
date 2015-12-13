@@ -2,12 +2,13 @@ angular
     .module('Metis')
     .controller('IngredientDetailsCtrl', IngredientDetailsCtrl);
 
-function IngredientDetailsCtrl($scope, $meteor, $state, $stateParams) {
+function IngredientDetailsCtrl($scope, $meteor, $state, $stateParams, translatorService) {
 
 
 
     $scope.ingredientId = $stateParams.ingredientId;
     $scope.previousSearchInList = $stateParams.query;
+    $scope.currentLanguage = translatorService.getLanguage();
 
     $scope.$meteorAutorun(function () {
         $scope.$meteorSubscribe('ingredient-details', $scope.getReactively('ingredientId'));

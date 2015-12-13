@@ -45,8 +45,7 @@
                 </thead>
                 <tbody>
                 <tr md-auto-select ng-repeat="ingredient in ingredients" ng-click="enter(ingredient)">
-                    <td ng-if="currentLanguage === 'english'">{{ingredient.nomenclature.english.desc}}</td>
-                    <td ng-if="currentLanguage === 'spanish'">{{ingredient.nomenclature.spanish.desc}}</td>
+                    <td>{{ingredient.nomenclature[currentLanguage].desc}}</td>
                     <td>{{ingredient.nomenclature.english.foodGroup | translate}}</td>
                     <td>{{ingredient.proximates.energKcal.value}}</td>
                     <td>{{ingredient.proximates.protein.value}}</td>

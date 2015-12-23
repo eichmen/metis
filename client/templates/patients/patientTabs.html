@@ -1,25 +1,26 @@
 <md-content class="md-padding">
     <md-card>
-    <div layout="row" ng-if="patient._id != null">
-        <div flex-10 layout-margin layout-padding class="ng-cloak">
-            <img class="metis-avatar" ng-src="{{patient.photo}}" style="max-width: 100px;">
-        </div>
-        <div flex layout="column">
-            <h1 flex style="color:#03a9f4;margin-bottom:0px;">{{patient.name}}</h1>
-            <h4 flex style="color:#03a9f4;margin-bottom:0px;">{{patient.location}}</h4>
-        </div>
-        <div flex layout="row" layout-align="end">
-            <md-button class="md-fab" aria-label="Age">
-                <md-tooltip md-direction="top" md-visible="tooltipVisible">Years Old</md-tooltip>
-                <h2 class="age-text">{{::patient.birthdate | ageFilter}}</h2>
-            </md-button>
+        <div layout="row" ng-if="patient._id != null">
+            <div flex-10 layout-margin layout-padding class="ng-cloak">
+                <img class="metis-avatar" ng-src="{{patient.photo}}" style="max-width: 100px;">
+            </div>
+            <div flex layout="column">
+                <h1 flex style="color:#03a9f4;margin-bottom:0px;">{{patient.name}}</h1>
+                <h4 flex style="color:#03a9f4;margin-bottom:0px;">{{patient.location}}</h4>
+            </div>
+            <div flex layout="row" layout-align="end">
+                <md-button class="md-fab" aria-label="Age">
+                    <md-tooltip md-direction="top" md-visible="tooltipVisible">Years Old</md-tooltip>
+                    <h2 class="age-text">{{::patient.birthdate | ageFilter}}</h2>
+                </md-button>
+
+            </div>
 
         </div>
-
-    </div>
     </md-card>
 
-    <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+    <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab"
+             md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
 
         <md-tab id="consultations">
             <md-tab-label>Consultations</md-tab-label>
@@ -35,34 +36,41 @@
                         </md-fab-trigger>
                         <md-toolbar>
                             <md-fab-actions class="md-toolbar-tools">
-                                <md-button class="md-raised md-accent" ng-click="newConsultation()"><translate>New Consultation</translate></md-button>
-                                <md-button class="md-raised md-accent"><translate>New Instruction</translate></md-button>
+                                <md-button class="md-raised md-accent" ng-click="newConsultation()">
+                                    <translate>New Consultation</translate>
+                                </md-button>
+                                <md-button class="md-raised md-accent">
+                                    <translate>New Instruction</translate>
+                                </md-button>
                             </md-fab-actions>
                         </md-toolbar>
                     </md-fab-toolbar>
 
-                       <md-data-table-container id="table-consultations">
-                            <table md-data-table md-row-select="selected" >
-                                <thead md-order="query.order" md-trigger="onOrderChange">
-                                <tr>
-                                    <th name="Date" order-by="date"><translate>Date</translate></th>
-                                    <th name="Observations">Observations</th>
-                                 </tr>
-                                </thead>
-                                <tbody>
-                                <tr md-auto-select ng-repeat="consultation in consultations" ng-click="editConsultation(consultation)">
-                                    <td>{{consultation.date | date:"MM/dd/yyyy"}}</td>
-                                    <td>{{consultation.observations}}</td>
-                                 </tr>
-                                </tbody>
-                            </table>
-                        </md-data-table-container>
-                        <md-data-table-pagination md-limit="query.perPage"
-                                                  md-page="query.page"
-                                                  md-total="{{consultCount.count}}"
-                                                  md-trigger="onPaginationChange">
+                    <md-data-table-container id="table-consultations">
+                        <table md-data-table md-row-select="selected">
+                            <thead md-order="query.order" md-trigger="onOrderChange">
+                            <tr>
+                                <th name="Date" order-by="date">
+                                    <translate>Date</translate>
+                                </th>
+                                <th name="Observations">Observations</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr md-auto-select ng-repeat="consultation in consultations"
+                                ng-click="editConsultation(consultation)">
+                                <td>{{consultation.date | date:"MM/dd/yyyy"}}</td>
+                                <td>{{consultation.observations}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </md-data-table-container>
+                    <md-data-table-pagination md-limit="query.perPage"
+                                              md-page="query.page"
+                                              md-total="{{consultCount.count}}"
+                                              md-trigger="onPaginationChange">
 
-                        </md-data-table-pagination>
+                    </md-data-table-pagination>
 
                 </md-card>
             </md-tab-body>
@@ -72,77 +80,87 @@
         <md-tab id="general">
             <md-tab-label>General Data</md-tab-label>
             <md-tab-body class="md-margin">
-            <md-card>
-                <form name="generalForm" novalidate style="padding-top:20px">
-                <div layout="row" layout-padding layout-margin layout-fill>
-                    <md-input-container flex="33" class="md-icon-float md-block">
-                        <label>First Name</label>
-                        <ng-md-icon icon="person" style="fill:#082D3F"></ng-md-icon> 
-                        <input ng-model="patient.name" name="name" required >
-                        <div ng-messages="generalForm.name.$error">
-                          <div ng-message="required">Name is required.</div>
-                          <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                <md-card>
+                    <form name="generalForm" novalidate style="padding-top:20px">
+                        <div layout="row" layout-padding layout-margin layout-fill>
+                            <md-input-container flex="33" class="md-icon-float md-block">
+                                <label>First Name</label>
+                                <ng-md-icon icon="person" style="fill:#082D3F"></ng-md-icon>
+                                <input ng-model="patient.name" name="name" required>
+
+                                <div ng-messages="generalForm.name.$error" ng-if="generalForm.name.$touched">
+                                    <div ng-message="required">Name is required.</div>
+                                    <div ng-message="md-maxlength">The name has to be less than 30 characters long.
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container flex="33">
+                                <label>Last Name</label>
+                                <input ng-model="patient.lastname" name="lastname" required>
+
+                                <div ng-messages="generalForm.lastname.$error" ng-if="generalForm.lastname.$touched">
+                                    <div ng-message="required">Last Name is required.</div>
+                                    <div ng-message="md-maxlength">The last name has to be less than 30 characters
+                                        long.
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Gender</label>
+                                <md-select ng-model="patient.gender" name="gender" required>
+                                    <md-option ng-repeat="gender in genderList" value="{{gender}}">
+                                        {{gender}}
+                                    </md-option>
+                                </md-select>
+                                <div ng-messages="generalForm.gender.$error" ng-if="generalForm.gender.$touched">
+                                    <div ng-message="required">Gender is required.</div>
+                                </div>
+                            </md-input-container>
                         </div>
-                    </md-input-container>
-                    <md-input-container flex="33">
-                        <label>Last Name</label>
-                        <input ng-model="patient.lastname" name="lastname" required >
-                        <div ng-messages="generalForm.lastname.$error">
-                          <div ng-message="required">Last Name is required.</div>
-                          <div ng-message="md-maxlength">The last name has to be less than 30 characters long.</div>
+                        <div layout="row" layout-padding layout-margin layout-fill>
+                            <md-input-container flex="33" class="md-icon-float md-block">
+                                <label>Birthdate</label>
+                                <ng-md-icon icon="event" style="fill:#082D3F"></ng-md-icon>
+                                <input type="date" ng-model="patient.birthdate">
+                            </md-input-container>
+                            <md-input-container flex="33">
+                                <label>RegisterDate</label>
+                                <input type="date" ng-model="patient.registerDate">
+                            </md-input-container>
                         </div>
-                    </md-input-container>
-                    <md-input-container>
-                        <label>Gender</label>
-                        <md-select ng-model="patient.gender" name="gender" required >
-                            <md-option ng-repeat="gender in genderList" value="{{gender}}">
-                                {{gender}}
-                            </md-option>
-                        </md-select>
-                        <div ng-messages="generalForm.gender.$error">
-                          <div ng-message="required">Gender is required.</div>
+                        <div layout="row" layout-padding layout-margin layout-fill>
+                            <md-input-container class="md-icon-float md-block">
+                                <label>Phone Number</label>
+                                <ng-md-icon icon="phone" style="fill:#082D3F"></ng-md-icon>
+                                <input ng-model="patient.phone" name="phone" type="number" required>
+
+                                <div ng-messages="generalForm.phone.$error" ng-if="generalForm.phone.$touched">
+                                    <div ng-message="required">Phone number is required.</div>
+                                </div>
+                            </md-input-container>
                         </div>
-                    </md-input-container>
-                </div>
-                <div layout="row" layout-padding layout-margin layout-fill>
-                    <md-input-container flex="33" class="md-icon-float md-block">
-                        <label>Birthdate</label>
-                        <ng-md-icon icon="event" style="fill:#082D3F"></ng-md-icon> 
-                        <input type="date" ng-model="patient.birthdate" >
-                    </md-input-container>
-                    <md-input-container flex="33">
-                        <label>RegisterDate</label>
-                        <input type="date" ng-model="patient.registerDate" >
-                    </md-input-container>
-                </div>
-                <div layout="row" layout-padding layout-margin layout-fill>
-                    <md-input-container class="md-icon-float md-block">
-                        <label>Phone Number</label>
-                        <ng-md-icon icon="phone" style="fill:#082D3F"></ng-md-icon>
-                        <input ng-model="patient.phone" name="phone" type="number" required>
-                        <div ng-messages="generalForm.phone.$error">
-                          <div ng-message="required">Phone number is required.</div>
+                        <div layout="row" layout-padding layout-margin layout-fill>
+                            <md-input-container class="md-icon-float md-block">
+                                <label>Email</label>
+                                <ng-md-icon icon="email" style="fill:#082D3F"></ng-md-icon>
+                                <input required ng-model="patient.email" type="email" name="emailField"
+                                       minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+
+                                <div ng-messages="generalForm.emailField.$error"
+                                     ng-if="generalForm.emailField.$touched">
+                                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                        Your email must be between 10 and 100 characters long and look like an e-mail
+                                        address.
+                                    </div>
+                                </div>
+                            </md-input-container>
                         </div>
-                    </md-input-container>
-                </div>
-                <div layout="row" layout-padding layout-margin layout-fill>
-                    <md-input-container class="md-icon-float md-block">
-                        <label>Email</label>
-                        <ng-md-icon icon="email" style="fill:#082D3F"></ng-md-icon>
-                        <input required ng-model="patient.email" type="email" name="emailField"
-                        minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" >
-                        <div ng-messages="generalForm.emailField.$error">
-                          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                            Your email must be between 10 and 100 characters long and look like an e-mail address.
-                          </div>
+                        <div layout="row" layout-align="end">
+                            <md-button type="submit" ng-disabled="generalForm.$invalid"
+                                       ng-click="updatePatientGeneral()" class="md-raised md-primary">Save
+                            </md-button>
                         </div>
-                    </md-input-container>
-                </div>
-                <div layout="row" layout-align="end">
-                    <md-button type="submit" ng-disabled="generalForm.$invalid" 
-                    ng-click="updatePatientGeneral()" class="md-raised md-primary">Save</md-button>
-                </div>
-                </form>
+                    </form>
                 </md-card>
             </md-tab-body>
         </md-tab>
@@ -158,7 +176,132 @@
         </md-tab>
         <md-tab id="alimentaryHabits">
             <md-tab-label>Alimentary Habits</md-tab-label>
-            <md-tab-body>
+            <md-tab-body layout="row">
+                <div flex="100" flex-sm="100" flex-xs="100" layout="column">
+                    <md-card>
+                        <md-toolbar>
+                            <div class="md-toolbar-tools">Diary Consumations</div>
+                        </md-toolbar>
+                        <div layout="column" layout-gt-sm="row" layout-padding layout-margin layout-fill>
+                            <md-input-container flex ng-repeat="item in alimentaryHabitsConstants track by $index">
+                                <md-checkbox ng-model="patient.alimentaryHabits.consumitions[item.key].active"
+                                             aria-label="{{item.label}} active">{{item.label}}</md-checkbox>
+                                <input type="time" ng-model="patient.alimentaryHabits.consumitions[item.key].time">
+                            </md-input-container>
+                        </div>
+                    </md-card>
+                </div>
+                <div flex="100" flex-sm="100" flex-xs="100" layout="row">
+                    <md-card flex-sm="50" flex-xs="100" flex="50">
+                        <md-toolbar>
+                            <div class="md-toolbar-tools">Way of eating</div>
+                        </md-toolbar>
+                        <div layout="row" layout-padding layout-margin layout-fill>
+                            <md-input-container flex="50">
+                                <label>Number of eating out in a week</label>
+                                <input type="number" ng-model="patient.alimentaryHabits.eatOutNumber">
+                            </md-input-container>
+                            <md-input-container flex="50">
+                                <label>Number of eating out by type</label>
+                                <input type="text" ng-model="patient.alimentaryHabits.eatOutResume">
+                            </md-input-container>
+                        </div>
+                        <div layout="row" layout-padding layout-margin layout-fill layout-wrap>
+                            <md-input-container flex="50">
+                                <label>Number of tupper meals in a week</label>
+                                <input type="number" ng-model="patient.alimentaryHabits.tupperNumber">
+                            </md-input-container>
+                            <md-input-container flex="50">
+                                <label>Number of tupper meals by type</label>
+                                <input type="text" ng-model="patient.alimentaryHabits.tupperResume">
+                            </md-input-container>
+                            <!-- ¿Para cuantas personas cocinas -->
+                            <md-input-container flex="50">
+                                <label>How many people do you cook for?</label>
+                                <input type="text" ng-model="patient.alimentaryHabits.numberPeopleYouCook">
+                            </md-input-container>
+
+                            <!-- ¿Picas entre horas? -->
+                            <md-input-container flex="50">
+                                <label>Do you snack?</label>
+                                <md-select ng-model="patient.alimentaryHabits.snackingState">
+                                    <md-option ng-repeat="state in snackingState" value="{{state}}">
+                                        {{state}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <!-- ¿Cuánta agua bebes al día? -->
+                            <md-input-container flex="50">
+                                <label>How many water do you drink per day?</label>
+                                <md-select ng-model="patient.alimentaryHabits.waterState">
+                                    <md-option ng-repeat="state in waterState" value="{{state}}">
+                                        {{state}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <!-- ¿Consumes bebidas alcoholicas? -->
+                            <md-input-container flex="50">
+                                <label>Do you drink alcohol?</label>
+                                <md-select ng-model="patient.alimentaryHabits.alcoholState">
+                                    <md-option ng-repeat="state in alcoholState" value="{{state}}">
+                                        {{state}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </md-card>
+
+                    <md-card flex-sm="50" flex-xs="100" flex="50">
+                        <md-toolbar>
+                            <div class="md-toolbar-tools">Way of eating</div>
+                        </md-toolbar>
+                        <div layout="row" layout-padding layout-margin layout-fill>
+                            <div layout="row" layout-padding layout-margin layout-wrap>
+                                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.microwave"
+                                           aria-label="Microwave">Do you use microwave?
+                                </md-checkbox>
+                                <!-- ¿Guardas tuppers en la nevera? -->
+                                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.fridge"
+                                           aria-label="Microwave">Do you use fridge for storing tuppers?
+                                </md-checkbox>
+
+                                <!-- ¿Cocinas para ti? -->
+                                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.cook"
+                                           aria-label="Microwave">Do you cook your own food?
+                                </md-checkbox>
+
+                                <!-- ¿Haces tú la compra? -->
+                                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.shop"
+                                           aria-label="Microwave">Do you buy your own groceries?
+                                </md-checkbox>
+
+                                <!-- ¿Tienes personas a tu cargo? -->
+                                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.dependents"
+                                           aria-label="Microwave">Do you take care of someone?
+                                </md-checkbox>
+
+                                <!-- ¿Consumes bebidas azucaradas o zumos envasados? -->
+                                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.sugarDrinks"
+                                           aria-label="Microwave">Do you drink sugared drinks or packaged juices?
+                                </md-checkbox>
+
+                                <!-- ¿Tomas cereales integrales (pasta, arroz, pan)? -->
+                                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.wholeGrain"
+                                           aria-label="Microwave">Do you eat grained cereals (pasta, rice, bread)?
+                                </md-checkbox>
+
+                                <!-- ¿Comes deprisa? -->
+                                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.fast"
+                                           aria-label="Microwave">Do you eat fast?
+                                </md-checkbox>
+
+                            </div>
+                        </div>
+                    </md-card>
+                </div>
+                <md-button class="md-raised pink" ng-click="checkModel()">Check model</md-button>
             </md-tab-body>
         </md-tab>
         <md-tab id="medicalHistory">
@@ -172,5 +315,4 @@
             </md-tab-body>
         </md-tab>
     </md-tabs>
-
 </md-content>

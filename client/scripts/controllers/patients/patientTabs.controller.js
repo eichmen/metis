@@ -4,6 +4,41 @@ angular
 
 function PatientTabsCtrl ($scope,$meteor,$state,$stateParams,$mdDialog) {
 
+    $scope.alimentaryHabitsConstants = [
+        {
+            label: 'Breakfast',
+            key: 'breakfast'
+        },
+        {
+            label: 'Midmorning',
+            key: 'midmorning'
+        },
+        {
+            label: 'Lunch',
+            key: 'lunch'
+        },
+        {
+            label: 'Afternoon snack',
+            key: 'afternoon'
+        },
+        {
+            label: 'Dinner',
+            key: 'dinner'
+        },
+        {
+            label: 'Afterdinner',
+            key: 'afterdinner'
+        }
+    ];
+
+    $scope.snackingState = ['Nunca','Alguna vez','Sí']
+    $scope.waterState = ['1L','1.5L','2L','2.5L',"3L",">3L"]
+    $scope.alcoholState = ['Nunca','1 día por semana','Todos los fines de semana','Todos los días'];
+
+    $scope.checkModel = function () {
+        console.log($scope.patient);
+    }
+
     $scope.isOpen = false;
     $scope.demo = {
         isOpen: false,

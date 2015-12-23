@@ -15,7 +15,6 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 
 angular
-angular:angular-material
 angularui:angular-ui-router
 fourseven:scss
 sebhero:angular-material-icons
@@ -37,3 +36,4 @@ angularui:ui-calendar
 planettraining:jquery-fullcalendar
 jss:flag-icon
 angular:angular-messages
+angular:angular-material

@@ -31,9 +31,13 @@ function PatientTabsCtrl ($scope,$meteor,$state,$stateParams,$mdDialog) {
         }
     ];
 
-    $scope.snackingState = ['Nunca','Alguna vez','Sí']
+    /*$scope.snackingState = ['Nunca','Alguna vez','Sí']
     $scope.waterState = ['1L','1.5L','2L','2.5L',"3L",">3L"]
-    $scope.alcoholState = ['Nunca','1 día por semana','Todos los fines de semana','Todos los días'];
+    $scope.alcoholState = ['Nunca','1 día por semana','Todos los fines de semana','Todos los días'];*/
+
+    $scope.snackingState = ['Never','Sometimes','Yes']
+    $scope.waterState = ['1L','1.5L','2L','2.5L',"3L",">3L"]
+    $scope.alcoholState = ['Never','1 day per week','Every weekend','Everyday'];
 
     $scope.checkModel = function () {
         console.log($scope.patient);

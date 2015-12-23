@@ -1,3 +1,9 @@
+$secondary-color: #082D3F;
+
+md-tabs.md-default-theme.md-primary, md-tabs.md-primary > md-tabs-wrapper {
+  background-color: $secondary-color;
+}
+
 .md-fab-48 {
 	margin-top: -24px;
 	margin-left: -24px;

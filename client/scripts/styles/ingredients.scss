@@ -1,3 +1,5 @@
+@import 'general';
+
 .hint {
   /* Position the hint */
   position: absolute;
@@ -21,5 +23,5 @@
   opacity: 1; }
 
 .ingredient-label {
-  color: #082D3F;
+  color: $secondary-color;
 }

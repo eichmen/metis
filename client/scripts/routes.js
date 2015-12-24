@@ -98,16 +98,24 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.recipes', {
             url: '/recipes',
-            templateUrl: 'client/templates/recipes.html',
+            templateUrl: 'client/templates/recipes/recipes.html',
             controller: 'RecipesCtrl',
             data: {
                 label: 'Recipes'
             }
         })
+        .state('app.recipeDetails', {
+            url: '/recipesDetails/:recipeId',
+            templateUrl: 'client/templates/recipes/recipeDetails.html',
+            controller: 'RecipeDetailsCtrl',
+            data: {
+                label: 'Recipe Details'
+            }
+        })
         .state('app.ingredients', {
             url: '/ingredients',
             templateUrl: 'client/templates/ingredients/ingredients.html',
-            controller: 'IngredientsCtrl',
+            controller: 'IngredientsCtrl as ingredients',
             data: {
                 label: 'Ingredients'
             }

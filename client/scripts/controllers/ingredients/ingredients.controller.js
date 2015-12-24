@@ -2,83 +2,99 @@ angular
     .module('Metis')
     .controller('IngredientsCtrl', IngredientsCtrl);
 
-function IngredientsCtrl ($scope,$meteor,$state, $stateParams, ingredientsService, translatorService) {
+function IngredientsCtrl($scope, $reactive, $state, ingredientsService, translatorService) {
+    let vm = this;
+    $reactive(vm).attach($scope);
 
-    $scope.selected = [];
+    vm.selected = [];
     //This is rather static, so we don´t go to database for it.
-    $scope.foodGroups = ingredientsService.FOOD_GROUPS;
+    vm.foodGroups = ingredientsService.FOOD_GROUPS;
 
-    $scope.query = {
+    vm.query = {
         page: 1,
         perPage: 5,
-        order: $scope.getReactively('descInProperLanguage'),
+        order: this.getReactively('descInProperLanguage'),
         orderProperty: 1,
         search: '',
         sort: {
-            'nomenclature.english.desc' : 1
+            'nomenclature.english.desc': 1
         },
         group: ''
-    }
-
-    $scope.descInProperLanguage = `nomenclature.${translatorService.getLanguage()}.desc`;
-    $scope.currentLanguage = translatorService.getLanguage();
-
-    $scope.enter = enter;
-
-    $scope.ingredients = $meteor.collection(function() {
-        return Ingredients.find({}, {
-            sort : $scope.getReactively('query.sort')
-        });
-    });
-
-    $scope.pageChanged = function(newPage) {
-        $scope.query.page = newPage;
     };
 
-    $scope.onOrderChange = function(order) {
+    vm.descInProperLanguage = `nomenclature.${translatorService.getLanguage()}.desc`;
+    vm.currentLanguage = translatorService.getLanguage();
+
+    vm.enter = enter;
+
+    vm.helpers({
+        ingredients: () => {
+            return Ingredients.find({}, {
+                sort: vm.getReactively('query.sort')
+            });
+        },
+        ingredientsCount: () => {
+            return Counts.get('numberOfIngredients');
+        }
+    });
+
+    vm.pageChanged = function (newPage) {
+        vm.query.page = newPage;
+    };
+
+    vm.onOrderChange = function (order) {
         let sort = {};
-        if(order.startsWith('-')) {
+        if (order.startsWith('-')) {
             sort[order.substr(1)] = -1
         } else {
             sort[order] = 1
         }
-        $scope.query.sort = sort;
+        vm.query.sort = sort;
+        console.log(order);
+        console.log(sort);
     };
 
-    $scope.$watch('query.search', function() {
-        $scope.query.page = 1;
+    vm.autorun(function () {
+        vm.getReactively('query.search');
+        vm.getReactively('query.group');
+        vm.query.page = 1;
     });
 
-    $scope.$watch('currentLanguage', function() {
+    vm.autorun(function () {
+        vm.getReactively('currentLanguage');
         let sort = {};
-        sort[$scope.descInProperLanguage] = 1;
-        $scope.query.sort = sort;
+        sort[vm.descInProperLanguage] = 1;
+        vm.query.sort = sort;
     });
 
-    $scope.$meteorAutorun(function() {
+    vm.subscribe('ingredients', () => {
 
-        let desc = $scope.getReactively('descInProperLanguage');
-        let fields = {
-            'nomenclature.english.foodGroup' : 1,
-            'proximates.energKcal.value': 1,
-            'proximates.protein.value': 1,
-            'proximates.lipidTot.value': 1,
-            'proximates.carbohydrt.value': 1
-        };
-        fields[desc] = 1;
+            console.log('Launching re-subscription');
 
-        $scope.$meteorSubscribe('ingredients', {
-                limit: parseInt($scope.getReactively('query.perPage')),
-                skip: (parseInt($scope.getReactively('query.page')) - 1) * parseInt($scope.getReactively('query.perPage')),
-                sort: $scope.getReactively('query.sort'),
-                fields: fields
-            },
-            $scope.getReactively('query.search'),
-            $scope.getReactively('query.group'),
-            $scope.getReactively('currentLanguage')).then(function(){
-                $scope.ingredientsCount = $scope.$meteorObject(Counts ,'numberOfIngredients', false);
-            });
-    });
+            let desc = vm.getReactively('descInProperLanguage');
+            let fields = {
+                'nomenclature.english.foodGroup': 1,
+                'proximates.energKcal.value': 1,
+                'proximates.protein.value': 1,
+                'proximates.lipidTot.value': 1,
+                'proximates.carbohydrt.value': 1
+            };
+            fields[desc] = 1;
+
+            return [
+                {
+                    limit: parseInt(vm.getReactively('query.perPage')),
+                    skip: (parseInt(vm.getReactively('query.page')) - 1) * parseInt(vm.getReactively('query.perPage')),
+                    sort: vm.getReactively('query.sort'),
+                    fields: fields
+                },
+                vm.getReactively('query.search'),
+                vm.getReactively('query.group'),
+                vm.getReactively('currentLanguage')
+
+            ]
+        }
+    );
 
     function enter(ingredient) {
         console.log('Ingredient to show: ' + ingredient.nomenclature.english.desc);

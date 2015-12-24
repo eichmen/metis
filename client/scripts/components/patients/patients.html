@@ -1,0 +1,53 @@
+<md-card layout-padding>
+
+    <md-data-table-toolbar ng-hide="patientList.selected.length" aria-hidden="false" class="" style="">
+        <md-input-container flex>
+            <label translate>Search</label>
+            <input type="text" ng-model="patientList.search"/>
+        </md-input-container>
+
+        <md-button class="md-fab" ng-click="patientList.createPatient()" aria-label="Add Patient">
+            <md-tooltip md-direction="top" md-visible="tooltipVisible">Add Patient</md-tooltip>
+            <ng-md-icon class="md-fab-24" icon="add" size="24"></ng-md-icon>
+        </md-button>
+    </md-data-table-toolbar>
+
+    <md-data-table-toolbar class="alternate ng-hide" ng-show="patientList.selected.length" layout-align="space-between"
+                           aria-hidden="true">
+        <div>{{patientList.selected.length}} {{patientList.selected.length > 1 ? 'items' : 'item'}} selected</div>
+
+
+        <md-button class="md-raised pink" ng-click="patientList.showConfirm($event)">Delete</md-button>
+
+    </md-data-table-toolbar>
+</md-card>
+
+<md-card layout-padding>
+    <md-data-table-container>
+        <table md-data-table md-row-select="patientList.selected" md-progress="patientList.deferred">
+            <thead md-order="patientList.query.order" md-trigger="patientList.onOrderChange">
+            <tr>
+                <th name="Photo">Photo</th>
+                <th name="Name" order-by="patient.name">Name</th>
+                <th name="Location">Location</th>
+                <th name="Public">Public</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr md-auto-select ng-repeat="patient in patientList.patients" ng-click="patientList.enter(patient)">
+                <td><img class="avatar-md-table" ng-src="{{patient.photo}}"></td>
+                <td>{{patient.name}}</td>
+                <td>{{patient.location}}</td>
+                <td>
+                    <ng-md-icon ng-show="patient.public" icon="beenhere" style="fill:#777"></ng-md-icon>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </md-data-table-container>
+    <md-data-table-pagination md-limit="patientList.perPage"
+                              md-page="patientList.page"
+                              md-total="{{patientList.patientsCount}}"
+                              md-trigger="patientList.onPaginationChange"></md-data-table-pagination>
+
+</md-card>

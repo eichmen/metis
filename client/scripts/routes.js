@@ -8,8 +8,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('login', {
             url: '/login',
-            templateUrl: 'client/templates/login.html',
-            controller: 'LoginCtrl'
+            template: '<login></login>',
         })
 
         .state('app', {
@@ -24,8 +23,7 @@ function config($stateProvider, $urlRouterProvider) {
 
         .state('app.patients', {
             url: '/patients',
-            templateUrl: 'client/templates/patients/patients.html',
-            controller: 'PatientsCtrl',
+            template: '<patient-list></patient-list>',
             data: {
                 label: 'Patients'
             }
@@ -35,8 +33,8 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: 'client/templates/patients/patientDetails.html',
             controller: 'PatientDetailsCtrl',
             resolve: {
-                "currentUser": function ($meteor) {
-                    return $meteor.requireUser();
+                "currentUser": function () {
+                    return Meteor.requireUser();
                 }
             },
             data: {

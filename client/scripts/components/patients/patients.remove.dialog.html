@@ -1,0 +1,31 @@
+<md-dialog aria-label="Delete Patient" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Delete Patient</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="nok()">
+                    <ng-md-icon icon="close"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h4>Are you sure you delete?</h4>
+
+                <div ng-repeat="patient in selected">
+                    <p>{{patient.name}}</p>
+                </div>
+            </div>
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+            <md-button class="md-warn" style="color:black" ng-click="nok()">
+                No! Sound really bad
+            </md-button>
+            <md-button class="md-raised pink" ng-click="ok()">
+                Delete
+            </md-button>
+
+        </div>
+    </form>
+</md-dialog>

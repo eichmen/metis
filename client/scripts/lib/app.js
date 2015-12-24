@@ -2,7 +2,6 @@ angular
     .module('Metis', [
         'angular-meteor',
         'ui.router',
-        'accounts.ui',
         'ngMaterial',
         'ngMdIcons',
         'gettext',

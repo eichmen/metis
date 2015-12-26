@@ -19,26 +19,26 @@
     <md-card layout-padding>
         <md-data-table-container id="table-recipes">
             <table md-data-table md-row-select="selected" md-progress="deferred">
-                <thead md-order="query.order" md-trigger="onOrderChange">
+                <thead md-order="query.order" md-trigger="recipes.onOrderChange">
                 <tr>
-                    <th name="Recipe" order-by="{{descInProperLanguage}}">
+                    <th name="Recipe" order-by="{{recipes.descInProperLanguage}}">
                         <translate>Name</translate>
                     </th>
                     <th name="Group" translate>Group</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr md-auto-select ng-repeat="recipe in recipes" ng-click="enter(recipe)">
-                    <td>{{recipe.nomenclature[currentLanguage].name}}</td>
+                <tr md-auto-select ng-repeat="recipe in recipes.recipes" ng-click="enter(recipe)">
+                    <td>{{recipe.nomenclature[recipes.currentLanguage].name}}</td>
                     <td>{{recipe.nomenclature.english.group | translate}}</td>
                 </tr>
                 </tbody>
             </table>
         </md-data-table-container>
-        <md-data-table-pagination md-limit="query.perPage"
-                                  md-page="query.page"
-                                  md-total="{{recipesCount.count}}"
-                                  md-trigger="onPaginationChange"></md-data-table-pagination>
+        <md-data-table-pagination md-limit="recipes.query.perPage"
+                                  md-page="recipes.query.page"
+                                  md-total="{{recipes.recipesCount}}"
+                                  md-trigger="recipes.onPaginationChange"></md-data-table-pagination>
     </md-card>
 
 </md-content>

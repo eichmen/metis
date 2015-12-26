@@ -6,8 +6,8 @@
                 <ng-md-icon style="fill:#082D3F" icon="local_restaurant" size="96"></ng-md-icon>
             </div>
             <div flex layout="column">
-                <h2 style="color:#03a9f4;margin-bottom:0px;">{{ingredient.nomenclature[currentLanguage].desc}}</h2>
-                <h4 style="color:#082D3F" translate>{{ingredient.nomenclature.english.foodGroup | translate}}</h4>
+                <h2 style="color:#03a9f4;margin-bottom:0px;">{{vm.ingredient.nomenclature[vm.currentLanguage].desc}}</h2>
+                <h4 style="color:#082D3F" translate>{{vm.ingredient.nomenclature.english.foodGroup | translate}}</h4>
             </div>
         </div>
     </md-card>
@@ -15,7 +15,7 @@
     <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab"
              md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
 
-        <md-tab id="proximates" ng-repeat="type in types">
+        <md-tab id="proximates" ng-repeat="type in vm.types">
             <md-tab-label>{{type.label | translate}}</md-tab-label>
             <md-tab-body>
                 <md-card layout-padding>

@@ -41,15 +41,9 @@ function config($stateProvider, $urlRouterProvider) {
                 label: 'Patient information'
             }
         })
-        .state('app.patientTabs', {
+          .state('app.patientTabs', {
             url: '/patientTabs/:patientId',
-            templateUrl: 'client/templates/patients/patientTabs.html',
-            controller: 'PatientTabsCtrl',
-            resolve: {
-                "currentUser": function ($meteor) {
-                    return $meteor.requireUser();
-                }
-            },
+            template: '<patient-tabs></patient-tabs>',
             data: {
                 label: 'Patient information'
             }

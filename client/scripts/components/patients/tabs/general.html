@@ -1,0 +1,82 @@
+<md-card>
+    <form name="generalForm" novalidate style="padding-top:20px">
+        <div layout="row" layout-padding layout-margin layout-fill>
+            <md-input-container flex="33" class="md-icon-float md-block">
+                <label>First Name</label>
+                <ng-md-icon icon="person" style="fill:#082D3F"></ng-md-icon>
+                <input ng-model="patientGeneral.patient.name" name="name" required>
+
+                <div ng-messages="generalForm.name.$error" ng-if="generalForm.name.$touched">
+                    <div ng-message="required">Name is required.</div>
+                    <div ng-message="md-maxlength">The name has to be less than 30 characters long.
+                    </div>
+                </div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>Last Name</label>
+                <input ng-model="patientGeneral.patient.lastname" name="lastname" required>
+
+                <div ng-messages="generalForm.lastname.$error" ng-if="generalForm.lastname.$touched">
+                    <div ng-message="required">Last Name is required.</div>
+                    <div ng-message="md-maxlength">The last name has to be less than 30 characters
+                        long.
+                    </div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Gender</label>
+                <md-select ng-model="patientGeneral.patient.gender" name="gender" required>
+                    <md-option ng-repeat="gender in genderList" value="{{gender}}">
+                        {{gender}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="generalForm.gender.$error" ng-if="generalForm.gender.$touched">
+                    <div ng-message="required">Gender is required.</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-padding layout-margin layout-fill>
+            <md-input-container flex="33" class="md-icon-float md-block">
+                <label>Birthdate</label>
+                <ng-md-icon icon="event" style="fill:#082D3F"></ng-md-icon>
+                <input type="date" ng-model="patientGeneral.patient.birthdate">
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>RegisterDate</label>
+                <input type="date" ng-model="patientGeneral.patient.registerDate">
+            </md-input-container>
+        </div>
+        <div layout="row" layout-padding layout-margin layout-fill>
+            <md-input-container class="md-icon-float md-block">
+                <label>Phone Number</label>
+                <ng-md-icon icon="phone" style="fill:#082D3F"></ng-md-icon>
+                <input ng-model="patientGeneral.patient.phone" name="phone" type="number" required>
+
+                <div ng-messages="generalForm.phone.$error" ng-if="generalForm.phone.$touched">
+                    <div ng-message="required">Phone number is required.</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-padding layout-margin layout-fill>
+            <md-input-container class="md-icon-float md-block">
+                <label>Email</label>
+                <ng-md-icon icon="email" style="fill:#082D3F"></ng-md-icon>
+                <input required ng-model="patientGeneral.patient.email" type="email" name="emailField"
+                       minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+
+                <div ng-messages="generalForm.emailField.$error"
+                     ng-if="generalForm.emailField.$touched">
+                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                        Your email must be between 10 and 100 characters long and look like an e-mail
+                        address.
+                    </div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="end">
+            <md-button type="submit" ng-disabled="generalForm.$invalid"
+                       ng-click="patientGeneral.update()" class="md-raised md-primary">Save
+            </md-button>
+        </div>
+    </form>
+</md-card>

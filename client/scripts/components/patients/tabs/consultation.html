@@ -1,0 +1,48 @@
+<md-card>
+    <md-fab-toolbar md-open="patientConsultations.fab.isOpen" count="patientConsultations.fab.count"
+                    md-direction="{{patientConsultations.fab.selectedDirection}}">
+        <md-fab-trigger class="align-with-text">
+            <md-button class="md-fab md-primary" aria-label="menu">
+                <md-tooltip md-direction="top" md-visible="tooltipVisible">New Elements</md-tooltip>
+                <ng-md-icon class="md-fab-24" icon="add" size="24"></ng-md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-toolbar>
+            <md-fab-actions class="md-toolbar-tools">
+                <md-button class="md-raised md-accent" ng-click="patientConsultations.newConsultation()">
+                    <translate>New Consultation</translate>
+                </md-button>
+                <md-button class="md-raised md-accent">
+                    <translate>New Instruction</translate>
+                </md-button>
+            </md-fab-actions>
+        </md-toolbar>
+    </md-fab-toolbar>
+
+    <md-data-table-container id="table-consultations">
+        <table md-data-table md-row-select="patientConsultations.selected">
+            <thead md-order="patientConsultations.query.order" md-trigger="patientConsultations.onOrderChange">
+            <tr>
+                <th name="Date" order-by="date">
+                    <translate>Date</translate>
+                </th>
+                <th name="Observations">Observations</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr md-auto-select ng-repeat="consultation in patientConsultations.consultations"
+                ng-click="editConsultation(consultation)">
+                <td>{{consultation.date | date:"MM/dd/yyyy"}}</td>
+                <td>{{consultation.observations}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </md-data-table-container>
+    <md-data-table-pagination md-limit="patientConsultations.query.perPage"
+                              md-page="patientConsultations.query.page"
+                              md-total="{{patientConsultations.consultCount}}"
+                              md-trigger="patientConsultations.onPaginationChange">
+
+    </md-data-table-pagination>
+
+</md-card>

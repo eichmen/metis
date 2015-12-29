@@ -32,6 +32,12 @@ Meteor.publish("patients", function (options,searchString) {
     },options);
 });
 
+Meteor.publish("patient-details", function (idToSearch) {
+    return Patients.find({
+        '_id' : idToSearch
+    });
+});
+
 Meteor.methods({
 
     updatePatientGeneral: function (patient) {

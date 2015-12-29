@@ -4,8 +4,8 @@ angular.module('Metis').directive('patientList', function () {
         templateUrl: 'client/scripts/components/patients/patients.html',
         controllerAs: 'patientList',
         controller: function ($scope, $reactive, $meteor, $state, $mdDialog) {
-
-            $reactive(this).attach($scope);
+            let vm = this;
+            $reactive(vm).attach($scope);
 
             this.perPage = 5;
             this.orderProperty = '1';

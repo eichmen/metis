@@ -103,8 +103,6 @@ angular.module('Metis').directive('agenda', function () {
             function showAdvanced(event, day) {
                 this.selectedEvent = event;
                 this.selectedDay = day;
-                console.log(this.selectedDay);
-                console.log(this.selectedEvent);
                 $mdDialog.show({
                     template: '<agenda-event event="event" day="day"></agenda-event>',
                     parent: angular.element(document.body),

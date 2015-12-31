@@ -2,77 +2,62 @@ angular.module('Metis').directive('agendaEvent', function () {
     return {
         restrict: 'E',
         templateUrl: 'client/scripts/components/agenda/event/event.html',
-        controllerAs: 'event',
+        controllerAs: '$scope',
         scope: {
             event:'=',
             day:'='
         },
-        controller: function ($scope, $mdDialog, $mdToast, $reactive) {
-            let vm = $reactive(this).attach($scope);
-            console.log(vm.day);
-            console.log(vm.event);
-            console.log(vm);
-            this.subscribe('agendaEvents');
+        controller: function ($scope, $mdDialog, Utils, $reactive) {
+
+            $scope.subscribe('agendaEvents');
 
             /* New event */
-            if (vm.event == null) {
+            if ($scope.event == null) {
                 this.newEvent = true;
-                vm.event = {};
-                vm.event.start = vm.day;
-                vm.event.end = vm.day;
+                $scope.event = {};
+                $scope.event.start = $scope.day;
+                $scope.event.end = $scope.day;
 
                 /* Edit event */
             } else {
-                vm.event = vm.event;
+                $scope.event = $scope.event;
             }
 
-            vm.save = save;
-            vm.update = update;
-            vm.closeDialog = closeDialog;
-            vm.removeEvent = removeEvent;
-            vm.toast = toast;
+            $scope.save = save;
+            $scope.update = update;
+            $scope.closeDialog = closeDialog;
+            $scope.removeEvent = removeEvent;
 
             function save() {
-                vm.event.owner = Meteor.userId();
-                vm.event.stick = true;
-                AgendaEvents.insert(vm.event);
+                $scope.event.owner = Meteor.userId();
+                $scope.event.stick = true;
+                AgendaEvents.insert($scope.event);
                 closeDialog();
-                toast('Event saved');
+                Utils.toast('Event saved');
             }
 
             function update() {
                 console.log('Updating event');
-                AgendaEvents.update(vm.event._id, {
+                AgendaEvents.update($scope.event._id, {
                     $set: {
-                        start: vm.event.start,
-                        end: vm.event.end
+                        start: $scope.event.start,
+                        end: $scope.event.end
                     }
                 })
                 closeDialog();
-                toast('Event updated');
+                Utils.toast('Event updated');
             }
 
             function removeEvent() {
-                AgendaEvents.remove(vm.event._id);
+                AgendaEvents.remove($scope.event._id);
                 closeDialog();
-                toast('Event removed');
+                Utils.toast('Event removed');
 
             }
 
             function closeDialog() {
                 $mdDialog.hide();
             }
-
-            function toast(message) {
-                $mdToast.show(
-                    $mdToast.simple()
-                        .content(message)
-                        .hideDelay(3000)
-                );
-
-            }
-
-
         }
     }
 })

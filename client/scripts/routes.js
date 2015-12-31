@@ -74,8 +74,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.agenda', {
             url: '/agenda',
-            templateUrl: 'client/templates/agenda.html',
-            controller: 'AgendaCtrl',
+            template: '<agenda></agenda>',
             data: {
                 label: 'Agenda'
             }

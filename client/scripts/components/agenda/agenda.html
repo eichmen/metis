@@ -1,0 +1,15 @@
+<md-content layout-padding>
+    <div layout="column" translate>
+        <div layout="row" layout-align="end">
+            <md-button class="md-raised md-primary" ng-click="agenda.changeView('agendaDay', 'metisCalendar')"><translate>Day</translate></md-button>
+            <md-button class="md-raised md-primary" ng-click="agenda.changeView('agendaWeek', 'metisCalendar')"><translate>Week</translate></md-button>
+            <md-button class="md-raised md-primary" ng-click="agenda.changeView('month', 'metisCalendar')"><translate>Month</translate></md-button>
+        </div>
+        <div layout="row" >
+            <div ui-calendar="agenda.uiConfig.calendar"
+                 class="span8 calendar"
+                 calendar="metisCalendar"
+                 ng-model="agenda.eventSources"></div>
+        </div>
+    </div>
+</md-content>

@@ -96,8 +96,7 @@ function config($stateProvider, $urlRouterProvider) {
         })
         .state('app.recipeDetails', {
             url: '/recipesDetails/:recipeId',
-            templateUrl: 'client/templates/recipes/recipeDetails.html',
-            controller: 'RecipeDetailsCtrl',
+            template: '<recipe></recipe>',
             data: {
                 label: 'Recipe Details'
             }

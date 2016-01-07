@@ -17,6 +17,12 @@ Meteor.publish("recipes", function (options,searchString) {
     },options);
 });
 
+Meteor.publish("recipe-details", function (idToSearch) {
+    return Recipes.find({
+        '_id' : idToSearch
+    });
+});
+
 Meteor.methods({
 
     insertRecipe: function (recipe) {

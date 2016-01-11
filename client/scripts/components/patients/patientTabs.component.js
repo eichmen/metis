@@ -21,11 +21,16 @@ angular.module('Metis').directive('patientTabs', function () {
             });
 
             this.save = save;
+            this.check = check;
+
+            function check() {
+                console.log(this.patient);
+            }
 
             function save() {
                 Meteor.call('updatePatientGeneral', this.patient, Meteor.userId(), function (error, result) {
                     if (error) {
-                        console.log('failed', err);
+                        console.log('failed', error);
                     } else {
                         console.log('success updatePatientGeneral');
                         toast('General information updated');

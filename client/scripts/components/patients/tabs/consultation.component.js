@@ -1,5 +1,8 @@
 angular.module('Metis').directive('patientConsultations', function () {
     return {
+        scope: {
+            patient: "="
+        },
         restrict: 'E',
         templateUrl: 'client/scripts/components/patients/tabs/consultation.html',
         controllerAs: 'patientConsultations',

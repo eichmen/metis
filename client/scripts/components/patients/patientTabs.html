@@ -19,6 +19,9 @@
                 <md-button type="submit" style="height:36px"
                            ng-click="patientTabs.save()" class="md-raised md-primary">Save
                 </md-button>
+                <md-button type="submit" style="height:36px"
+                           ng-click="patientTabs.check()" class="md-raised md-primary">Check
+                </md-button>
             </div>
         </div>
 
@@ -54,22 +57,23 @@
         </md-tab>
 
         <md-tab id="anthropometric">
-            <md-tab-label>Anthropometric</md-tab-label>
+            <md-tab-label>Anthropometric</md-tab-label>anthropometric
             <md-tab-body>
+                <anthropometric patient="patientTabs.patient"></anthropometric>
             </md-tab-body>
         </md-tab>
 
         <md-tab id="generalHabits">
             <md-tab-label>General Habits</md-tab-label>
             <md-tab-body>
-                <patient-general-habits></patient-general-habits>
+                <patient-general-habits patient="patientTabs.patient"></patient-general-habits>
             </md-tab-body>
         </md-tab>
 
         <md-tab id="alimentaryHabits">
             <md-tab-label>Alimentary Habits</md-tab-label>
             <md-tab-body layout="row">
-                <patient-alimentary></patient-alimentary>
+                <patient-alimentary patient="patientTabs.patient"></patient-alimentary>
             </md-tab-body>
         </md-tab>
 

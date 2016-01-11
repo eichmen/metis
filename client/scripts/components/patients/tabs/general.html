@@ -77,7 +77,7 @@
         <div layout="row" layout-padding layout-margin layout-fill>
             <md-input-container flex="33">
                 <label>Children</label>
-                <md-select ng-model="patientGeneral.patient.children" name="children" required>
+                <md-select ng-model="patient.children" name="children" required>
                     <md-option ng-repeat="item in children" value="{{item}}">
                         {{item}}
                     </md-option>
@@ -88,7 +88,7 @@
             </md-input-container>
             <md-input-container flex="33">
                 <label>Work Shift</label>
-                <md-select ng-model="patientGeneral.patient.workShift" name="workShift" required>
+                <md-select ng-model="patient.workShift" name="workShift" required>
                     <md-option ng-repeat="item in workShift" value="{{item}}">
                         {{item}}
                     </md-option>
@@ -103,7 +103,7 @@
             <md-input-container flex="33">
                 <label>Profession</label>
 
-                <input ng-model="patientGeneral.patient.profession" name="profession" required>
+                <input ng-model="patient.profession" name="profession" required>
 
                 <div ng-messages="generalForm.profession.$error" ng-if="generalForm.profession.$touched">
                     <div ng-message="required">Profession is required.</div>
@@ -111,7 +111,7 @@
             </md-input-container>
             <md-input-container flex="33">
                 <label>Work Type</label>
-                <md-select ng-model="patientGeneral.patient.workType" name="workType" required>
+                <md-select ng-model="patient.workType" name="workType" required>
                     <md-option ng-repeat="item in workType" value="{{item}}">
                         {{item}}
                     </md-option>
@@ -120,12 +120,6 @@
                     <div ng-message="required">Work Type is required.</div>
                 </div>
             </md-input-container>
-        </div>
-
-        <div layout="row" layout-align="end">
-            <md-button type="submit" ng-disabled="generalForm.$invalid"
-                       ng-click="update()" class="md-raised md-primary">Save
-            </md-button>
         </div>
     </form>
 </md-card>

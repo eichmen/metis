@@ -3,7 +3,7 @@
         <div layout="column" layout-padding layout-margin layout-fill>
             <md-input-container>
                 <label>Smoker</label>
-                <md-select ng-model="patientGeneral.patient.smoker" name="smoker" required>
+                <md-select ng-model="patient.generalHabits.smoker" name="smoker" required>
                     <md-option ng-repeat="item in smoker" value="{{item}}">
                         {{item}}
                     </md-option>
@@ -14,7 +14,7 @@
             </md-input-container>
             <md-input-container>
                 <label>Physical Activity</label>
-                <md-select ng-model="patientGeneral.patient.physicalActivity" name="physicalActivity" required>
+                <md-select ng-model="patient.generalHabits.physicalActivity" name="physicalActivity" required>
                     <md-option ng-repeat="item in physicalActivity" value="{{item}}">
                         {{item}}
                     </md-option>
@@ -25,7 +25,7 @@
             </md-input-container>
             <md-input-container>
                 <label>Pregnant</label>
-                <md-select ng-model="patientGeneral.patient.pregnant" name="pregnant" required>
+                <md-select ng-model="patient.generalHabits.pregnant" name="pregnant" required>
                     <md-option ng-repeat="item in pregnant" value="{{item}}">
                         {{item}}
                     </md-option>
@@ -36,7 +36,7 @@
             </md-input-container>
             <md-input-container>
                 <label>Bread feed</label>
-                <md-select ng-model="patientGeneral.patient.breadFeed" name="breadFeed" required>
+                <md-select ng-model="patient.generalHabits.breadFeed" name="breadFeed" required>
                     <md-option ng-repeat="item in breadFeed" value="{{item}}">
                         {{item}}
                     </md-option>
@@ -47,7 +47,7 @@
             </md-input-container>
             <md-input-container>
                 <label>Tired</label>
-                <md-select ng-model="patientGeneral.patient.tired" name="tired" required>
+                <md-select ng-model="patient.generalHabits.tired" name="tired" required>
                     <md-option ng-repeat="item in tired" value="{{item}}">
                         {{item}}
                     </md-option>
@@ -58,7 +58,7 @@
             </md-input-container>
             <md-input-container>
                 <label>Sleep (hours)</label>
-                <input ng-model="patientGeneral.patient.sleepHours" name="sleepHours" type="number" required>
+                <input ng-model="patient.generalHabits.sleepHours" name="sleepHours" type="number" required>
 
                 <div ng-messages="generalHabitsForm.sleepHours.$error" ng-if="generalHabitsForm.sleepHours.$touched">
                     <div ng-message="required">Sleep (hours) is required.</div>

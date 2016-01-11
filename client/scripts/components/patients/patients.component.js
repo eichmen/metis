@@ -72,7 +72,7 @@ angular.module('Metis').directive('patientList', function () {
             }
 
             function createPatient() {
-                $state.go('app.addPatient');
+                $state.go('app.patientTabs');
             }
 
 

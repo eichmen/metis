@@ -53,17 +53,23 @@ Meteor.methods({
         console.log(patient)
         var id = patient._id;
 
-        Patients.update({_id: id}, { 
-            $set: {
-                name: patient.name,
-                lastname: patient.lastname,
-                gender: patient.gender,
-                birthdate: patient.birthdate,
-                phone: patient.phone,
-                email: patient.email,
-                owner: patient.owner
-            }
-        });
+        if (id) {
+            Patients.update({_id: id}, {
+                $set: {
+                    name: patient.name,
+                    lastname: patient.lastname,
+                    gender: patient.gender,
+                    birthdate: patient.birthdate,
+                    phone: patient.phone,
+                    email: patient.email,
+                    owner: patient.owner
+                }
+            });
+        } else {
+            Patients.insert(patient);
+        }
     }
+
+
     
 });

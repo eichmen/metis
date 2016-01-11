@@ -29,15 +29,14 @@
             <tr>
                 <th name="Photo">Photo</th>
                 <th name="Name" order-by="patient.name">Name</th>
-                <th name="Location">Location</th>
-                <th name="Public">Public</th>
+                <th name="Lastname" order-by="patient.lastname">Lastname</th>
             </tr>
             </thead>
             <tbody>
             <tr md-auto-select ng-repeat="patient in patientList.patients" ng-click="patientList.enter(patient)">
                 <td><img class="avatar-md-table" ng-src="{{patient.photo}}"></td>
                 <td>{{patient.name}}</td>
-                <td>{{patient.location}}</td>
+                <td>{{patient.lastname}}</td>
                 <td>
                     <ng-md-icon ng-show="patient.public" icon="beenhere" style="fill:#777"></ng-md-icon>
                 </td>

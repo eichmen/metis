@@ -113,6 +113,7 @@ Meteor.methods({
                 }
             });
         } else {
+            patient.registerDate= new Date();
             Patients.insert(patient);
         }
     }

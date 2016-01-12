@@ -15,13 +15,23 @@ angular.module('Metis').directive('patientTabs', function () {
 
             this.helpers({
                 patient: () => {
-                    return Patients.findOne(this.getReactively('patientId'));
+                    if (this.patientId) {
+                        return Patients.findOne(this.getReactively('patientId'));
+                    } else {
+                        return {};
+                    }
+
                 }
 
             });
 
+            if (!this.patientId) {
+                this.patient.photo = 'resources/default-avatar.png';
+            }
+
             this.save = save;
             this.check = check;
+            this.disabled = disabled;
 
             function check() {
                 console.log(this.patient);
@@ -37,6 +47,15 @@ angular.module('Metis').directive('patientTabs', function () {
                     }
                 });
             }
+
+            function disabled() {
+                if (this.patient && this.patient.name && this.patient.lastname) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
             function toast(message) {
                 $mdToast.show(
                     $mdToast.simple()

@@ -1,7 +1,7 @@
-<md-card>
-    <form name="generalForm" novalidate style="padding-top:20px">
-        <div layout="row" layout-padding layout-margin layout-fill>
-            <md-input-container flex="33" class="md-icon-float md-block">
+<div flex="100" flex-sm="100" flex-xs="100" layout="row">
+    <md-card flex-sm="50" flex-xs="100" flex="50">
+        <div layout="row" layout-padding layout-margin layout-fill layout-wrap>
+            <md-input-container flex="50" class="md-icon-float md-block">
                 <label>First Name</label>
                 <ng-md-icon icon="person" style="fill:#082D3F"></ng-md-icon>
                 <input ng-model="patient.name" name="name" required>
@@ -12,8 +12,9 @@
                     </div>
                 </div>
             </md-input-container>
-            <md-input-container flex="33">
+            <md-input-container flex="50" class="md-icon-float md-block">
                 <label>Last Name</label>
+                <ng-md-icon icon="person" style="fill:#082D3F"></ng-md-icon>
                 <input ng-model="patient.lastname" name="lastname" required>
 
                 <div ng-messages="generalForm.lastname.$error" ng-if="generalForm.lastname.$touched">
@@ -23,42 +24,7 @@
                     </div>
                 </div>
             </md-input-container>
-            <md-input-container>
-                <label>Gender</label>
-                <md-select ng-model="patient.gender" name="gender" required>
-                    <md-option ng-repeat="gender in genderList" value="{{gender}}">
-                        {{gender}}
-                    </md-option>
-                </md-select>
-                <div ng-messages="generalForm.gender.$error" ng-if="generalForm.gender.$touched">
-                    <div ng-message="required">Gender is required.</div>
-                </div>
-            </md-input-container>
-        </div>
-        <div layout="row" layout-padding layout-margin layout-fill>
-            <md-input-container flex="33" class="md-icon-float md-block">
-                <label>Birthdate</label>
-                <ng-md-icon icon="event" style="fill:#082D3F"></ng-md-icon>
-                <input type="date" ng-model="patient.birthdate">
-            </md-input-container>
-            <md-input-container flex="33">
-                <label>RegisterDate</label>
-                <input type="date" ng-model="patient.registerDate">
-            </md-input-container>
-        </div>
-        <div layout="row" layout-padding layout-margin layout-fill>
-            <md-input-container class="md-icon-float md-block">
-                <label>Phone Number</label>
-                <ng-md-icon icon="phone" style="fill:#082D3F"></ng-md-icon>
-                <input ng-model="patient.phone" name="phone" type="number" required>
-
-                <div ng-messages="generalForm.phone.$error" ng-if="generalForm.phone.$touched">
-                    <div ng-message="required">Phone number is required.</div>
-                </div>
-            </md-input-container>
-        </div>
-        <div layout="row" layout-padding layout-margin layout-fill>
-            <md-input-container class="md-icon-float md-block">
+            <md-input-container flex="50" class="md-icon-float md-block">
                 <label>Email</label>
                 <ng-md-icon icon="email" style="fill:#082D3F"></ng-md-icon>
                 <input required ng-model="patient.email" type="email" name="emailField"
@@ -72,10 +38,37 @@
                     </div>
                 </div>
             </md-input-container>
-        </div>
+            <md-input-container flex="50" class="md-icon-float md-block">
+                <label>Phone Number</label>
+                <ng-md-icon icon="phone" style="fill:#082D3F"></ng-md-icon>
+                <input ng-model="patient.phone" name="phone" type="number" required>
 
-        <div layout="row" layout-padding layout-margin layout-fill>
-            <md-input-container flex="33">
+                <div ng-messages="generalForm.phone.$error" ng-if="generalForm.phone.$touched">
+                    <div ng-message="required">Phone number is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container flex="50" class="md-icon-float md-block">
+                <label>Birthdate</label>
+                <ng-md-icon icon="event" style="fill:#082D3F"></ng-md-icon>
+                <input type="date" ng-model="patient.birthdate">
+            </md-input-container>
+            <md-input-container flex="50" class="metis-icon-mock md-block">
+                <label>Gender</label>
+                <md-select ng-model="patient.gender" name="gender" required>
+                    <md-option ng-repeat="gender in genderList" value="{{gender}}">
+                        {{gender}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="generalForm.gender.$error" ng-if="generalForm.gender.$touched">
+                    <div ng-message="required">Gender is required.</div>
+                </div>
+            </md-input-container>
+
+        </div>
+    </md-card>
+    <md-card flex-sm="50" flex-xs="100" flex="50">
+        <div layout="row" layout-padding layout-margin layout-fill layout-wrap>
+            <md-input-container flex="50" class="md-block">
                 <label>Children</label>
                 <md-select ng-model="patient.children" name="children" required>
                     <md-option ng-repeat="item in children" value="{{item}}">
@@ -86,7 +79,7 @@
                     <div ng-message="required">Children is required.</div>
                 </div>
             </md-input-container>
-            <md-input-container flex="33">
+            <md-input-container flex="50" class="md-block">
                 <label>Work Shift</label>
                 <md-select ng-model="patient.workShift" name="workShift" required>
                     <md-option ng-repeat="item in workShift" value="{{item}}">
@@ -97,10 +90,7 @@
                     <div ng-message="required">>Work Shift is required.</div>
                 </div>
             </md-input-container>
-        </div>
-
-        <div layout="row" layout-padding layout-margin layout-fill>
-            <md-input-container flex="33">
+            <md-input-container flex="50" class="md-block">
                 <label>Profession</label>
 
                 <input ng-model="patient.profession" name="profession" required>
@@ -109,7 +99,7 @@
                     <div ng-message="required">Profession is required.</div>
                 </div>
             </md-input-container>
-            <md-input-container flex="33">
+            <md-input-container flex="50" class="md-block">
                 <label>Work Type</label>
                 <md-select ng-model="patient.workType" name="workType" required>
                     <md-option ng-repeat="item in workType" value="{{item}}">
@@ -121,5 +111,5 @@
                 </div>
             </md-input-container>
         </div>
-    </form>
-</md-card>
+    </md-card>
+</div>

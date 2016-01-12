@@ -30,7 +30,7 @@ angular.module('Metis').directive('patientConsultations', function () {
                 page: 1,
 
                 sort: {
-                    date: 1
+                    date: -1
                 },
                 selected: []
             });
@@ -49,6 +49,22 @@ angular.module('Metis').directive('patientConsultations', function () {
                     this.getReactively('patientId')
                 ]
             });
+
+            this.getLastConsultation = getLastConsultation;
+
+            function getLastConsultation() {
+
+                Meteor.call('lastConsultation', this.patientId, function (error, result) {
+                    if (error) {
+                        console.log('failed', error);
+                    } else {
+                        console.log('success lastConsultation');
+                        console.log(result);
+                        $scope.result = result;
+                    }
+                });
+
+            }
 
             this.newConsultation = newConsultation;
             function newConsultation() {

@@ -19,6 +19,14 @@ Meteor.publish("consultations", function (options, patientSelected) {
 });
 
 Meteor.methods({
+
+    lastConsultation: function(patientId) {
+        console.log(patientId);
+        var result = Consultations.findOne({patientId:patientId},{fields:{date:1},sort: {date:-1}});
+        console.log(result);
+        return result;
+    },
+
     insertConsultation: function (consultation) {
         // Make sure the user is logged in before inserting a task
         if (! Meteor.userId()) {
@@ -26,6 +34,14 @@ Meteor.methods({
         }
         consultation.owner = Meteor.userId();
         Consultations.insert(consultation);
+
+        Patients.update({_id:consultation.patientId}, {
+            $set: {
+                lastConsultation: Consultations.findOne({patientId:consultation.patientId},{fields:{date:1},sort: {date:-1}})
+            }
+        });
+
+
     },
     deleteConsultation: function (consultationId) {
         Consultations.remove(consultationId);

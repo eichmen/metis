@@ -1,6 +1,6 @@
 <md-content class="md-padding">
     <md-card>
-        <div layout="row" ng-if="patientTabs.patient._id != null">
+        <div layout="row">
             <div flex-10 layout-margin layout-padding class="ng-cloak">
                 <img class="metis-avatar" ng-src="{{patientTabs.patient.photo}}" style="max-width: 100px;">
             </div>
@@ -8,31 +8,15 @@
                 <h1 flex style="color:#03a9f4;margin-bottom:0px;">{{patientTabs.patient.name}} {{patientTabs.patient.lastname}}</h1>
                 <h4 flex style="color:#03a9f4;margin-bottom:0px;">{{patientTabs.patient.location}}</h4>
             </div>
-            <!--<div flex layout="row" layout-align="end">
-                <md-button class="md-fab" aria-label="Age">
-                    <md-tooltip md-direction="top" md-visible="tooltipVisible">Years Old</md-tooltip>
-                    <h2 class="age-text">{{::patientTabs.patient.birthdate | ageFilter}}</h2>
-                </md-button>
 
-            </div>-->
             <div layout="row" layout-align="end">
                 <md-button type="submit" style="height:36px"
-                           ng-click="patientTabs.save()" class="md-raised md-primary">Save
+                           ng-click="patientTabs.save()" ng-disabled="patientTabs.disabled()" class="md-raised md-primary">Save
                 </md-button>
                 <md-button type="submit" style="height:36px"
                            ng-click="patientTabs.check()" class="md-raised md-primary">Check
                 </md-button>
             </div>
-        </div>
-
-        <div layout="row" ng-if="patientTabs.patient._id == null">
-            <div flex-10 layout-margin layout-padding class="ng-cloak">
-                <img class="metis-avatar" ng-src="https://meets.com/images/default-avatar.png" style="max-width: 100px;">
-            </div>
-            <div flex layout="column">
-                <h2>Creating new patient</h2>
-            </div>
-
         </div>
 
     </md-card>

@@ -8,13 +8,34 @@
                 </div>
 
                 <div layout-padding layout="column" flex>
-                    <md-input-container>
-                        <label translate>Name</label>
-                        <input ng-model="vm.recipe.nomenclature[vm.currentLanguage].name"
-                               ng-disabled="!!vm.readOnlyMode">
-                    </md-input-container>
 
-                    <md-chips ng-model="vm.recipe.fundamentals.tags" readonly="!!vm.readOnlyMode">
+                    <div layout="row">
+                        <md-input-container>
+                            <label translate>Name</label>
+                            <input ng-model="vm.recipe.nomenclature[vm.currentLanguage].name"
+                                   ng-disabled="!!vm.readOnlyMode">
+                        </md-input-container>
+
+                        <div layout="row" layout-align="end" style="height:36px" flex>
+                            <md-button ng-click="vm.readOnlyMode=false" ng-show="vm.readOnlyMode"
+                                       class="md-raised md-primary" translate>
+                                Edit
+                            </md-button>
+                            <md-button ng-click="vm.saveRecipe()" ng-show="!vm.readOnlyMode"
+                                       style="height:36px" class="md-raised md-primary" translate>
+                                Save
+                            </md-button>
+                            <md-button ng-click="vm.readOnlyMode=true" ng-show="!vm.readOnlyMode"
+                                       style="height:36px" class="md-raised md-primary" translate>
+                                Cancel
+                            </md-button>
+                        </div>
+                    </div>
+
+
+                    <md-chips ng-model="vm.recipe.fundamentals.tags"
+                              readonly="!!vm.readOnlyMode"
+                              placeholder="Enter a tag">
                         <md-chip-template>{{$chip | uppercase}}</md-chip-template>
                     </md-chips>
                 </div>
@@ -28,65 +49,19 @@
             <md-tab id="info">
                 <md-tab-label translate>MAIN INFO</md-tab-label>
                 <md-tab-body>
-                    <md-card layout-padding>
-
-                        <md-input-container>
-                            <label translate>Number of Servings</label>
-                            <input type="number" step="1" ng-model="vm.recipe.fundamentals.numberOfServings"
-                                   ng-disabled="!!vm.readOnlyMode">
-                        </md-input-container>
-
-                        <md-input-container>
-                            <label translate>Preparation Time</label>
-                            <input type="number" step="1"
-                                   ng-model="vm.recipe.fundamentals.preparationTimeMinutes"
-                                   ng-disabled="!!vm.readOnlyMode">
-                        </md-input-container>
-
-                        <md-input-container>
-                            <label translate>Description</label>
-                            <input ng-model="vm.recipe.nomenclature[vm.currentLanguage].desc"
-                                   ng-disabled="!!vm.readOnlyMode">
-                        </md-input-container>
-
-                    </md-card>
+                    <recipe-main-info number-of-servings="vm.recipe.fundamentals.numberOfServings"
+                                      preparation-time="vm.recipe.fundamentals.preparationTimeMinutes"
+                                      description="vm.recipe.nomenclature[vm.currentLanguage].desc"
+                                      read-only-mode="vm.readOnlyMode"></recipe-main-info>
                 </md-tab-body>
             </md-tab>
 
-            <md-tab id="info">
+            <md-tab id="ingredients">
                 <md-tab-label translate>Ingredients</md-tab-label>
                 <md-tab-body>
-                    <md-card layout-padding>
-                        <md-list layout="column" flex>
-                            <md-list-item ng-repeat="ingredient in vm.recipe.ingredients">
-                                <div layout="row" flex>
-                                    <md-input-container class="md-icon-float md-block">
-                                        <label translate>Name</label>
-                                        <ng-md-icon icon="delete" style="fill:#082D3F" ng-show="!vm.readOnlyMode"
-                                                    ng-click="vm.deleteIngredient(ingredient.id)"></ng-md-icon>
-                                        <input ng-model="ingredient.id" ng-disabled="!!vm.readOnlyMode">
-                                    </md-input-container>
-                                    <md-input-container ng-show="ingredient.unit!='x'">
-                                        <label translate>Amount</label>
-                                        <input ng-model="ingredient.amount" type="number"
-                                               ng-disabled="!!vm.readOnlyMode">
-                                    </md-input-container>
-                                    <md-input-container>
-                                        <label translate>Unit</label>
-                                        <md-select ng-model="ingredient.unit" ng-disabled="!!vm.readOnlyMode">
-                                            <md-option ng-repeat="(key, value) in vm.units" value="{{key}}">
-                                                {{value}}
-                                            </md-option>
-                                        </md-select>
-                                    </md-input-container>
-                                </div>
-                            </md-list-item>
-                            <md-list-item ng-show="!vm.readOnlyMode">
-                                <ng-md-icon icon="add_circle" style="fill:#082D3F" ng-show="!vm.readOnlyMode"
-                                            ng-click="vm.addIngredient()"></ng-md-icon>
-                            </md-list-item>
-                        </md-list>
-                    </md-card>
+                    <recipe-ingredients ingredients="vm.recipe.ingredients"
+                                        units="vm.units"
+                                        read-only-mode="vm.readOnlyMode"></recipe-ingredients>
                 </md-tab-body>
             </md-tab>
 
@@ -130,20 +105,6 @@
 
         </md-tabs>
 
-        <div layout="row" flex>
-            <md-button ng-click="vm.readOnlyMode=false" ng-show="vm.readOnlyMode"
-                       class="md-raised md-primary" translate>
-                Edit
-            </md-button>
-            <md-button ng-click="vm.saveRecipe()" ng-show="!vm.readOnlyMode"
-                       class="md-raised md-primary" translate>
-                Save
-            </md-button>
-            <md-button ng-click="vm.cancel()" ng-show="!vm.readOnlyMode"
-                       class="md-raised md-primary" translate>
-                Cancel
-            </md-button>
-        </div>
     </form>
 
 </md-content>

@@ -18,7 +18,6 @@ angular.module('Metis').directive('recipe', function () {
 
             vm.units = unitsService.UNITS;
 
-            vm.deleteIngredient = deleteIngredient;
             vm.deleteStep = deleteStep;
             vm.addStep = addStep;
 
@@ -31,12 +30,6 @@ angular.module('Metis').directive('recipe', function () {
                     return (Recipes.findOne(this.getReactively('recipeId')) || {});
                 }
             });
-
-            function deleteIngredient(ingredientId) {
-                vm.recipe.ingredients = vm.recipe.ingredients.filter(function (el) {
-                    return el.id !== ingredientId;
-                })
-            };
 
             function deleteStep(stepNumber) {
                 vm.recipe.nomenclature[vm.currentLanguage].steps =

@@ -1,0 +1,31 @@
+<md-card layout-padding>
+    <md-list layout="column" flex>
+        <md-list-item ng-repeat="ingredient in vm.ingredients">
+            <div layout="row" flex>
+                <md-input-container class="md-icon-float md-block">
+                    <label translate>Name</label>
+                    <ng-md-icon icon="delete" style="fill:#082D3F" ng-show="!vm.readOnlyMode"
+                                ng-click="vm.deleteIngredient(ingredient.id)"></ng-md-icon>
+                    <input ng-model="ingredient.id" ng-disabled="!!vm.readOnlyMode">
+                </md-input-container>
+                <md-input-container ng-show="ingredient.unit!='x'">
+                    <label translate>Amount</label>
+                    <input ng-model="ingredient.amount" type="number"
+                           ng-disabled="!!vm.readOnlyMode">
+                </md-input-container>
+                <md-input-container>
+                    <label translate>Unit</label>
+                    <md-select ng-model="ingredient.unit" ng-disabled="!!vm.readOnlyMode">
+                        <md-option ng-repeat="(key, value) in vm.units" value="{{key}}">
+                            {{value}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </md-list-item>
+        <md-list-item ng-show="!vm.readOnlyMode">
+            <ng-md-icon icon="add_circle" style="fill:#082D3F" ng-show="!vm.readOnlyMode"
+                        ng-click="vm.addIngredient()"></ng-md-icon>
+        </md-list-item>
+    </md-list>
+</md-card>

@@ -32,7 +32,10 @@ Meteor.startup(function () {
                 owner: metis._id,
                 photo: 'resources/dummy/allen.jpg',
                 email: 'allen@allen.com',
-                registerDate: new Date()
+                registerDate: new Date(),
+                generalHabits: {},
+                alimentaryHabits: {},
+                anthropometricHabits: {}
             },
             {
                 name: 'Laura',
@@ -44,7 +47,10 @@ Meteor.startup(function () {
                 photo: 'resources/dummy/laura.jpg',
                 owner: metis._id,
                 email: 'laura@laura.com',
-                registerDate: new Date()
+                registerDate: new Date(),
+                generalHabits: {},
+                alimentaryHabits: {},
+                anthropometricHabits: {}
             },
             {
                 name: 'Pepe',
@@ -56,7 +62,10 @@ Meteor.startup(function () {
                 photo: 'resources/dummy/pepe.jpg',
                 owner: metis._id,
                 email: 'pepe@pepe.com',
-                registerDate: new Date()
+                registerDate: new Date(),
+                generalHabits: {},
+                alimentaryHabits: {},
+                anthropometricHabits: {}
             },
             {
                 name: 'Robert',
@@ -68,8 +77,10 @@ Meteor.startup(function () {
                 photo: 'resources/dummy/rober.jpg',
                 owner: metis._id,
                 email: 'robert@rober.com',
-                registerDate: new Date()
-
+                registerDate: new Date(),
+                generalHabits: {},
+                alimentaryHabits: {},
+                anthropometricHabits: {}
             },
         ];
 

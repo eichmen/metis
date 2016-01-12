@@ -3,7 +3,7 @@ angular.module('Metis').directive('patientTabs', function () {
         restrict: 'E',
         templateUrl: 'client/scripts/components/patients/patientTabs.html',
         controllerAs: 'patientTabs',
-        controller: function ($scope, $reactive,$stateParams,$mdToast) {
+        controller: function ($scope, $reactive,$state,$stateParams,$mdToast) {
             $reactive(this).attach($scope);
 
             this.patientId = $stateParams.patientId;
@@ -27,6 +27,9 @@ angular.module('Metis').directive('patientTabs', function () {
 
             if (!this.patientId) {
                 this.patient.photo = 'resources/default-avatar.png';
+                $state.current.data.label='Add new Patient';
+            } else {
+                $state.current.data.label='Patient information';
             }
 
             this.save = save;

@@ -1,0 +1,69 @@
+<md-card>
+    <form name="generalHabitsForm" novalidate style="padding-top:20px">
+        <div layout="column" layout-padding layout-margin layout-fill>
+            <md-input-container>
+                <label>Smoker</label>
+                <md-select ng-model="patient.generalHabits.smoker" name="smoker" required>
+                    <md-option ng-repeat="item in smoker" value="{{item}}">
+                        {{item}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="generalHabitsForm.smoker.$error" ng-if="generalHabitsForm.smoker.$touched">
+                    <div ng-message="required">Smoker is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Physical Activity</label>
+                <md-select ng-model="patient.generalHabits.physicalActivity" name="physicalActivity" required>
+                    <md-option ng-repeat="item in physicalActivity" value="{{item}}">
+                        {{item}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="generalHabitsForm.physicalActivity.$error" ng-if="generalHabitsForm.physicalActivity.$touched">
+                    <div ng-message="required">Physical Activity is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Pregnant</label>
+                <md-select ng-model="patient.generalHabits.pregnant" name="pregnant" required>
+                    <md-option ng-repeat="item in pregnant" value="{{item}}">
+                        {{item}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="generalHabitsForm.pregnant.$error" ng-if="generalHabitsForm.pregnant.$touched">
+                    <div ng-message="required">Pregnant is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Bread feed</label>
+                <md-select ng-model="patient.generalHabits.breadFeed" name="breadFeed" required>
+                    <md-option ng-repeat="item in breadFeed" value="{{item}}">
+                        {{item}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="generalHabitsForm.breadFeed.$error" ng-if="generalHabitsForm.breadFeed.$touched">
+                    <div ng-message="required">Bread feed is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Tired</label>
+                <md-select ng-model="patient.generalHabits.tired" name="tired" required>
+                    <md-option ng-repeat="item in tired" value="{{item}}">
+                        {{item}}
+                    </md-option>
+                </md-select>
+                <div ng-messages="generalHabitsForm.tired.$error" ng-if="generalHabitsForm.tired.$touched">
+                    <div ng-message="required">Tired is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Sleep (hours)</label>
+                <input ng-model="patient.generalHabits.sleepHours" name="sleepHours" type="number" required>
+
+                <div ng-messages="generalHabitsForm.sleepHours.$error" ng-if="generalHabitsForm.sleepHours.$touched">
+                    <div ng-message="required">Sleep (hours) is required.</div>
+                </div>
+            </md-input-container>
+        </div>
+    </form>
+</md-card>

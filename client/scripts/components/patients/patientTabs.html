@@ -5,24 +5,42 @@
                 <img class="metis-avatar" ng-src="{{patientTabs.patient.photo}}" style="max-width: 100px;">
             </div>
             <div flex layout="column">
-                <h1 flex style="color:#03a9f4;margin-bottom:0px;">{{patientTabs.patient.name}}</h1>
+                <h1 flex style="color:#03a9f4;margin-bottom:0px;">{{patientTabs.patient.name}} {{patientTabs.patient.lastname}}</h1>
                 <h4 flex style="color:#03a9f4;margin-bottom:0px;">{{patientTabs.patient.location}}</h4>
             </div>
-            <div flex layout="row" layout-align="end">
+            <!--<div flex layout="row" layout-align="end">
                 <md-button class="md-fab" aria-label="Age">
                     <md-tooltip md-direction="top" md-visible="tooltipVisible">Years Old</md-tooltip>
                     <h2 class="age-text">{{::patientTabs.patient.birthdate | ageFilter}}</h2>
                 </md-button>
 
+            </div>-->
+            <div layout="row" layout-align="end">
+                <md-button type="submit" style="height:36px"
+                           ng-click="patientTabs.save()" class="md-raised md-primary">Save
+                </md-button>
+                <md-button type="submit" style="height:36px"
+                           ng-click="patientTabs.check()" class="md-raised md-primary">Check
+                </md-button>
+            </div>
+        </div>
+
+        <div layout="row" ng-if="patientTabs.patient._id == null">
+            <div flex-10 layout-margin layout-padding class="ng-cloak">
+                <img class="metis-avatar" ng-src="https://meets.com/images/default-avatar.png" style="max-width: 100px;">
+            </div>
+            <div flex layout="column">
+                <h2>Creating new patient</h2>
             </div>
 
         </div>
+
     </md-card>
 
     <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab"
              md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
 
-        <md-tab id="consultations">
+        <md-tab ng-if="patientTabs.patientId" id="consultations">
             <md-tab-label>Consultations</md-tab-label>
             <md-tab-body>
                 <patient-consultations></patient-consultations>
@@ -34,26 +52,28 @@
                 <translate>General Data</translate>
             </md-tab-label>
             <md-tab-body>
-                <patient-general></patient-general>
+                <patient-general patient="patientTabs.patient"></patient-general>
             </md-tab-body>
         </md-tab>
 
         <md-tab id="anthropometric">
-            <md-tab-label>Anthropometric</md-tab-label>
+            <md-tab-label>Anthropometric</md-tab-label>anthropometric
             <md-tab-body>
+                <anthropometric patient="patientTabs.patient"></anthropometric>
             </md-tab-body>
         </md-tab>
 
         <md-tab id="generalHabits">
             <md-tab-label>General Habits</md-tab-label>
             <md-tab-body>
+                <patient-general-habits patient="patientTabs.patient"></patient-general-habits>
             </md-tab-body>
         </md-tab>
 
         <md-tab id="alimentaryHabits">
             <md-tab-label>Alimentary Habits</md-tab-label>
             <md-tab-body layout="row">
-                <patient-alimentary></patient-alimentary>
+                <patient-alimentary patient="patientTabs.patient"></patient-alimentary>
             </md-tab-body>
         </md-tab>
 

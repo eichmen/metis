@@ -1,6 +1,6 @@
 Meteor.startup(function () {
 
-    createIndexesMongoDB();
+   createIndexesMongoDB();
 
     Patients.remove({});
     Consultations.remove({});
@@ -23,32 +23,53 @@ Meteor.startup(function () {
 
         var patients = [
             {
-                name: 'Allen B. Lopez',
+                name: 'Allen',
+                lastname: 'Lopez Fernandez',
+                gender: 'Man',
                 birthdate: new Date(1984, 0, 2),
                 location: 'Madrid',
-                photo: 'https://deaenij3kiw8r.cloudfront.net/system/users/avatars/141380/original/production-b3612f96cc66fee631be82853dd2c316-man_bartlett_bw.jpg?1369799811',
-                public: true
+                phone: 666666666,
+                owner: metis._id,
+                photo: 'resources/dummy/allen.jpg',
+                email: 'allen@allen.com',
+                registerDate: new Date()
             },
             {
-                name: 'Laura B. Red',
+                name: 'Laura',
+                lastname: 'Lena Pérez',
                 birthdate: new Date(1984, 2, 22),
                 location: 'Madrid',
-                photo: 'https://meets.com/images/default-avatar.png',
-                owner: metis._id
+                phone: 666666666,
+                gender: 'Woman',
+                photo: 'resources/dummy/laura.jpg',
+                owner: metis._id,
+                email: 'laura@laura.com',
+                registerDate: new Date()
             },
             {
-                name: 'Pepe B. Brown',
+                name: 'Pepe',
+                lastname: 'García Rico',
+                gender: 'Man',
                 birthdate: new Date(1984, 7, 12),
-                location: 'Dallas',
-                photo: 'https://meets.com/images/default-avatar.png',
-                owner: metis._id
+                location: 'Barcelona',
+                phone: 666666666,
+                photo: 'resources/dummy/pepe.jpg',
+                owner: metis._id,
+                email: 'pepe@pepe.com',
+                registerDate: new Date()
             },
             {
-                name: 'Robert Drill',
+                name: 'Robert',
+                lastname: 'Lee',
+                gender: 'Man',
                 birthdate: new Date(1980, 7, 12),
                 location: 'Boston',
-                photo: 'https://meets.com/images/default-avatar.png',
-                owner: metis._id
+                phone: 666666666,
+                photo: 'resources/dummy/rober.jpg',
+                owner: metis._id,
+                email: 'robert@rober.com',
+                registerDate: new Date()
+
             },
         ];
 
@@ -79,8 +100,10 @@ Meteor.startup(function () {
 
         Patients.find({}).forEach(patient => {
             consultations.forEach(consultation => {
-                consultation.patientId = patient._id;
-                Consultations.insert(consultation);
+                if (patient!=null && patient._id!=null) {
+                    consultation.patientId = patient._id;
+                    Consultations.insert(consultation);
+                }
             })
         });
 
@@ -91,7 +114,7 @@ Meteor.startup(function () {
                 end: new Date(2015, 11, 1, 12, 00, 0, 0),
                 owner: metis._id,
                 title: 'Robert Drill',
-                patientId: Patients.findOne({name: 'Robert Drill'})._id,
+                patientId: Patients.findOne({name: 'Allen'})._id,
                 stick: true
             },
 
@@ -100,7 +123,7 @@ Meteor.startup(function () {
                 end: new Date(2015, 11, 2, 10, 00, 0, 0),
                 owner: metis._id,
                 title: 'Pepe B. Brown',
-                patientId: Patients.findOne({name: 'Pepe B. Brown'})._id,
+                patientId: Patients.findOne({name: 'Robert'})._id,
                 stick: true
             }
         ]

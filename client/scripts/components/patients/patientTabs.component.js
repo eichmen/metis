@@ -3,10 +3,11 @@ angular.module('Metis').directive('patientTabs', function () {
         restrict: 'E',
         templateUrl: 'client/scripts/components/patients/patientTabs.html',
         controllerAs: 'patientTabs',
-        controller: function ($scope, $reactive,$stateParams) {
+        controller: function ($scope, $reactive,$stateParams,$mdToast) {
             $reactive(this).attach($scope);
 
             this.patientId = $stateParams.patientId;
+            console.log(this.patientId);
 
             this.subscribe('patient-details', () => {
                 return [this.getReactively('patientId')];
@@ -16,7 +17,35 @@ angular.module('Metis').directive('patientTabs', function () {
                 patient: () => {
                     return Patients.findOne(this.getReactively('patientId'));
                 }
+
             });
+
+            this.save = save;
+            this.check = check;
+
+            function check() {
+                console.log(this.patient);
+            }
+
+            function save() {
+                Meteor.call('updatePatientGeneral', this.patient, Meteor.userId(), function (error, result) {
+                    if (error) {
+                        console.log('failed', error);
+                    } else {
+                        console.log('success updatePatientGeneral');
+                        toast('General information updated');
+                    }
+                });
+            }
+            function toast(message) {
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content(message)
+                        .hideDelay(3000)
+                );
+
+            }
+
         }
     }
 });

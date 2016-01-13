@@ -13,13 +13,9 @@ angular.module('Metis').directive('recipe', function () {
             vm.foodGroups = ingredientsService.FOOD_GROUPS;
 
             vm.currentLanguage = translatorService.getLanguage();
-
             vm.readOnlyMode = !$stateParams.creation || false;
-
             vm.units = unitsService.UNITS;
-
-            vm.deleteStep = deleteStep;
-            vm.addStep = addStep;
+            vm.cancel = cancel;
 
             vm.subscribe('recipe-details', () => {
                 return [vm.getReactively('recipeId')];
@@ -27,30 +23,17 @@ angular.module('Metis').directive('recipe', function () {
 
             vm.helpers({
                 recipe: () => {
-                    return (Recipes.findOne(this.getReactively('recipeId')) || {});
+                    return (Recipes.findOne(vm.getReactively('recipeId')) || {});
+                },
+                recipeBackUp: () => {
+                    return (Recipes.findOne(vm.getReactively('recipeId')) || {});
                 }
             });
 
-            function deleteStep(stepNumber) {
-                vm.recipe.nomenclature[vm.currentLanguage].steps =
-                    vm.recipe.nomenclature[vm.currentLanguage].steps.filter(function (el) {
-                        return el.number !== stepNumber;
-                })
-            };
-
-            function addStep() {
-                let max = 1;
-                if(!_.isEmpty(vm.recipe.nomenclature[vm.currentLanguage].steps)) {
-                    max = _.max(vm.recipe.nomenclature[vm.currentLanguage].steps, function(step) {
-                        return step.number;
-                    }).number;
-                }
-
-                vm.recipe.nomenclature[vm.currentLanguage].steps.push({
-                    number: max+1,
-                    desc: ''
-                })
-            };
+            function cancel(){
+                vm.recipe = angular.copy(vm.recipeBackUp);
+                vm.readOnlyMode = true;
+            }
 
         }
     }

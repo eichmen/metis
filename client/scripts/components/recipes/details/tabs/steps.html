@@ -1,0 +1,22 @@
+<md-card layout-padding>
+    <md-list layout="column" flex>
+        <md-list-item
+                ng-repeat="step in vm.steps | orderBy:'number'">
+            <div layout="row" flex>
+                <ng-md-icon icon="delete" style="fill:#082D3F" ng-show="!vm.readOnlyMode"
+                            ng-click="vm.deleteStep(step.number)"></ng-md-icon>
+                <md-input-container class="md-icon-float md-block" flex>
+                    <label>
+                        <translate>Step</translate> {{$index+1}}</label>
+
+                                <textarea ng-model="step.desc" ng-disabled="!!vm.readOnlyMode" columns="1"
+                                          md-maxlength="500"></textarea>
+                </md-input-container>
+            </div>
+        </md-list-item>
+        <md-list-item ng-show="!vm.readOnlyMode">
+            <ng-md-icon icon="add_circle" style="fill:#082D3F" ng-show="!vm.readOnlyMode"
+                        ng-click="vm.addStep()"></ng-md-icon>
+        </md-list-item>
+    </md-list>
+</md-card>

@@ -25,7 +25,7 @@
                                        style="height:36px" class="md-raised md-primary" translate>
                                 Save
                             </md-button>
-                            <md-button ng-click="vm.readOnlyMode=true" ng-show="!vm.readOnlyMode"
+                            <md-button ng-click="vm.cancel()" ng-show="!vm.readOnlyMode"
                                        style="height:36px" class="md-raised md-primary" translate>
                                 Cancel
                             </md-button>
@@ -68,28 +68,8 @@
             <md-tab id="info">
                 <md-tab-label translate>Steps</md-tab-label>
                 <md-tab-body>
-                    <md-card layout-padding>
-                        <md-list layout="column" flex>
-                            <md-list-item
-                                    ng-repeat="step in vm.recipe.nomenclature[vm.currentLanguage].steps | orderBy:'number'">
-                                <div layout="row" flex>
-                                    <ng-md-icon icon="delete" style="fill:#082D3F" ng-show="!vm.readOnlyMode"
-                                                ng-click="vm.deleteStep(step.number)"></ng-md-icon>
-                                    <md-input-container class="md-icon-float md-block" flex>
-                                        <label>
-                                            <translate>Step</translate> {{$index+1}}</label>
-
-                                <textarea ng-model="step.desc" ng-disabled="!!vm.readOnlyMode" columns="1"
-                                          md-maxlength="500"></textarea>
-                                    </md-input-container>
-                                </div>
-                            </md-list-item>
-                            <md-list-item ng-show="!vm.readOnlyMode">
-                                <ng-md-icon icon="add_circle" style="fill:#082D3F" ng-show="!vm.readOnlyMode"
-                                            ng-click="vm.addStep()"></ng-md-icon>
-                            </md-list-item>
-                        </md-list>
-                    </md-card>
+                    <recipe-steps steps="vm.recipe.nomenclature[vm.currentLanguage].steps"
+                                        read-only-mode="vm.readOnlyMode"></recipe-steps>
                 </md-tab-body>
             </md-tab>
 

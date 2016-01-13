@@ -28,8 +28,10 @@
             <thead md-order="patientList.query.order" md-trigger="patientList.onOrderChange">
             <tr>
                 <th name="Photo">Photo</th>
-                <th name="Name" order-by="patient.name">Name</th>
-                <th name="Lastname" order-by="patient.lastname">Lastname</th>
+                <th name="Name" order-by="patientList.patient.name">Name</th>
+                <th name="Lastname" order-by="patientList.patient.lastname">Lastname</th>
+                <th name="LastConsultation" order-by="patientList.patient.lastConsultation">Last Consultation</th>
+                <th name="NextConsultation" order-by="patientList.patient.nextConsultation">Next Consultation</th>
             </tr>
             </thead>
             <tbody>
@@ -37,6 +39,8 @@
                 <td><img class="avatar-md-table" ng-src="{{patient.photo}}"></td>
                 <td>{{patient.name}}</td>
                 <td>{{patient.lastname}}</td>
+                <td>{{patient.lastConsultation.date | date:"dd/MM/yyyy"}}</td>
+                <td>{{patient.nextConsultation.date | date:"dd/MM/yyyy"}}</td>
                 <td>
                     <ng-md-icon ng-show="patient.public" icon="beenhere" style="fill:#777"></ng-md-icon>
                 </td>

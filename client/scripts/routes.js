@@ -45,7 +45,7 @@ function config($stateProvider, $urlRouterProvider) {
             url: '/patientTabs/:patientId',
             template: '<patient-tabs></patient-tabs>',
             data: {
-                label: 'Patient information'
+                label: 'Patient information',
             }
         })
         .state('app.addPatient', {

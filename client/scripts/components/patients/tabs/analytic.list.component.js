@@ -4,10 +4,13 @@ angular.module('Metis').directive('patientAnalytics', function () {
             patient: "="
         },
         restrict: 'E',
-        templateUrl: 'client/scripts/components/patients/tabs/analytic.html',
+        templateUrl: 'client/scripts/components/patients/tabs/analytic.list.html',
         controllerAs: 'patientAnalytics',
         controller: function ($scope, $reactive,$stateParams,$state) {
             $reactive(this).attach($scope);
+            console.log("Patient",$scope.patient);
+            $scope.analyticDetail=false;
+            $scope.selectedAnalytic={};
 
             this.fab = {
                 isOpen: false,
@@ -65,10 +68,17 @@ angular.module('Metis').directive('patientAnalytics', function () {
                 });
 
             }
+            this.enter = enter;
 
-            this.newtAnalytic = newtAnalytic;
-            function newtAnalytic() {
-                $state.go('app.addtAnalytic',{patientId: this.patientId});
+            function enter(analytic) {
+                $scope.selectedAnalytic = analytic;
+                console.log("SelectedAnalytic",$scope.selectedAnalytic._id);
+                $scope.analyticDetail=true;
+            }
+
+            this.newAnalytic = newAnalytic;
+            function newAnalytic() {
+                $scope.analyticDetail=true;
             }
 
         }

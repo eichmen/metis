@@ -1,6 +1,6 @@
-Meteor.publish("consultations", function (options, patientSelected) {
+Meteor.publish("analytics", function (options, patientSelected) {
 
-    Counts.publish(this, 'numberOfConsultations', Patients.find({
+    Counts.publish(this, 'numberOfAnalytics', Patients.find({
             $and:[
                 {owner: this.userId},
                 {owner: {$exists: true}},
@@ -9,7 +9,7 @@ Meteor.publish("consultations", function (options, patientSelected) {
         }),
         { noReady: true });
 
-    return Consultations.find({
+    return Analytics.find({
         $and:[
             {owner: this.userId},
             {owner: {$exists: true}},
@@ -20,39 +20,39 @@ Meteor.publish("consultations", function (options, patientSelected) {
 
 Meteor.methods({
 
-    lastConsultation: function(patientId) {
+    lastAnalytic: function(patientId) {
         console.log(patientId);
-        var result = Consultations.findOne({patientId:patientId},{fields:{date:1},sort: {date:-1}});
+        var result = Analytics.findOne({patientId:patientId},{fields:{date:1},sort: {date:-1}});
         console.log(result);
         return result;
     },
 
-    insertConsultation: function (consultation) {
+    insertAnalytic: function (analytic,patientId) {
         // Make sure the user is logged in before inserting a task
         if (! Meteor.userId()) {
             throw new Meteor.Error('not-authorized');
         }
-        consultation.owner = Meteor.userId();
-        Consultations.insert(consultation);
+        analytic.owner = Meteor.userId();
+        analytic.patientId = patientId;
+        Analytics.insert(analytic);
 
-        Patients.update({_id:consultation.patientId}, {
+        Patients.update({_id:analytic.patientId}, {
             $set: {
-                lastConsultation: Consultations.findOne({patientId:consultation.patientId},{fields:{date:1},sort: {date:-1}})
+                lastAnalytic: Analytics.findOne({patientId:analytic.patientId},{fields:{date:1},sort: {date:-1}})
             }
         });
 
 
     },
-    deleteConsultation: function (consultationId) {
-        Consultations.remove(consultationId);
+    deleteAnalytic: function (analyticId) {
+        Analytics.remove(analyticId);
     },
-    updateConsultation: function (consultation) {
-      var id = consultation._id;
-      delete consultation._id;
+    updateAnalytic: function (analytic) {
+      var id = analytic._id;
+      delete analytic._id;
 
-      Consultations.update({_id: id}, { $set: {
-        observations: consultation.observations,
-        date: consultation.date,
+        Analytics.update({_id: id}, { $set: {
+        date: analytic.date,
         modified: new Date()}
         });
       }

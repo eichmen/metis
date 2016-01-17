@@ -1,4 +1,4 @@
-<md-card>
+<md-card ng-if="!analyticDetail">
     <md-fab-toolbar md-open="patientAnalytics.fab.isOpen" count="patientAnalytics.fab.count"
                     md-direction="{{patientAnalytics.fab.selectedDirection}}">
         <md-fab-trigger class="align-with-text">
@@ -27,7 +27,7 @@
             </thead>
             <tbody>
             <tr md-auto-select ng-repeat="analytic in patientAnalytics.analytics"
-                ng-click="editAnalytic(analytic)">
+                ng-click="patientAnalytics.enter(analytic)">
                 <td>{{analytic.date | date:"MM/dd/yyyy"}}</td>
             </tr>
             </tbody>
@@ -41,3 +41,5 @@
     </md-data-table-pagination>
 
 </md-card>
+
+<analytic ng-if="analyticDetail" analyticId="selectedAnalytic._id" patient="patient"></analytic>

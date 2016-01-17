@@ -35,7 +35,7 @@ Meteor.startup(function () {
                 registerDate: new Date(),
                 generalHabits: {},
                 alimentaryHabits: {},
-                anthropometricHabits: {}
+                anthropometric: {}
             },
             {
                 name: 'Laura',
@@ -50,7 +50,7 @@ Meteor.startup(function () {
                 registerDate: new Date(),
                 generalHabits: {},
                 alimentaryHabits: {},
-                anthropometricHabits: {}
+                anthropometric: {}
             },
             {
                 name: 'Pepe',
@@ -65,7 +65,7 @@ Meteor.startup(function () {
                 registerDate: new Date(),
                 generalHabits: {},
                 alimentaryHabits: {},
-                anthropometricHabits: {}
+                anthropometric: {}
             },
             {
                 name: 'Robert',
@@ -80,7 +80,7 @@ Meteor.startup(function () {
                 registerDate: new Date(),
                 generalHabits: {},
                 alimentaryHabits: {},
-                anthropometricHabits: {}
+                anthropometric: {}
             },
         ];
 

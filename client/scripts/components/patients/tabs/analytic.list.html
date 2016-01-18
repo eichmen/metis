@@ -1,0 +1,45 @@
+<md-card ng-if="!analyticDetail">
+    <md-fab-toolbar md-open="patientAnalytics.fab.isOpen" count="patientAnalytics.fab.count"
+                    md-direction="{{patientAnalytics.fab.selectedDirection}}">
+        <md-fab-trigger class="align-with-text">
+            <md-button class="md-fab md-primary" aria-label="menu">
+                <md-tooltip md-direction="top" md-visible="tooltipVisible">New Elements</md-tooltip>
+                <ng-md-icon class="md-fab-24" icon="add" size="24"></ng-md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-toolbar>
+            <md-fab-actions class="md-toolbar-tools">
+                <md-button class="md-raised md-accent" ng-click="patientAnalytics.newAnalytic()">
+                    <translate>New Analytic</translate>
+                </md-button>
+            </md-fab-actions>
+        </md-toolbar>
+    </md-fab-toolbar>
+
+    <md-data-table-container id="table-analytics">
+        <table md-data-table md-row-select="patientAnalytics.selected">
+            <thead md-order="patientAnalytics.query.order" md-trigger="patientAnalytics.onOrderChange">
+            <tr>
+                <th name="Date" order-by="date">
+                    <translate>Date</translate>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr md-auto-select ng-repeat="analytic in patientAnalytics.analytics"
+                ng-click="patientAnalytics.enter(analytic)">
+                <td>{{analytic.date | date:"MM/dd/yyyy"}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </md-data-table-container>
+    <md-data-table-pagination md-limit="patientAnalytics.query.perPage"
+                              md-page="patientAnalytics.query.page"
+                              md-total="{{patientAnalytics.analyticCount}}"
+                              md-trigger="patientAnalytics.onPaginationChange">
+
+    </md-data-table-pagination>
+
+</md-card>
+
+<analytic ng-if="analyticDetail" analyticId="selectedAnalytic._id" patient="patient"></analytic>

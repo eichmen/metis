@@ -1,9 +1,18 @@
 <md-card flex="100">
     <md-toolbar class="card-header-toolbar">
-        <div class="md-toolbar-tools">Main Metrics</div>
+        <div class="md-toolbar-tools">Analytic</div>
+        <md-input-container flex="33">
+            <label>Date</label>
+            <input type="date"  ng-model="analyticDetail.analytic.date">
+        </md-input-container>
     </md-toolbar>
 
-    <div layout="row" layout-padding layout-margin layout-fill class="md-primary">
+    <md-button type="submit" style="height:64px"
+               ng-click="analyticDetail.save()">
+        Save
+    </md-button>
+
+   <!-- <div layout="row" layout-padding layout-margin layout-fill class="md-primary">
         <md-input-container flex="33">
             <label>Weight</label>
             <input type="number" step="any" ng-model="patient.anthropometric.weight">
@@ -83,5 +92,5 @@
             <label>Nondominant arm</label>
             <input type="number" step="any" ng-model="patient.anthropometric.nondominantArm">
         </md-input-container>
-    </div>
+    </div> -->
 </md-card>

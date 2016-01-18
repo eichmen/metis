@@ -1,22 +1,22 @@
 <md-content class="md-padding">
-    <md-card>
-        <div layout="row">
-            <div flex-10 layout-margin layout-padding class="ng-cloak">
-                <img class="metis-avatar" ng-src="{{patientTabs.patient.photo}}" style="max-width: 100px;">
-            </div>
-            <div flex layout="column">
-                <h1 flex style="color:#03a9f4;margin-bottom:0px;">{{patientTabs.patient.name}} {{patientTabs.patient.lastname}}</h1>
-                <h4 flex style="color:#03a9f4;margin-bottom:0px;">{{patientTabs.patient.location}}</h4>
-            </div>
 
-            <div layout="row" layout-align="end">
-                <md-button type="submit" style="height:36px"
-                           ng-click="patientTabs.save()" ng-disabled="patientTabs.disabled()" class="md-raised md-primary">Save
-                </md-button>
-              </div>
+    <div class="dark-header" layout="row">
+        <div flex-10 layout-margin layout-padding class="ng-cloak">
+            <img class="metis-avatar" ng-src="{{patientTabs.patient.photo}}" style="max-width: 100px;">
+        </div>
+        <div flex layout="column">
+            <h1 class="dark-header-text" flex>{{patientTabs.patient.name}} {{patientTabs.patient.lastname}}</h1>
+            <h4 class="dark-header-text" flex>{{patientTabs.patient.location}}</h4>
         </div>
 
-    </md-card>
+        <div layout="row" layout-align="end">
+            <md-button type="submit" style="height:64px"
+                       ng-click="patientTabs.save()" ng-disabled="patientTabs.disabled()">
+                <ng-md-icon size="64px" style="margin:0px 20px 40px 0px" icon="done"></ng-md-icon>
+            </md-button>
+        </div>
+    </div>
+
 
     <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab"
              md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
@@ -38,7 +38,8 @@
         </md-tab>
 
         <md-tab id="anthropometric">
-            <md-tab-label>Anthropometric</md-tab-label>anthropometric
+            <md-tab-label>Anthropometric</md-tab-label>
+            anthropometric
             <md-tab-body>
                 <anthropometric patient="patientTabs.patient"></anthropometric>
             </md-tab-body>
@@ -61,6 +62,7 @@
         <md-tab id="medicalHistory">
             <md-tab-label>MedicalHistory</md-tab-label>
             <md-tab-body>
+                <patient-analytics patient="patientTabs.patient"></patient-analytics>
             </md-tab-body>
         </md-tab>
 

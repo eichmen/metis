@@ -213,4 +213,5 @@ function createIndexesMongoDB() {
     Ingredients._ensureIndex({'proximates.protein.value': 1});
     Ingredients._ensureIndex({'proximates.lipidTot.value': 1});
     Ingredients._ensureIndex({'proximates.carbohydrt.value': 1});
+    Ingredients._ensureIndex({'ndbNo': 1});
 }

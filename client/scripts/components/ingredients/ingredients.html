@@ -21,8 +21,8 @@
     </md-card>
 
     <md-card layout-padding>
-        <md-data-table-container id="table-ingredients">
-            <table md-data-table md-row-select="selected" md-progress="deferred">
+        <md-data-table-container id="table-ingredients" ng-class=" !(ingredients.showSelected === 'true') ? 'hideSelected' : ''">
+            <table md-data-table md-row-select="ingredients.selected" md-progress="deferred">
                 <thead md-order="ingredients.query.order" md-trigger="ingredients.onOrderChange">
                 <tr>
                     <th name="Ingredient" order-by="{{ingredients.descInProperLanguage}}">

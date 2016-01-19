@@ -2,6 +2,9 @@ angular.module('Metis').directive('recipesList', function () {
     return {
         restrict: 'E',
         templateUrl: 'client/scripts/components/recipes/recipes.html',
+        bindToController: {
+            showSelected: "@showSelected"
+        },
         controllerAs: 'recipes',
         controller: function ($scope, $meteor, $state, $reactive, ingredientsService, translatorService) {
             let vm = this;

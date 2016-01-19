@@ -17,7 +17,7 @@
     </md-card>
 
     <md-card layout-padding>
-        <md-data-table-container id="table-recipes">
+        <md-data-table-container id="table-recipes" ng-class=" !(recipes.showSelected === 'true') ? 'hideSelected' : ''">
             <table md-data-table md-row-select="selected" md-progress="deferred">
                 <thead md-order="recipes.query.order" md-trigger="recipes.onOrderChange">
                 <tr>

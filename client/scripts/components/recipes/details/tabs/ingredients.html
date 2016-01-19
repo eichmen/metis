@@ -1,19 +1,20 @@
 <md-card layout-padding>
     <md-list layout="column" flex>
-        <md-list-item ng-repeat="ingredient in vm.ingredients">
+        <md-list-item ng-repeat="ingredient in vm.ingredientsRecipe">
             <div layout="row" flex>
-                <md-input-container class="md-icon-float md-block">
+                <md-input-container class="md-icon-float md-block" flex>
                     <label translate>Name</label>
                     <ng-md-icon icon="delete" style="fill:#082D3F" ng-show="!vm.readOnlyMode"
                                 ng-click="vm.deleteIngredient(ingredient.id)"></ng-md-icon>
-                    <input ng-model="ingredient.id" ng-disabled="!!vm.readOnlyMode">
+                    <input ng-model="(vm.ingredientsNames | filter : {ndbNo: ingredient.id})[0].nomenclature[vm.currentLanguage].desc"
+                           readonly ng-disabled="!!vm.readOnlyMode">
                 </md-input-container>
-                <md-input-container ng-show="ingredient.unit!='x'">
+                <md-input-container ng-show="ingredient.unit!='x'" flex>
                     <label translate>Amount</label>
                     <input ng-model="ingredient.amount" type="number"
                            ng-disabled="!!vm.readOnlyMode">
                 </md-input-container>
-                <md-input-container>
+                <md-input-container flex>
                     <label translate>Unit</label>
                     <md-select ng-model="ingredient.unit" ng-disabled="!!vm.readOnlyMode">
                         <md-option ng-repeat="(key, value) in vm.units" value="{{key}}">

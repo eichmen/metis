@@ -1,4 +1,4 @@
-<md-card ng-if="!analyticDetail">
+<md-card ng-if="!patientAnalytics.analyticDetail">
     <md-fab-toolbar md-open="patientAnalytics.fab.isOpen" count="patientAnalytics.fab.count"
                     md-direction="{{patientAnalytics.fab.selectedDirection}}">
         <md-fab-trigger class="align-with-text">
@@ -42,4 +42,5 @@
 
 </md-card>
 
-<analytic ng-if="analyticDetail" analyticId="selectedAnalytic._id" patient="patient"></analytic>
+<analytic ng-if="patientAnalytics.analyticDetail" analyticid="patientAnalytics.selectedAnalytic._id"
+          patient="patientAnalytics.patient" hideDetail="patientAnalytics.activateListView()"></analytic>

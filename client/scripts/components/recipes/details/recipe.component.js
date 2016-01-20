@@ -3,7 +3,9 @@ angular.module('Metis').directive('recipe', function () {
         restrict: 'E',
         templateUrl: 'client/scripts/components/recipes/details/recipeDetails.html',
         controllerAs: 'vm',
-        controller: function ($scope, $meteor, $state, $reactive, $stateParams, ingredientsService, translatorService, unitsService) {
+        controller: function ($scope, $meteor, $state, $reactive, $stateParams,
+                              ingredientsService, translatorService, unitsService,
+                              $mdToast) {
             let vm = this;
             $reactive(vm).attach($scope);
 
@@ -16,6 +18,7 @@ angular.module('Metis').directive('recipe', function () {
             vm.readOnlyMode = !$stateParams.creation || false;
             vm.units = unitsService.UNITS;
             vm.cancel = cancel;
+            vm.save = save;
 
             vm.subscribe('recipe-details', () => {
                 return [vm.getReactively('recipeId')];
@@ -30,9 +33,29 @@ angular.module('Metis').directive('recipe', function () {
                 }
             });
 
-            function cancel(){
+            function cancel() {
                 vm.recipe = angular.copy(vm.recipeBackUp);
                 vm.readOnlyMode = true;
+            }
+
+            function save() {
+                Meteor.call('saveRecipe', vm.recipe, Meteor.userId(), function (error) {
+                    if (error) {
+                        console.log('failed', error);
+                    } else {
+                        console.log('success save recipe');
+                        toast('Recipe updated');
+                    }
+                });
+            }
+
+            function toast(message) {
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content(message)
+                        .hideDelay(3000)
+                );
+
             }
 
         }

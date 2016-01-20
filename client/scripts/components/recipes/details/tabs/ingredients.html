@@ -1,6 +1,6 @@
 <md-card layout-padding>
     <md-list layout="column" flex>
-        <md-list-item ng-repeat="ingredient in vm.ingredientsRecipe">
+        <md-list-item ng-repeat="ingredient in vm.ingredientsRecipe track by ingredient.id">
             <div layout="row" flex>
                 <md-input-container class="md-icon-float md-block" flex>
                     <label translate>Name</label>

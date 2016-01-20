@@ -1,7 +1,7 @@
 <md-card layout-padding>
     <md-list layout="column" flex>
         <md-list-item
-                ng-repeat="step in vm.steps | orderBy:'number'">
+                ng-repeat="step in vm.steps track by step.number | orderBy:'number'">
             <div layout="row" flex>
                 <ng-md-icon icon="delete" style="fill:#082D3F" ng-show="!vm.readOnlyMode"
                             ng-click="vm.deleteStep(step.number)"></ng-md-icon>

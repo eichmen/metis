@@ -1,96 +1,93 @@
-<md-card flex="100">
-    <md-toolbar class="card-header-toolbar">
-        <div class="md-toolbar-tools">Analytic</div>
-        <md-input-container flex="33">
-            <label>Date</label>
-            <input type="date"  ng-model="analyticDetail.analytic.date">
-        </md-input-container>
-    </md-toolbar>
 
     <md-button type="submit" style="height:64px"
                ng-click="analyticDetail.save()">
-        Save
+        {{analyticDetail.buttonTitle}}
     </md-button>
 
-   <!-- <div layout="row" layout-padding layout-margin layout-fill class="md-primary">
-        <md-input-container flex="33">
-            <label>Weight</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.weight">
-        </md-input-container>
-        <md-input-container flex="33">
-            <label>Height</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.height">
-        </md-input-container>
-        <md-input-container flex="33">
-            <label>IMC</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.imc">
-        </md-input-container>
-    </div>
-</md-card>
-<md-card flex="100">
-    <md-toolbar class="card-header-toolbar">
-        <div class="md-toolbar-tools">Secondary Metrics</div>
-    </md-toolbar>
-    <div layout="row" layout-padding layout-margin layout-fill>
-        <md-input-container flex="33">
-            <label>% Total Fat</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.totalFat">
-        </md-input-container>
-        <md-input-container flex="33">
-            <label>Visceral Fat</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.visceralFat">
-        </md-input-container>
-        <md-input-container flex="33">
-            <label>Total Corporal Water</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.water">
-        </md-input-container>
-    </div>
-    <div layout="row" layout-padding layout-margin layout-fill>
-        <md-input-container flex="33">
-            <label>Muscle</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.muscle">
-        </md-input-container>
-        <md-input-container flex="33">
-            <label>BMR</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.bmr">
-        </md-input-container>
-        <md-input-container flex="33">
-            <label>Energy Expenditure</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.energy ">
-        </md-input-container>
-    </div>
-    <div layout="row" layout-padding layout-margin layout-fill>
-        <md-input-container flex="33">
-            <label>Waist</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.waist">
-        </md-input-container>
-        <md-input-container flex="33">
-            <label>Hip</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.hip">
-        </md-input-container>
-        <md-input-container flex="33">
-            <label>Waist Hip index</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.waistHipIndex ">
-        </md-input-container>
-    </div>
-    <div layout="row" layout-padding layout-margin layout-fill>
-        <md-input-container flex="33">
-            <label>Thigh</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.thigh">
-        </md-input-container>
-        <md-input-container flex="33">
-            <label>Chest</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.chest">
-        </md-input-container>
-        <md-input-container flex="33">
-            <label>Wrist</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.wrist ">
-        </md-input-container>
-    </div>
-    <div layout="row" layout-padding layout-margin layout-fill>
-        <md-input-container flex="33">
-            <label>Nondominant arm</label>
-            <input type="number" step="any" ng-model="patient.anthropometric.nondominantArm">
-        </md-input-container>
-    </div> -->
-</md-card>
+    <md-card flex="100">
+        <div layout="row" layout-align="end center" layout-padding layout-margin layout-fill class="md-primary">
+            <md-input-container flex="33">
+                <label>Date</label>
+                <input type="date" ng-model="analyticDetail.analytic.date">
+            </md-input-container>
+        </div>
+    </md-card>
+
+    <md-card flex="100">
+        <md-toolbar class="card-header-toolbar">
+            <div class="md-toolbar-tools">CBC</div>
+        </md-toolbar>
+        <div layout="row" layout-padding layout-margin layout-fill layout-wrap class="md-primary">
+            <md-input-container flex="33">
+                <label>Hematocrit</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.hematocrit">
+                <div class="hint">%</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>RBC</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.rbc">
+                <div class="hint">millions/uL</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>Hemoglobin</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.hemoglobin">
+                <div class="hint">g/dL</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>VCM</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.vcm">
+                <div class="hint">fL</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>MCHC</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.mchc">
+                <div class="hint">g/L</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>VSG</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.vsg">
+                <div class="hint">mm/hour</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>Leukocyte</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.leukocyte">
+                <div class="hint">number/ml</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>Neutrophils</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.neutrophils">
+                <div class="hint">%</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>Eosinophils</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.eosinophils">
+                <div class="hint">%</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>Basophils</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.basophils">
+                <div class="hint">%</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>Lymphocytes</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.lymphocytes">
+                <div class="hint">%</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>Monocytes</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.monocytes">
+                <div class="hint">%</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>Platelets</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.platelets">
+                <div class="hint">number/ml</div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>HCM</label>
+                <input type="number" step="any" ng-model="analyticDetail.analytic.cbc.hcm">
+                <div class="hint">pg</div>
+            </md-input-container>
+        </div>
+    </md-card>
+

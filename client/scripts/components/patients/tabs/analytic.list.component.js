@@ -3,14 +3,15 @@ angular.module('Metis').directive('patientAnalytics', function () {
         scope: {
             patient: "="
         },
+        bindToController:true,
         restrict: 'E',
         templateUrl: 'client/scripts/components/patients/tabs/analytic.list.html',
         controllerAs: 'patientAnalytics',
         controller: function ($scope, $reactive,$stateParams,$state) {
             $reactive(this).attach($scope);
-            console.log("Patient",$scope.patient);
-            $scope.analyticDetail=false;
-            $scope.selectedAnalytic={};
+            console.log("Patient",this.patient);
+            this.analyticDetail=false;
+            this.selectedAnalytic={};
 
             this.fab = {
                 isOpen: false,
@@ -44,9 +45,9 @@ angular.module('Metis').directive('patientAnalytics', function () {
                         limit: parseInt(this.perPage),
                         skip: parseInt((this.page - 1) * this.perPage),
                         sort: this.sort,
-                        fields: {
+                        /*fields: {
                             date:1
-                        }
+                        }*/
 
                     },
                     this.getReactively('patientId')
@@ -63,7 +64,7 @@ angular.module('Metis').directive('patientAnalytics', function () {
                     } else {
                         console.log('success lastAnalytic');
                         console.log(result);
-                        $scope.result = result;
+                        this.result = result;
                     }
                 });
 
@@ -71,14 +72,20 @@ angular.module('Metis').directive('patientAnalytics', function () {
             this.enter = enter;
 
             function enter(analytic) {
-                $scope.selectedAnalytic = analytic;
-                console.log("SelectedAnalytic",$scope.selectedAnalytic._id);
-                $scope.analyticDetail=true;
+                this.selectedAnalytic = analytic;
+                console.log("SelectedAnalytic",this.selectedAnalytic._id);
+                this.analyticDetail=true;
             }
 
             this.newAnalytic = newAnalytic;
             function newAnalytic() {
-                $scope.analyticDetail=true;
+                this.analyticDetail=true;
+            }
+
+            this.activateListView = activateListView;
+
+            function activateListView() {
+                this.analyticDetail=false;
             }
 
         }

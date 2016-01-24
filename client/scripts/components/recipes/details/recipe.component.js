@@ -19,6 +19,7 @@ angular.module('Metis').directive('recipe', function () {
             vm.units = unitsService.UNITS;
             vm.cancel = cancel;
             vm.save = save;
+            vm.deleteRecipe = deleteRecipe;
 
             vm.subscribe('recipe-details', () => {
                 return [vm.getReactively('recipeId')];
@@ -26,10 +27,10 @@ angular.module('Metis').directive('recipe', function () {
 
             vm.helpers({
                 recipe: () => {
-                    return (Recipes.findOne(vm.getReactively('recipeId')) || {});
+                    return (Recipes.findOne(vm.getReactively('recipeId')) || {fundamentals: { tags: []}});
                 },
                 recipeBackUp: () => {
-                    return (Recipes.findOne(vm.getReactively('recipeId')) || {});
+                    return (Recipes.findOne(vm.getReactively('recipeId')) || {fundamentals: { tags: []}});
                 }
             });
 
@@ -42,9 +43,23 @@ angular.module('Metis').directive('recipe', function () {
                 Meteor.call('saveRecipe', vm.recipe, Meteor.userId(), function (error) {
                     if (error) {
                         console.log('failed', error);
+                        toast('Ooops, something went wrong saving your recipe');
                     } else {
                         console.log('success save recipe');
                         toast('Recipe updated');
+                    }
+                });
+            }
+
+            function deleteRecipe() {
+                Meteor.call('deleteRecipe', vm.recipe, Meteor.userId(), function (error) {
+                    if (error) {
+                        console.log('failed', error);
+                        toast('Ooops, something went wrong deleting your recipe');
+                    } else {
+                        console.log('success delete recipe');
+                        toast('Recipe deleted');
+                        $state.go('app.recipes');
                     }
                 });
             }

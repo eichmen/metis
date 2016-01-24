@@ -30,6 +30,7 @@ angular.module('Metis').directive('recipesList', function () {
             vm.currentLanguage = translatorService.getLanguage();
 
             vm.enter = enter;
+            vm.createRecipe = createRecipe;
 
             vm.helpers({
                 recipes: () => {

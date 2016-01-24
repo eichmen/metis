@@ -29,6 +29,10 @@
                                        style="height:36px" class="md-raised md-primary" translate>
                                 Cancel
                             </md-button>
+                            <md-button ng-click="vm.deleteRecipe()" ng-show="!vm.readOnlyMode"
+                                       style="height:36px" class="md-raised md-warn" translate>
+                                Delete
+                            </md-button>
                         </div>
                     </div>
 

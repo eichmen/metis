@@ -36,6 +36,14 @@ Meteor.methods({
             Recipes.insert(recipe);
         }
 
+    },
+
+    deleteRecipe: function(recipe) {
+        if(recipe._id) {
+            Recipes.remove(
+                {'_id' : recipe._id}
+            );
+        }
     }
 
 });

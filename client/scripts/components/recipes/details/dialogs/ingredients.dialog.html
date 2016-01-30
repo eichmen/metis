@@ -1,0 +1,24 @@
+<md-dialog>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 translate>Select ingredients</h2>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <ingredients-list show-selected="{{true}}" open-ingredient="{{false}}" selected="vmDialog.selected"></ingredients-list>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="vmDialog.passIngredients()" style="margin-right:20px;">
+                Add Ingredients
+            </md-button>
+            <md-button ng-click="vmDialog.cancel()">
+                Cancel
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

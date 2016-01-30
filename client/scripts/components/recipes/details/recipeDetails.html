@@ -1,0 +1,94 @@
+<md-content layout-padding>
+
+    <form name="recipeForm">
+        <md-card>
+            <div layout-padding layout="row">
+                <div flex="10">
+                    <ng-md-icon style="fill:#082D3F" icon="local_restaurant" size="96"></ng-md-icon>
+                </div>
+
+                <div layout-padding layout="column" flex>
+
+                    <div layout="row">
+                        <md-input-container>
+                            <label translate>Name</label>
+                            <input ng-model="vm.recipe.nomenclature[vm.currentLanguage].name"
+                                   ng-disabled="!!vm.readOnlyMode">
+                        </md-input-container>
+
+                        <div layout="row" layout-align="end" style="height:36px" flex>
+                            <md-button ng-click="vm.readOnlyMode=false" ng-show="vm.readOnlyMode"
+                                       class="md-raised md-primary" translate>
+                                Edit
+                            </md-button>
+                            <md-button ng-click="vm.save()" ng-show="!vm.readOnlyMode"
+                                       style="height:36px" class="md-raised md-primary" translate>
+                                Save
+                            </md-button>
+                            <md-button ng-click="vm.cancel()" ng-show="!vm.readOnlyMode"
+                                       style="height:36px" class="md-raised md-primary" translate>
+                                Cancel
+                            </md-button>
+                            <md-button ng-click="vm.deleteRecipe()" ng-show="!vm.readOnlyMode"
+                                       style="height:36px" class="md-raised md-warn" translate>
+                                Delete
+                            </md-button>
+                        </div>
+                    </div>
+
+
+                    <md-chips ng-model="vm.recipe.fundamentals.tags"
+                              readonly="!!vm.readOnlyMode"
+                              placeholder="Enter a tag">
+                        <md-chip-template>{{$chip | uppercase}}</md-chip-template>
+                    </md-chips>
+                </div>
+
+            </div>
+        </md-card>
+
+        <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab"
+                 md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+
+            <md-tab id="info">
+                <md-tab-label translate>MAIN INFO</md-tab-label>
+                <md-tab-body>
+                    <recipe-main-info number-of-servings="vm.recipe.fundamentals.numberOfServings"
+                                      preparation-time="vm.recipe.fundamentals.preparationTimeMinutes"
+                                      description="vm.recipe.nomenclature[vm.currentLanguage].desc"
+                                      read-only-mode="vm.readOnlyMode"></recipe-main-info>
+                </md-tab-body>
+            </md-tab>
+
+            <md-tab id="ingredients">
+                <md-tab-label translate>Ingredients</md-tab-label>
+                <md-tab-body>
+                    <recipe-ingredients ingredients="vm.recipe.ingredients"
+                                        units="vm.units"
+                                        read-only-mode="vm.readOnlyMode"></recipe-ingredients>
+                </md-tab-body>
+            </md-tab>
+
+            <md-tab id="info">
+                <md-tab-label translate>Steps</md-tab-label>
+                <md-tab-body>
+                    <recipe-steps steps="vm.recipe.nomenclature[vm.currentLanguage].steps"
+                                        read-only-mode="vm.readOnlyMode"></recipe-steps>
+                </md-tab-body>
+            </md-tab>
+
+            <md-tab id="info">
+                <md-tab-label translate>Nutritional Info</md-tab-label>
+                <md-tab-body>
+                    <md-card layout-padding>
+
+
+                    </md-card>
+                </md-tab-body>
+            </md-tab>
+
+        </md-tabs>
+
+    </form>
+
+</md-content>

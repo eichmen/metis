@@ -8,7 +8,7 @@
                 <input type="text" ng-model="recipes.query.search"/>
             </md-input-container>
 
-            <md-button class="md-fab" ng-click="createRecipe()" aria-label="Add Recipe">
+            <md-button class="md-fab" ng-click="recipes.createRecipe()" aria-label="Add Recipe">
                 <md-tooltip md-direction="top" md-visible="tooltipVisible"><translate>Add Recipe</translate></md-tooltip>
                 <ng-md-icon class="md-fab-24" icon="add" size="24"></ng-md-icon>
             </md-button>
@@ -17,7 +17,7 @@
     </md-card>
 
     <md-card layout-padding>
-        <md-data-table-container id="table-recipes">
+        <md-data-table-container id="table-recipes" ng-class=" !(recipes.showSelected === 'true') ? 'hideSelected' : ''">
             <table md-data-table md-row-select="selected" md-progress="deferred">
                 <thead md-order="recipes.query.order" md-trigger="recipes.onOrderChange">
                 <tr>
@@ -28,7 +28,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr md-auto-select ng-repeat="recipe in recipes.recipes" ng-click="enter(recipe)">
+                <tr md-auto-select ng-repeat="recipe in recipes.recipes" ng-click="recipes.enter(recipe)">
                     <td>{{recipe.nomenclature[recipes.currentLanguage].name}}</td>
                     <td>{{recipe.nomenclature.english.group | translate}}</td>
                 </tr>

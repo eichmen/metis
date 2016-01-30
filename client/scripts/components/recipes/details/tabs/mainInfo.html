@@ -1,0 +1,21 @@
+<md-card layout-padding>
+    <md-input-container>
+        <label translate>Number of Servings</label>
+        <input type="number" step="1" ng-model="vm.numberOfServings"
+               ng-disabled="!!vm.readOnlyMode">
+    </md-input-container>
+
+    <md-input-container>
+        <label translate>Preparation Time</label>
+        <input type="number" step="1"
+               ng-model="vm.preparationTime"
+               ng-disabled="!!vm.readOnlyMode">
+    </md-input-container>
+
+    <md-input-container>
+        <label translate>Description</label>
+        <input ng-model="vm.description"
+               ng-disabled="!!vm.readOnlyMode">
+    </md-input-container>
+
+</md-card>

@@ -152,7 +152,6 @@ Meteor.startup(function () {
                 fundamentals : {
                     numberOfServings : 2,
                     preparationTimeMinutes : 15,
-                    cookingTimeMinutes : 60,
                     rating : 5,
                     tags : [
                         'SPANISH', 'EGGS', 'OMELETTES'
@@ -175,11 +174,11 @@ Meteor.startup(function () {
                     }
                 },
                 ingredients : [
-                    { id: 1231, unit: 'grams', amount: 500, name: 'potatoe' },
-                    { id: 1234, unit: 'grams', amount: 150, name: 'onion' },
-                    { id: 1235, unit: 'ml', amount: 150, name: 'extra-virgin olive oil' },
-                    { id: 1236, unit: 'units', amount: 6, name: 'eggs'},
-                    { id: 1237, unit: 'x', amount: 0, name: 'salt'}
+                    { id: 1231, unit: 'grams', amount: 500},
+                    { id: 1234, unit: 'grams', amount: 150},
+                    { id: 1235, unit: 'ml', amount: 150},
+                    { id: 1236, unit: 'units', amount: 6},
+                    { id: 1237, unit: 'x', amount: 0}
                 ],
                 nutrition : {
                     energy: { unit: 'kcal', amount: 516},
@@ -214,4 +213,5 @@ function createIndexesMongoDB() {
     Ingredients._ensureIndex({'proximates.protein.value': 1});
     Ingredients._ensureIndex({'proximates.lipidTot.value': 1});
     Ingredients._ensureIndex({'proximates.carbohydrt.value': 1});
+    Ingredients._ensureIndex({'ndbNo': 1});
 }

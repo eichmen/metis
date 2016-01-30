@@ -2,6 +2,9 @@ angular.module('Metis').directive('recipesList', function () {
     return {
         restrict: 'E',
         templateUrl: 'client/scripts/components/recipes/recipes.html',
+        bindToController: {
+            showSelected: "@showSelected"
+        },
         controllerAs: 'recipes',
         controller: function ($scope, $meteor, $state, $reactive, ingredientsService, translatorService) {
             let vm = this;
@@ -27,6 +30,7 @@ angular.module('Metis').directive('recipesList', function () {
             vm.currentLanguage = translatorService.getLanguage();
 
             vm.enter = enter;
+            vm.createRecipe = createRecipe;
 
             vm.helpers({
                 recipes: () => {
@@ -89,7 +93,11 @@ angular.module('Metis').directive('recipesList', function () {
 
             function enter(recipe) {
                 console.log('Recipe to show: ' + recipe.nomenclature.english.name);
-                $state.go('app.recipeDetails', {recipeId: recipe._id});
+                $state.go('app.recipeDetails', {recipeId: recipe._id, creation: false});
+            }
+
+            function createRecipe() {
+                $state.go('app.recipeDetails', {creation: true});
             }
 
         }

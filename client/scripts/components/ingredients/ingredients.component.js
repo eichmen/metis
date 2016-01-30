@@ -2,12 +2,16 @@ angular.module('Metis').directive('ingredientsList', function () {
     return {
         restrict: 'E',
         templateUrl: 'client/scripts/components/ingredients/ingredients.html',
+        bindToController: {
+            showSelected: "@showSelected",
+            openIngredient: "@openIngredient",
+            selected: "=selected"
+        },
         controllerAs: 'ingredients',
         controller: function ($scope, $reactive, $state, ingredientsService, translatorService) {
             let vm = this;
             $reactive(vm).attach($scope);
 
-            vm.selected = [];
             //This is rather static, so we don´t go to database for it.
             vm.foodGroups = ingredientsService.FOOD_GROUPS;
 
@@ -74,6 +78,7 @@ angular.module('Metis').directive('ingredientsList', function () {
 
                     let desc = vm.getReactively('descInProperLanguage');
                     let fields = {
+                        'ndbNo': 1,
                         'nomenclature.english.foodGroup': 1,
                         'proximates.energKcal.value': 1,
                         'proximates.protein.value': 1,
@@ -98,8 +103,10 @@ angular.module('Metis').directive('ingredientsList', function () {
             );
 
             function enter(ingredient) {
-                console.log('Ingredient to show: ' + ingredient.nomenclature.english.desc);
-                $state.go('app.ingredientDetails', {ingredientId: ingredient._id});
+                if(vm.openIngredient === 'true') {
+                    console.log('Ingredient to show: ' + ingredient.nomenclature.english.desc);
+                    $state.go('app.ingredientDetails', {ingredientId: ingredient._id});
+                }
             }
 
         }

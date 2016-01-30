@@ -36,6 +36,35 @@ Meteor.publish("ingredient-details", function (idToSearch) {
     });
 });
 
+Meteor.publish("recipe-ingredients", function (options, recipeIngredients) {
+
+    console.log('In publish method, with next data: ' + recipeIngredients);
+
+    var sub = this;
+    var subHandle = null;
+
+    subHandle = Ingredients.find({
+        'ndbNo' : {$in: recipeIngredients}
+    }, options)
+        .observeChanges({
+            added: function(id, fields) {
+                sub.added("ingredientsRecipe", id, fields);
+            },
+            changed: function(id, fields) {
+                sub.changed("ingredientsRecipe", id, fields);
+            },
+            removed: function(id) {
+                sub.removed("ingredientsRecipe", id);
+            }
+        });
+
+    sub.ready();
+
+    sub.onStop(function() {
+        subHandle.stop();
+    })
+});
+
 Meteor.methods({
 
     checkIngredients : function () {

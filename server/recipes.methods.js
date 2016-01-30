@@ -17,28 +17,33 @@ Meteor.publish("recipes", function (options,searchString) {
     },options);
 });
 
+Meteor.publish("recipe-details", function (idToSearch) {
+    return Recipes.find({
+        '_id' : idToSearch
+    });
+});
+
 Meteor.methods({
 
-    insertRecipe: function (recipe) {
-        // Make sure the user is logged in before inserting a task
-        if (! Meteor.userId()) {
-            throw new Meteor.Error('not-authorized');
-        }
-        recipe.owner = Meteor.userId();
-        Recipes.insert(recipe);
-    },
-    deleteRecipe: function (recipe) {
-        Recipes.remove(recipe);
-    },
-    updateRecipe: function (recipe) {
-        /*var id = recipe._id;
-        delete consultation._id;
+    saveRecipe: function(recipe) {
 
-        Recipes.update({_id: id}, { $set: {
-            observations: consultation.observations,
-            date: consultation.date,
-            modified: new Date()}
-        });*/
+        if(recipe._id) {
+            Recipes.update(
+                {'_id' : recipe._id},
+                recipe
+            );
+        } else {
+            Recipes.insert(recipe);
+        }
+
+    },
+
+    deleteRecipe: function(recipe) {
+        if(recipe._id) {
+            Recipes.remove(
+                {'_id' : recipe._id}
+            );
+        }
     }
 
 });

@@ -2,7 +2,7 @@ angular.module('Metis').directive('analytic', function () {
     return {
         scope: {
             patient: "=",
-            analyticid: "=",
+            analyticId: "=",
             hideDetail: "&"
         },
         bindToController: true,
@@ -11,10 +11,10 @@ angular.module('Metis').directive('analytic', function () {
         controllerAs: 'analyticDetail',
         controller: function ($scope, $reactive, $stateParams) {
             $reactive(this).attach($scope);
-
+            var ctrl = this;
             this.button = "";
 
-            if (this.analyticid) {
+            if (this.analyticId) {
                 this.buttonTitle = "Update";
             } else {
                 this.buttonTitle = "Save";
@@ -28,8 +28,8 @@ angular.module('Metis').directive('analytic', function () {
             });
             this.helpers({
                 analytic: () => {
-                    if (this.analyticid) {
-                        return Analytics.findOne(this.getReactively('analyticid'));
+                    if (this.analyticId) {
+                        return Analytics.findOne(this.getReactively('analyticId'));
                     } else {
                         return {
                             date: new Date(),
@@ -49,7 +49,9 @@ angular.module('Metis').directive('analytic', function () {
                             console.log('failed', error);
                         } else {
                             console.log('Analytic saved!');
-                            this.hideDetail();
+
+                            //TODO review why this.hideDetail() doesn't work
+                            ctrl.hideDetail();
                         }
                     });
                 } else {
@@ -59,7 +61,7 @@ angular.module('Metis').directive('analytic', function () {
                             console.log('failed', error);
                         } else {
                             console.log('Analytic saved!');
-                            this.hideDetail();
+                            ctrl.hideDetail();
                         }
                     });
                 }

@@ -1,12 +1,6 @@
 Meteor.publish("analytics", function (options, patientSelected) {
-    console.log("PatientSelected", patientSelected);
-    Counts.publish(this, 'numberOfAnalytics', Patients.find({
-            $and: [
-                {owner: this.userId},
-                {owner: {$exists: true}},
-                {patientId: patientSelected}
-            ]
-        }),
+    console.log("PatientSelected", patientSelected,this.userId, patientSelected);
+    Counts.publish(this, 'numberOfAnalytics', Patients.find(),
         {noReady: true});
 
     return Analytics.find({

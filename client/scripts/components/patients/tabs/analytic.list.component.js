@@ -39,6 +39,8 @@ angular.module('Metis').directive('patientAnalytics', function () {
                 selected: []
             });
 
+            console.log("numberOfAnalytics",this.analyticCount);
+
             this.subscribe('analytics', () => {
                 return [
                     {

@@ -47,7 +47,17 @@
             </div>
         </md-card>
 
-        <md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab"
+        <div flex-sm="50" flex-xs="100" flex="50" layout-padding layout-margin layout-wrap>
+            <recipe-ingredients ingredients="vm.recipe.ingredients"
+                                units="vm.units"
+                                read-only-mode="vm.readOnlyMode"></recipe-ingredients>
+        </div>
+        <div flex-sm="50" flex-xs="100" flex="50" layout-padding layout-margin layout-wrap>
+            <recipe-steps steps="vm.recipe.nomenclature[vm.currentLanguage].steps"
+                          read-only-mode="vm.readOnlyMode"></recipe-steps>
+        </div>
+
+        <!--<md-tabs class="md-primary" md-dynamic-height md-border-bottom md-selected="selectedTab"
                  md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
 
             <md-tab id="info">
@@ -87,7 +97,7 @@
                 </md-tab-body>
             </md-tab>
 
-        </md-tabs>
+        </md-tabs>-->
 
     </form>
 

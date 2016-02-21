@@ -131,6 +131,22 @@ function config($stateProvider, $urlRouterProvider) {
                 label: 'Settings'
             }
         })
+        .state('app.configureIngredients', {
+            url: '/configureIngredients',
+            templateUrl: 'client/templates/configure.ingredients.html',
+            controller: 'ConfigureIngredientsCtrl',
+            data: {
+                label: 'Configure Ingredients'
+            }
+        })
+        .state('app.translateIngredient', {
+            url: '/translateIngredient:ingredientId',
+            templateUrl: 'client/templates/translate.ingredients.html',
+            controller: 'TranslateIngredientsCtrl',
+            data: {
+                label: 'Translate Ingredients'
+            }
+        })
     ;
     $urlRouterProvider.otherwise('login');
 }

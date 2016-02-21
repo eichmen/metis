@@ -13,6 +13,9 @@ angular.module('Metis').directive('recipeIngredients', function () {
             let vm = this;
             $reactive(vm).attach($scope);
 
+            console.log("Recipe ingredients",$scope.ingredientsRecipe);
+
+
             vm.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
             vm.touch = 0;
 

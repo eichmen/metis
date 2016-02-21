@@ -16,6 +16,8 @@ function SettingsCtrl ($scope,$meteor,$state,translatorService) {
     $scope.ENGLISH = translatorService.ENGLISH;
     $scope.SPANISH = translatorService.SPANISH;
 
+    $scope.configureIngredients=configureIngredients;
+
     function checkIngredients() {
         $meteor.call('checkIngredients').then(
             function(data){
@@ -50,6 +52,10 @@ function SettingsCtrl ($scope,$meteor,$state,translatorService) {
     function logout() {
         $meteor.logout();
         $state.go('login');
+    }
+
+    function configureIngredients() {
+        $state.go('app.configureIngredients');
     }
 
 }

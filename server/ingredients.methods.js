@@ -1,4 +1,4 @@
-Meteor.publish("ingredients", function (options,searchString, groupFood, language) {
+Meteor.publish("ingredients", function (options,searchString, groupFood, language, onlyActive) {
 
     if (searchString == null) {
         searchString = '';
@@ -19,6 +19,10 @@ Meteor.publish("ingredients", function (options,searchString, groupFood, languag
         query['nomenclature.english.foodGroup'] = groupFood;
     }
 
+    if (onlyActive) {
+        query['active'] = true;
+    }
+
     if (options == null || options.limit == null || options.limit > 15) {
         console.log(options);
         options.limit=8;
@@ -27,6 +31,7 @@ Meteor.publish("ingredients", function (options,searchString, groupFood, languag
     Counts.publish(this, 'numberOfIngredients', Ingredients.find(query),
         { noReady: true });
 
+    console.log(query);
     return Ingredients.find(query,options);
 });
 
@@ -83,6 +88,20 @@ Meteor.methods({
             console.log('ingredient inserted');
         });
         return true;
+    },
+
+    updateIngredient : function (ingredient) {
+        console.log('[server] updateIngredient');
+        if (!Meteor.userId()) {
+            throw new Meteor.Error('not-authorized');
+        }
+        if (ingredient._id) {
+            Ingredients.update(
+                {'_id': ingredient._id},
+                ingredient
+            );
+            console.log("Ingredient updated");
+        }
     }
 
 })

@@ -27,6 +27,10 @@ Meteor.methods({
 
     saveRecipe: function(recipe) {
 
+        if (!recipe.ingredients) {
+            recipe.ingredients = [];
+        }
+
         if(recipe._id) {
             Recipes.update(
                 {'_id' : recipe._id},

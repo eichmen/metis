@@ -6,7 +6,6 @@ angular
         'ngMdIcons',
         'gettext',
         'md.data.table',
-        'mdPickers',
         'ui.calendar',
         'ngMessages'
     ])

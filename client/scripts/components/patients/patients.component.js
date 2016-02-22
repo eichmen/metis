@@ -22,14 +22,14 @@ angular.module('Metis').directive('patientList', function () {
                 patientsCount: () => {
                     return Counts.get('numberOfPatients');
                 },
-                page: 1,
+                page: () => {1},
 
-                sort: {
+                sort: () => {
                     name: 1
                 },
-                search: '',
+                search: () => {''},
 
-                selected: []
+                selected: () => {[]}
             });
 
             this.pageChanged = (newPage) => {

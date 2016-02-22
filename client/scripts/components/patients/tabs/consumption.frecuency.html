@@ -1,0 +1,21 @@
+<div flex="100" flex-sm="100" flex-xs="100" layout="row">
+    <!--<md-button type="submit" style="height:64px"
+               ng-click="consumptionFrequency.print()">PRINT
+    </md-button>-->
+    <md-card flex="50">
+        <md-toolbar class="card-header-toolbar">
+            <div class="md-toolbar-tools">Diary Consumations</div>
+        </md-toolbar>
+        <div layout="column" layout-gt-sm="column" layout-padding layout-margin layout-fill layout-wrap>
+            <md-input-container flex ng-repeat="item in consumptionFrequency.aliments track by $index">
+                <label>{{item.label}}</label>
+                <md-select ng-model="consumptionFrequency.patient.consumptionFrecuency[item.key]">
+                    <md-option ng-repeat="state in consumptionFrequency.frecuency" value="{{state}}">
+                        {{state}}
+                    </md-option>
+                </md-select>
+                <p class="md-caption">{{item.comment}}</p>
+            </md-input-container>
+        </div>
+    </md-card>
+</div>

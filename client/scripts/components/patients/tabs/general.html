@@ -1,64 +1,63 @@
 <div flex="100" flex-sm="100" flex-xs="100" layout="row">
     <md-card flex-sm="50" flex-xs="100" flex="50">
         <md-toolbar class="card-header-toolbar">
-            <div class="md-toolbar-tools">Personal Data</div>
+            <div class="md-toolbar-tools"><translate>Personal Data</translate></div>
         </md-toolbar>
         <div layout="row" layout-padding layout-margin layout-fill layout-wrap>
             <md-input-container flex="50" class="md-block">
-                <label>First Name</label>
+                <label><translate>First Name</translate></label>
                 <input ng-model="patient.name" name="name" required>
 
                 <div ng-messages="generalForm.name.$error" ng-if="generalForm.name.$touched">
-                    <div ng-message="required">Name is required.</div>
-                    <div ng-message="md-maxlength">The name has to be less than 30 characters long.
+                    <div ng-message="required"><translate>Name is required</translate></div>
+                    <div ng-message="md-maxlength"><translate>The name has to be less than 30 characters long</translate>
                     </div>
                 </div>
             </md-input-container>
             <md-input-container flex="50" class="md-block">
-                <label>Last Name</label>
+                <label><translate>Last Name</translate></label>
                 <input ng-model="patient.lastname" name="lastname" required>
 
                 <div ng-messages="generalForm.lastname.$error" ng-if="generalForm.lastname.$touched">
-                    <div ng-message="required">Last Name is required.</div>
-                    <div ng-message="md-maxlength">The last name has to be less than 30 characters
-                        long.
+                    <div ng-message="required"><translate>Last Name is required</translate></div>
+                    <div ng-message="md-maxlength">
+                        <translate>The last name has to be less than 30 characters long</translate>
                     </div>
                 </div>
             </md-input-container>
             <md-input-container flex="50" class="md-block">
-                <label>Email</label>
+                <label><translate>Email</translate></label>
                 <input required ng-model="patient.email" type="email" name="emailField"
                        minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/">
 
                 <div ng-messages="generalForm.emailField.$error"
                      ng-if="generalForm.emailField.$touched">
                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                        Your email must be between 10 and 100 characters long and look like an e-mail
-                        address.
+                        <translate>Your email must be between 10 and 100 characters long and look like an e-mail address</translate>
                     </div>
                 </div>
             </md-input-container>
             <md-input-container flex="50" class="md-block">
-                <label>Phone Number</label>
+                <label><translate>Phone Number</translate></label>
                 <input ng-model="patient.phone" name="phone" type="number" required>
 
                 <div ng-messages="generalForm.phone.$error" ng-if="generalForm.phone.$touched">
-                    <div ng-message="required">Phone number is required.</div>
+                    <div ng-message="required"><translate>Phone number is required</translate></div>
                 </div>
             </md-input-container>
             <md-input-container flex="50" class="md-block">
-                <label>Birthdate</label>
+                <label><translate>Birthdate</translate></label>
                 <input type="date" ng-model="patient.birthdate">
             </md-input-container>
             <md-input-container flex="50" class="md-block">
-                <label>Gender</label>
+                <label><translate>Gender</translate></label>
                 <md-select ng-model="patient.gender" name="gender" required>
                     <md-option ng-repeat="gender in genderList" value="{{gender}}">
                         {{gender}}
                     </md-option>
                 </md-select>
                 <div ng-messages="generalForm.gender.$error" ng-if="generalForm.gender.$touched">
-                    <div ng-message="required">Gender is required.</div>
+                    <div ng-message="required"><translate>Gender is required</translate></div>
                 </div>
             </md-input-container>
 
@@ -66,49 +65,49 @@
     </md-card>
     <md-card flex-sm="50" flex-xs="100" flex="50">
         <md-toolbar class="card-header-toolbar">
-            <div class="md-toolbar-tools">Other Data</div>
+            <div class="md-toolbar-tools"><translate>Other Data</translate></div>
         </md-toolbar>
         <div layout="row" layout-padding layout-margin layout-fill layout-wrap>
             <md-input-container flex="50" class="md-block">
-                <label>Children</label>
+                <label><translate>Children</translate></label>
                 <md-select ng-model="patient.children" name="children" required>
                     <md-option ng-repeat="item in children" value="{{item}}">
                         {{item}}
                     </md-option>
                 </md-select>
                 <div ng-messages="generalForm.children.$error" ng-if="generalForm.children.$touched">
-                    <div ng-message="required">Children is required.</div>
+                    <div ng-message="required"><translate>Children is required</translate></div>
                 </div>
             </md-input-container>
             <md-input-container flex="50" class="md-block">
-                <label>Work Shift</label>
+                <label><translate>Work Shift</translate></label>
                 <md-select ng-model="patient.workShift" name="workShift" required>
                     <md-option ng-repeat="item in workShift" value="{{item}}">
                         {{item}}
                     </md-option>
                 </md-select>
                 <div ng-messages="generalForm.workShift.$error" ng-if="generalForm.workShift.$touched">
-                    <div ng-message="required">>Work Shift is required.</div>
+                    <div ng-message="required"><translate>Work Shift is required</translate></div>
                 </div>
             </md-input-container>
             <md-input-container flex="50" class="md-block">
-                <label>Profession</label>
+                <label><translate>Profession</translate></label>
 
                 <input ng-model="patient.profession" name="profession" required>
 
                 <div ng-messages="generalForm.profession.$error" ng-if="generalForm.profession.$touched">
-                    <div ng-message="required">Profession is required.</div>
+                    <div ng-message="required"><translate>Profession is required</translate></div>
                 </div>
             </md-input-container>
             <md-input-container flex="50" class="md-block">
-                <label>Work Type</label>
+                <label><translate>Work Type</translate></label>
                 <md-select ng-model="patient.workType" name="workType" required>
                     <md-option ng-repeat="item in workType" value="{{item}}">
                         {{item}}
                     </md-option>
                 </md-select>
                 <div ng-messages="generalForm.workType.$error" ng-if="generalForm.workType.$touched">
-                    <div ng-message="required">Work Type is required.</div>
+                    <div ng-message="required"><translate>Work Type is required</translate></div>
                 </div>
             </md-input-container>
         </div>

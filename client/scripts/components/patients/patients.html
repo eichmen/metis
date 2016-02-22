@@ -2,13 +2,18 @@
 
     <md-data-table-toolbar ng-hide="patientList.selected.length" aria-hidden="false" class="" style="">
         <md-input-container flex>
-            <label translate>Search</label>
+            <label><translate>Search</translate></label>
             <input type="text" ng-model="patientList.search"/>
         </md-input-container>
 
-        <md-button class="md-fab" ng-click="patientList.createPatient()" aria-label="Add Patient">
+      <!--  <md-button class="md-fab" ng-click="patientList.createPatient()" aria-label="Add Patient">
             <md-tooltip md-direction="top" md-visible="tooltipVisible">Add Patient</md-tooltip>
             <ng-md-icon class="md-fab-24" icon="add" size="24"></ng-md-icon>
+        </md-button> -->
+
+        <md-button class="md-raised md-accent" ng-click="patientList.createPatient()" aria-label="Add Patient">
+            <md-tooltip md-direction="top" md-visible="tooltipVisible"><translate>New Patient</translate></md-tooltip>
+            <translate>Add Patient</translate>
         </md-button>
     </md-data-table-toolbar>
 
@@ -27,11 +32,13 @@
         <table md-data-table md-row-select="patientList.selected" md-progress="patientList.deferred">
             <thead md-order="patientList.query.order" md-trigger="patientList.onOrderChange">
             <tr>
-                <th name="Photo">Photo</th>
-                <th name="Name" order-by="patientList.patient.name">Name</th>
-                <th name="Lastname" order-by="patientList.patient.lastname">Lastname</th>
-                <th name="LastConsultation" order-by="patientList.patient.lastConsultation">Last Consultation</th>
-                <th name="NextConsultation" order-by="patientList.patient.nextConsultation">Next Consultation</th>
+                <th name="Photo"><translate>Photo</translate></th>
+                <th name="Name" order-by="patientList.patient.name"><translate>Name</translate></th>
+                <th name="Lastname" order-by="patientList.patient.lastname"><translate>Lastname</translate></th>
+                <th name="LastConsultation" order-by="patientList.patient.lastConsultation">
+                    <translate>Last Consultation</translate></th>
+                <th name="NextConsultation" order-by="patientList.patient.nextConsultation">
+                    <translate>Next Consultation</translate></th>
             </tr>
             </thead>
             <tbody>

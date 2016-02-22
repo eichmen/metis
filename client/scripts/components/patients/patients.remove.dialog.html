@@ -2,7 +2,7 @@
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Delete Patient</h2>
+                <h2><translate>Delete Patient</translate></h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="nok()">
                     <ng-md-icon icon="close"></ng-md-icon>
@@ -11,7 +11,7 @@
         </md-toolbar>
         <md-dialog-content>
             <div class="md-dialog-content">
-                <h4>Are you sure you delete?</h4>
+                <h4><translate>Are you sure you want to delete?</translate></h4>
 
                 <div ng-repeat="patient in selected">
                     <div layout="row">
@@ -23,10 +23,10 @@
         </md-dialog-content>
         <div class="md-actions" layout="row">
             <md-button class="md-warn" style="color:black" ng-click="nok()">
-                No! Sound really bad
+                <translate>No! Sound really bad</translate>
             </md-button>
             <md-button class="md-raised pink" ng-click="ok()">
-                Delete
+                <translate>Delete</translate>
             </md-button>
 
         </div>

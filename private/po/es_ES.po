@@ -9,24 +9,48 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:27
+msgid "% Total Fat"
+msgstr "% Grasas totales"
+
+#: ../client/scripts/components/patients/patients.html:16
+msgid "Add Patient"
+msgstr "Nuevo Paciente"
+
+#: ../client/scripts/components/recipes/recipes.html:12
+msgid "Add Recipe"
+msgstr "Nueva receta"
 
 #: langkeys.js:6
 msgid "Agenda"
 msgstr "Agenda"
 
-#: ../client/templates/patients/patients.html:4
-msgid "Alert"
-msgstr "Alerta"
+#: ../client/scripts/components/patients/patientTabs.html:55
+msgid "Alimentary Habits"
+msgstr "Hábitos alimenticios"
 
-#: ../client/templates/ingredients/ingredients.html:11
+#: ../client/scripts/components/ingredients/ingredients.html:13
 msgid "All"
 msgstr "Todos"
 
 #: langkeys.js:38
 msgid "American Indian/Alaska Native Foods"
 msgstr "Comida Nativa Americana"
+
+#: ../client/scripts/components/recipes/details/tabs/ingredients.html:13
+msgid "Amount"
+msgstr "Cantidad"
+
+#: ../client/scripts/components/patients/patientTabs.html:41
+msgid "Anthropometric"
+msgstr "Datos antropométricos"
+
+#: ../client/scripts/components/patients/patients.remove.dialog.html:14
+msgid "Are you sure you want to delete?"
+msgstr "¿Estás seguro que deseas borrarlo?"
 
 #: langkeys.js:17
 msgid "Baby Foods"
@@ -36,6 +60,10 @@ msgstr "Alimentos para Bebé"
 msgid "Baked Products"
 msgstr "Productos Horneados"
 
+#: ../client/scripts/components/patients/tabs/analytic.html:67
+msgid "Basophils"
+msgstr "Basófilos"
+
 #: langkeys.js:27
 msgid "Beef Products"
 msgstr "Productos Cárnicos"
@@ -44,41 +72,187 @@ msgstr "Productos Cárnicos"
 msgid "Beverages"
 msgstr "Bebidas"
 
+#: ../client/scripts/components/patients/tabs/general.html:49
+msgid "Birthdate"
+msgstr "Fecha de nacimiento"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:45
+msgid "BMR"
+msgstr "Metabolismo Basal"
+
 #: langkeys.js:22
 msgid "Breakfast Cereals"
 msgstr "Cereales para el Desayuno"
 
-#: ../client/templates/ingredients/ingredients.html:28
+#: ../client/scripts/components/patients/tabs/generalHabits.html:38
+msgid "Breast feed"
+msgstr "¿Das el pecho?"
+
+#: ../client/scripts/components/patients/tabs/generalHabits.html:45
+msgid "Breast feed is required"
+msgstr "Debes indicar si das el pecho"
+
+#: ../client/scripts/components/recipes/details/recipeDetails.html:28
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../client/scripts/components/ingredients/ingredients.html:42
 msgid "Carbohydrat"
 msgstr "Carbohidrato"
+
+#: ../client/scripts/components/patients/tabs/analytic.html:18
+msgid "CBC"
+msgstr "CBC"
 
 #: langkeys.js:34
 msgid "Cereal Grains and Pasta"
 msgstr "Cereales y Pasta"
 
+#: ../client/templates/settings.html:19
+msgid "Check Ingredients"
+msgstr "Comprobar ingredientes"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:73
+msgid "Chest"
+msgstr "Pecho"
+
+#: ../client/scripts/components/patients/tabs/general.html:72
+msgid "Children"
+msgstr "Hijos"
+
+#: ../client/scripts/components/patients/tabs/general.html:79
+msgid "Children is required"
+msgstr "Debes indicar el número de hijos"
+
 #: ../client/templates/patients/addPatient.html:24
 msgid "Comments"
 msgstr "Comentarios"
+
+#: ../client/templates/settings.html:35
+msgid "Configure ingredients"
+msgstr "Gestión de ingredientes"
 
 #: ../client/templates/patients/patientDetails.html:35
 msgid "Consultation Records"
 msgstr "Registros de consulta"
 
+#: ../client/scripts/components/patients/patientTabs.html:25
+msgid "Consultations"
+msgstr "Consultas"
+
+#: ../client/scripts/components/patients/patientTabs.html:69
+msgid "Consumption Frecuency"
+msgstr "Frecuencia de consumo"
+
 #: langkeys.js:15
 msgid "Dairy and Egg Products"
 msgstr "Lácteos y Huevos"
 
-#: ../client/templates/agenda.html:6
+#: ../client/scripts/components/patients/tabs/analytic.html:10
+#: ../client/scripts/components/patients/tabs/analytic.list.html:24
+#: ../client/scripts/components/patients/tabs/consultation.html:27
+msgid "Date"
+msgstr "Fecha"
+
+#: ../client/scripts/components/agenda/agenda.html:4
 msgid "Day"
 msgstr "Día"
+
+#: ../client/scripts/components/patients/patients.remove.dialog.html:29
+#: ../client/scripts/components/recipes/details/recipeDetails.html:32
+msgid "Delete"
+msgstr "Borrar"
+
+#: ../client/scripts/components/patients/patients.remove.dialog.html:5
+msgid "Delete Patient"
+msgstr "Borrar paciente"
+
+#: ../client/scripts/components/recipes/details/tabs/mainInfo.html:16
+msgid "Description"
+msgstr "Descripción"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:4
+#: ../client/scripts/components/patients/tabs/consumption.frecuency.html:7
+msgid "Diary Consumations"
+msgstr "Consumos diarios"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:98
+msgid "Do you buy your own groceries?"
+msgstr "¿Haces tú mismo la compra?"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:93
+msgid "Do you cook your own food?"
+msgstr "¿Cocinas tu propia comida?"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:67
+msgid "Do you drink alcohol?"
+msgstr "¿Bebes alcohol?"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:108
+msgid "Do you drink sugared drinks or packaged juices?"
+msgstr "¿Bebes bebidas azucaradas o zumos envasados?"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:118
+msgid "Do you eat fast?"
+msgstr "¿Comes rápido?"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:113
+msgid "Do you eat grained cereals (pasta, rice, bread)?"
+msgstr "¿Comes cereales integrales (pasta, arroz, pan)?"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:47
+msgid "Do you snack?"
+msgstr "¿Picas entre horas?"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:103
+msgid "Do you take care of someone?"
+msgstr "¿Cuidas de alguien?"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:88
+msgid "Do you use fridge for storing tuppers?"
+msgstr "¿Usas la nevera para guardar tuppers?"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:84
+msgid "Do you use microwave?"
+msgstr "¿Usas el microondas?"
+
+#: ../client/scripts/components/recipes/details/recipeDetails.html:20
+msgid "Edit"
+msgstr "Editar"
+
+#: ../client/scripts/components/agenda/event/event.html:6
+msgid "Edit event"
+msgstr "Editar evento"
 
 #: ../client/templates/education.html:3
 msgid "Education"
 msgstr "Educación"
 
+#: ../client/scripts/components/auth/login.html:37
+#: ../client/scripts/components/patients/tabs/general.html:29
 #: ../client/templates/patients/addPatient.html:8
 msgid "Email"
 msgstr "Email"
+
+#: ../client/scripts/components/agenda/event/event.html:30
+msgid "End"
+msgstr "Fin"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:49
+msgid "Energy Expenditure"
+msgstr "Gasto energético"
+
+#: ../client/templates/translate.ingredients.html:6
+msgid "English"
+msgstr "Inglés"
+
+#: ../client/scripts/components/patients/tabs/analytic.html:62
+msgid "Eosinophils"
+msgstr "Eosinófilos"
+
+#: ../client/scripts/components/auth/login.html:22
+msgid "Facebook"
+msgstr "Facebook"
 
 #: langkeys.js:35
 msgid "Fast Foods"
@@ -92,16 +266,77 @@ msgstr "Grasas y Aceites"
 msgid "Finfish and Shellfish Products"
 msgstr "Peces y Mariscos"
 
+#: ../client/scripts/components/patients/tabs/general.html:8
+msgid "First Name"
+msgstr "Nombre"
+
+#: ../client/scripts/components/auth/login.html:45
+msgid "Forgot password?"
+msgstr "¿Has olvidado la contraseña?"
+
 #: langkeys.js:23
 msgid "Fruits and Fruit Juices"
 msgstr "Frutas y Zumos de Frutas"
 
-#: ../client/templates/ingredients/ingredients.html:24
-#: ../client/templates/ingredients/ingredients.html:9
+#: ../client/scripts/components/patients/tabs/general.html:53
+msgid "Gender"
+msgstr "Sexo"
+
+#: ../client/scripts/components/patients/tabs/general.html:60
+msgid "Gender is required"
+msgstr "El campo \"Sexo\" es obligatorio"
+
+#: ../client/scripts/components/patients/patientTabs.html:33
+msgid "General Data"
+msgstr "Datos Generales"
+
+#: ../client/scripts/components/patients/patientTabs.html:48
+msgid "General Habits"
+msgstr "Hábitos Generales"
+
+#: ../client/scripts/components/auth/login.html:18
+msgid "Google"
+msgstr "Google"
+
+#: ../client/scripts/components/ingredients/ingredients.html:10
+#: ../client/scripts/components/ingredients/ingredients.html:31
+#: ../client/scripts/components/recipes/recipes.html:27
 msgid "Group"
 msgstr "Grupo"
 
-#: ../client/templates/ingredients/ingredients.html:23
+#: ../client/scripts/components/patients/tabs/analytic.html:87
+msgid "HCM"
+msgstr "HCM"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:12
+msgid "Height"
+msgstr "Altura"
+
+#: ../client/scripts/components/patients/tabs/analytic.html:22
+msgid "Hematocrit"
+msgstr "Hematocritos"
+
+#: ../client/scripts/components/patients/tabs/analytic.html:32
+msgid "Hemoglobin"
+msgstr "Hemoglobina"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:59
+msgid "Hip"
+msgstr "Cadera"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:41
+msgid "How many people do you cook for?"
+msgstr "¿Para cuanta gente cocinas?"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:57
+msgid "How many water do you drink per day?"
+msgstr "¿Cuántos litros de agua bebes al día?"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:16
+msgid "IMC"
+msgstr "IMC"
+
+#: ../client/scripts/components/ingredients/ingredients.html:29
 msgid "Ingredient"
 msgstr "Ingrediente"
 
@@ -109,7 +344,11 @@ msgstr "Ingrediente"
 msgid "Ingredients"
 msgstr "Ingredientes"
 
-#: ../client/templates/ingredients/ingredients.html:25
+#: ../client/templates/settings.html:27
+msgid "Ingredients have been loaded"
+msgstr "Los ingredientes han sido cargados"
+
+#: ../client/scripts/components/ingredients/ingredients.html:33
 msgid "Kcal"
 msgstr "Kcal"
 
@@ -117,49 +356,152 @@ msgstr "Kcal"
 msgid "Lamb, Veal, and Game Products"
 msgstr "Cordero, Ternera, y Caza"
 
+#: ../client/scripts/components/patients/patients.html:39
+msgid "Last Consultation"
+msgstr "Última consulta"
+
+#: ../client/scripts/components/patients/tabs/general.html:18
+msgid "Last Name"
+msgstr "Apellido"
+
+#: ../client/scripts/components/patients/tabs/general.html:22
+msgid "Last Name is required"
+msgstr "El \"Apellido\" es obligatorio"
+
+#: ../client/scripts/components/patients/patients.html:37
+msgid "Lastname"
+msgstr "Apellido"
+
 #: langkeys.js:30
 msgid "Legumes and Legume Products"
 msgstr "Legumbres y Derivados"
 
-#: ../client/templates/ingredients/ingredientDetail.html:33
-msgid "Lipids"
-msgstr "Grasas"
+#: ../client/scripts/components/patients/tabs/analytic.html:52
+msgid "Leukocyte"
+msgstr "Leucocitos"
 
-#: ../client/templates/ingredients/ingredients.html:27
+#: ../client/scripts/components/ingredients/ingredients.html:39
 msgid "Lipids Total"
 msgstr "Total de Grasas"
+
+#: ../client/templates/settings.html:23
+msgid "Load Ingredients"
+msgstr "Cargar ingredientes"
 
 #: ../client/templates/patients/addPatient.html:16
 msgid "Location"
 msgstr "Ubicación"
 
+#: ../client/templates/settings.html:31
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: ../client/scripts/components/patients/tabs/analytic.html:72
+msgid "Lymphocytes"
+msgstr "Linfocitos"
+
+#: ../client/scripts/components/patients/tabs/analytic.html:42
+msgid "MCHC"
+msgstr "MCHC"
+
 #: langkeys.js:36
 msgid "Meals, Entrees, and Side Dishes"
 msgstr "Entrantes y Acompañantes"
 
-#: ../client/templates/ingredients/ingredientDetail.html:19
-msgid "Minerals"
-msgstr "Minerales"
+#: ../client/scripts/components/patients/patientTabs.html:62
+msgid "Medical History"
+msgstr "Historial Médico"
 
-#: ../client/templates/agenda.html:8
+#: ../client/scripts/components/patients/tabs/analytic.html:77
+msgid "Monocytes"
+msgstr "Monocitos"
+
+#: ../client/scripts/components/agenda/agenda.html:6
 msgid "Month"
 msgstr "Mes"
 
+#: ../client/scripts/components/patients/tabs/anthropometric.html:41
+msgid "Muscle"
+msgstr "Músculo"
+
+#: ../client/scripts/components/patients/patients.html:36
+#: ../client/scripts/components/recipes/details/recipeDetails.html:14
+#: ../client/scripts/components/recipes/details/tabs/ingredients.html:6
+#: ../client/scripts/components/recipes/recipes.html:25
 #: ../client/templates/patients/addPatient.html:4
 msgid "Name"
 msgstr "Nombre"
 
+#: ../client/scripts/components/patients/tabs/general.html:12
+msgid "Name is required"
+msgstr "El \"Nombre\" es obligatorio"
+
+#: ../client/scripts/components/auth/login.html:56
+msgid "Need an account?"
+msgstr "¿Necesitas una cuenta?"
+
+#: ../client/scripts/components/patients/tabs/analytic.html:57
+msgid "Neutrophils"
+msgstr "Neutrófilos"
+
+#: ../client/scripts/components/patients/tabs/analytic.list.html:13
+msgid "New Analytic"
+msgstr "Nueva Analítica"
+
+#: ../client/scripts/components/patients/tabs/consultation.html:13
 #: ../client/templates/patients/patientDetails.html:28
 msgid "New Consultation"
 msgstr "Nueva Consulta"
 
+#: ../client/scripts/components/patients/tabs/analytic.list.html:6
+#: ../client/scripts/components/patients/tabs/consultation.html:6
+msgid "New Elements"
+msgstr "Nuevos elementos"
+
+#: ../client/scripts/components/agenda/event/event.html:5
+msgid "New event"
+msgstr "Nuevo evento"
+
+#: ../client/scripts/components/patients/tabs/consultation.html:16
 #: ../client/templates/patients/patientDetails.html:29
 msgid "New Instruction"
 msgstr "Nueva instrucción"
 
-#: ../client/templates/patients/patients.html:5
+#: ../client/scripts/components/patients/patients.html:15
 msgid "New Patient"
 msgstr "Nuevo Paciente"
+
+#: ../client/scripts/components/patients/patients.html:41
+msgid "Next Consultation"
+msgstr "Siguiente consulta"
+
+#: ../client/scripts/components/patients/patients.remove.dialog.html:26
+msgid "No! Sound really bad"
+msgstr "¡No! Mejor no ..."
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:83
+msgid "Nondominant arm"
+msgstr "Brazo no dominante"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:26
+msgid "Number of eating out by type"
+msgstr "Número de comidas fuera según el tipo"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:22
+msgid "Number of eating out in a week"
+msgstr "Número de veces que comes fuera"
+
+#: ../client/scripts/components/recipes/details/tabs/mainInfo.html:3
+msgid "Number of Servings"
+msgstr "Número de raciones"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:36
+msgid "Number of tupper meals by type"
+msgstr "Número de comidas de tupper por tipo"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:32
+msgid "Number of tupper meals in a week"
+msgstr "Número de comidas de tupper a la semana"
 
 #: langkeys.js:26
 msgid "Nut and Seed Products"
@@ -169,6 +511,18 @@ msgstr "Nueces y Semillas"
 msgid "Nutritional Education"
 msgstr "Educación Nutricional"
 
+#: ../client/scripts/components/patients/tabs/consultation.html:29
+msgid "Observations"
+msgstr "Observaciones"
+
+#: ../client/scripts/components/patients/tabs/general.html:68
+msgid "Other Data"
+msgstr "Otros datos"
+
+#: ../client/scripts/components/auth/login.html:41
+msgid "Password"
+msgstr "Contraseña"
+
 #: langkeys.js:5
 msgid "Patients"
 msgstr "Pacientes"
@@ -176,6 +530,34 @@ msgstr "Pacientes"
 #: ../client/templates/payments.html:3 langkeys.js:7
 msgid "Payments"
 msgstr "Pagos"
+
+#: ../client/scripts/components/patients/tabs/general.html:4
+msgid "Personal Data"
+msgstr "Datos Personales"
+
+#: ../client/scripts/components/patients/tabs/general.html:41
+msgid "Phone Number"
+msgstr "Número de teléfono"
+
+#: ../client/scripts/components/patients/tabs/general.html:45
+msgid "Phone number is required"
+msgstr "El \"Número de teléfono\" es obligatorio"
+
+#: ../client/scripts/components/patients/patients.html:35
+msgid "Photo"
+msgstr "Foto"
+
+#: ../client/scripts/components/patients/tabs/generalHabits.html:16
+msgid "Physical Activity"
+msgstr "Actividad Física"
+
+#: ../client/scripts/components/patients/tabs/generalHabits.html:23
+msgid "Physical Activity is required"
+msgstr "La \"Actividad Física\" es obligatoria"
+
+#: ../client/scripts/components/patients/tabs/analytic.html:82
+msgid "Platelets"
+msgstr "Plaquetas"
 
 #: langkeys.js:24
 msgid "Pork Products"
@@ -185,15 +567,35 @@ msgstr "Cerdo y Derivados"
 msgid "Poultry Products"
 msgstr "Aves y Derivados"
 
-#: ../client/templates/ingredients/ingredients.html:26
+#: ../client/scripts/components/patients/tabs/generalHabits.html:27
+msgid "Pregnant"
+msgstr "¿Estás embarazada?"
+
+#: ../client/scripts/components/patients/tabs/generalHabits.html:34
+msgid "Pregnant is required"
+msgstr "Debes indicar si estás embarazada"
+
+#: ../client/scripts/components/recipes/details/tabs/mainInfo.html:9
+msgid "Preparation Time"
+msgstr "Tiempo de preparación"
+
+#: ../client/scripts/components/patients/tabs/general.html:94
+msgid "Profession"
+msgstr "Profesión"
+
+#: ../client/scripts/components/patients/tabs/general.html:99
+msgid "Profession is required"
+msgstr "La \"Profesión\" es obligatoria"
+
+#: ../client/scripts/components/ingredients/ingredients.html:36
 msgid "Protein"
 msgstr "Proteínas"
 
-#: ../client/templates/ingredients/ingredientDetail.html:12
-msgid "Proximates"
-msgstr "Proximales"
+#: ../client/scripts/components/patients/tabs/analytic.html:27
+msgid "RBC"
+msgstr "RBC"
 
-#: ../client/templates/recipes.html:3 langkeys.js:8
+#: langkeys.js:8
 msgid "Recipes"
 msgstr "Recetas"
 
@@ -205,18 +607,55 @@ msgstr "Comidas de Restaurantes"
 msgid "Sausages and Luncheon Meats"
 msgstr "Embutidos y Carnes de Almuerzo"
 
+#: ../client/scripts/components/agenda/event/event.html:37
+#: ../client/scripts/components/recipes/details/recipeDetails.html:24
 #: ../client/templates/patients/addPatient.html:27
+#: ../client/templates/translate.ingredients.html:19
 msgid "Save"
 msgstr "Guardar"
 
-#: ../client/templates/ingredients/ingredients.html:5
-#: ../client/templates/patients/patients.html:10
+#: ../client/scripts/components/ingredients/configure/manage.ingredients.html:7
+#: ../client/scripts/components/ingredients/ingredients.html:6
+#: ../client/scripts/components/patients/patients.html:5
+#: ../client/scripts/components/recipes/recipes.html:7
 msgid "Search"
 msgstr "Buscar"
 
-#: ../client/templates/settings.html:3 langkeys.js:10
+#: ../client/scripts/components/recipes/details/dialogs/ingredients.dialog.html:5
+msgid "Select ingredients"
+msgstr "Elige ingredientes"
+
+#: ../client/templates/settings.html:6 langkeys.js:10
 msgid "Settings"
 msgstr "Ajustes"
+
+#: ../client/scripts/components/auth/login.html:7
+msgid "Sign in"
+msgstr "Entrar"
+
+#: ../client/scripts/components/auth/login.html:47
+msgid "Sign In"
+msgstr "Entrar"
+
+#: ../client/scripts/components/auth/login.html:32
+msgid "Sign in with your email"
+msgstr "Entrar con tu email"
+
+#: ../client/scripts/components/patients/tabs/generalHabits.html:60
+msgid "Sleep (hours)"
+msgstr "Horas de sueño"
+
+#: ../client/scripts/components/patients/tabs/generalHabits.html:64
+msgid "Sleep (hours) is required"
+msgstr "Las \"Horas de sueño\" son obligatorias"
+
+#: ../client/scripts/components/patients/tabs/generalHabits.html:5
+msgid "Smoker"
+msgstr "¿Eres fumador?"
+
+#: ../client/scripts/components/patients/tabs/generalHabits.html:12
+msgid "Smoker is required"
+msgstr "Debes indicar si eres fumador"
 
 #: langkeys.js:37
 msgid "Snacks"
@@ -226,25 +665,148 @@ msgstr "Aperitivos"
 msgid "Soups, Sauces, and Gravies"
 msgstr "Sopas y Salsas"
 
+#: ../client/templates/translate.ingredients.html:10
+msgid "Spanish"
+msgstr "Español"
+
 #: langkeys.js:16
 msgid "Spices and Herbs"
 msgstr "Especias e Hierbas"
+
+#: ../client/scripts/components/agenda/event/event.html:19
+#: ../client/scripts/components/agenda/event/event.html:26
+msgid "Start"
+msgstr "Inicio"
+
+#: ../client/scripts/components/recipes/details/tabs/steps.html:10
+msgid "Step"
+msgstr "Paso"
 
 #: langkeys.js:33
 msgid "Sweets"
 msgstr "Dulces"
 
+#: ../client/scripts/components/patients/tabs/general.html:24
+msgid "The last name has to be less than 30 characters long"
+msgstr "El \"Apellido\" no puede tener más de 30 caracteres"
+
+#: ../client/scripts/components/patients/tabs/general.html:13
+msgid "The name has to be less than 30 characters long"
+msgstr "El \"Nombre\" no puede tener más de 30 caracteres"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:69
+msgid "Thigh"
+msgstr "Muslo"
+
+#: ../client/scripts/components/patients/tabs/generalHabits.html:49
+msgid "Tired"
+msgstr "¿Sueles estar cansado?"
+
+#: ../client/scripts/components/patients/tabs/generalHabits.html:56
+msgid "Tired is required"
+msgstr "Debes indicar si sueles estar cansado"
+
+#: ../client/scripts/components/agenda/event/event.html:13
+msgid "Title"
+msgstr "Título"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:35
+msgid "Total Corporal Water"
+msgstr "Agua corporal total"
+
+#: ../client/scripts/components/auth/login.html:26
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../client/scripts/components/recipes/details/tabs/ingredients.html:18
+msgid "Unit"
+msgstr "Unidad"
+
+#: ../client/scripts/components/agenda/event/event.html:40
+msgid "Update"
+msgstr "Actualizar"
+
+#: ../client/scripts/components/auth/login.html:13
+msgid "Use existing account"
+msgstr "Usa una cuenta existente"
+
+#: ../client/scripts/components/patients/tabs/analytic.html:37
+msgid "VCM"
+msgstr "VCM"
+
 #: langkeys.js:25
 msgid "Vegetables and Vegetable Products"
 msgstr "Vegetales y Derivados"
 
-#: ../client/templates/ingredients/ingredientDetail.html:26
-msgid "Vitamins"
-msgstr "Vitaminas"
+#: ../client/scripts/components/patients/tabs/anthropometric.html:31
+msgid "Visceral Fat"
+msgstr "Grasa visceral"
 
-#: ../client/templates/agenda.html:7
+#: ../client/scripts/components/patients/tabs/analytic.html:47
+msgid "VSG"
+msgstr "VSG"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:55
+msgid "Waist"
+msgstr "Cintura"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:63
+msgid "Waist Hip index"
+msgstr "Índice de cintura-cadera"
+
+#: ../client/scripts/components/patients/tabs/alimentary.html:18
+#: ../client/scripts/components/patients/tabs/alimentary.html:79
+msgid "Way of eating"
+msgstr "¿Cómo comes?"
+
+#: ../client/scripts/components/agenda/agenda.html:5
 msgid "Week"
 msgstr "Semana"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:8
+msgid "Weight"
+msgstr "Peso"
+
+#: ../client/scripts/components/patients/tabs/general.html:83
+msgid "Work Shift"
+msgstr "Turno laboral"
+
+#: ../client/scripts/components/patients/tabs/general.html:90
+msgid "Work Shift is required"
+msgstr "El \"Turno Laboral\" es obligatorio"
+
+#: ../client/scripts/components/patients/tabs/general.html:103
+msgid "Work Type"
+msgstr "Tipo de trabajo"
+
+#: ../client/scripts/components/patients/tabs/general.html:110
+msgid "Work Type is required"
+msgstr "El \"Tipo de trabajo\" es obligatorio"
+
+#: ../client/scripts/components/patients/tabs/anthropometric.html:77
+msgid "Wrist"
+msgstr "Muñeca"
+
+#: ../client/scripts/components/patients/tabs/general.html:36
+msgid ""
+"Your email must be between 10 and 100 characters long and look like an e-"
+"mail address"
+msgstr "Tu correo debe estar entre 10 y 100 caracteres"
+
+#~ msgid "Alert"
+#~ msgstr "Alerta"
+
+#~ msgid "Lipids"
+#~ msgstr "Grasas"
+
+#~ msgid "Minerals"
+#~ msgstr "Minerales"
+
+#~ msgid "Proximates"
+#~ msgstr "Proximales"
+
+#~ msgid "Vitamins"
+#~ msgstr "Vitaminas"
 
 #~ msgid "Carbohydrates"
 #~ msgstr "Carbohidratos"

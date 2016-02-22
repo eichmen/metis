@@ -2,8 +2,8 @@
 
 
     <div layout-padding layout="column" flex>
-        <div translate>
-            Settings
+        <div>
+            <translate>Settings</translate>
         </div>
         <div layout="row">
             <md-button class="md-raised md-primary" ng-click="setLanguage(SPANISH)">
@@ -15,20 +15,24 @@
         </div>
 
         <div>
-            <md-button ng-show="hasIngredients" class="md-raised md-primary" ng-click="checkIngredients()">Check Ingredients</md-button>
+            <md-button ng-show="hasIngredients" class="md-raised md-primary" ng-click="checkIngredients()">
+                <translate>Check Ingredients</translate></md-button>
         </div>
         <div ng-show="!hasIngredients" layout-padding layout="row">
-            <md-button ng-show="!loading" class="md-raised md-primary" ng-click="loadIngredients()">Load Ingredients</md-button>
+            <md-button ng-show="!loading" class="md-raised md-primary" ng-click="loadIngredients()">
+                <translate>Load Ingredients</translate></md-button>
             <md-progress-circular ng-show="loading" md-mode="indeterminate"></md-progress-circular>
         </div>
         <div ng-show="hasIngredients && loadedIngredients" layout-padding>
-            Ingredients have been loaded
+            <translate>Ingredients have been loaded</translate>
         </div>
         <div>
-            <md-button class="md-raised md-primary" ng-click="logout()">Logout</md-button>
+            <md-button class="md-raised md-primary" ng-click="logout()">
+                <translate>Logout</translate></md-button>
         </div>
         <div>
-            <md-button class="md-raised md-primary" ng-click="configureIngredients()">Configure ingredients</md-button>
+            <md-button class="md-raised md-primary" ng-click="configureIngredients()">
+                <translate>Configure ingredients</translate></md-button>
         </div>
     </div>
 

@@ -3,11 +3,11 @@
     <md-card>
         <div layout-padding layout="column">
             <md-input-container>
-                <label>English</label>
+                <label><translate>English</translate></label>
                 <input ng-model="ingredient.nomenclature.english.desc">
             </md-input-container>
             <md-input-container>
-                <label>Spanish</label>
+                <label><translate>Spanish</translate></label>
                 <input ng-model="ingredient.nomenclature.spanish.desc">
             </md-input-container>
             <md-checkbox ng-model="ingredient.active" aria-label="Activo">
@@ -16,7 +16,7 @@
     </md-card>
 
     <div>
-        <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
+        <md-button class="md-raised md-primary" ng-click="save()"><translate>Save</translate></md-button>
     </div>
 
     </md-content>

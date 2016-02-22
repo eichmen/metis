@@ -22,7 +22,7 @@
              md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
 
         <md-tab ng-if="patientTabs.patientId" id="consultations">
-            <md-tab-label>Consultations</md-tab-label>
+            <md-tab-label><translate>Consultations</translate></md-tab-label>
             <md-tab-body>
                 <patient-consultations></patient-consultations>
             </md-tab-body>
@@ -38,36 +38,35 @@
         </md-tab>
 
         <md-tab id="anthropometric">
-            <md-tab-label>Anthropometric</md-tab-label>
-            anthropometric
+            <md-tab-label><translate>Anthropometric</translate></md-tab-label>
             <md-tab-body>
                 <anthropometric patient="patientTabs.patient"></anthropometric>
             </md-tab-body>
         </md-tab>
 
         <md-tab id="generalHabits">
-            <md-tab-label>General Habits</md-tab-label>
+            <md-tab-label><translate>General Habits</translate></md-tab-label>
             <md-tab-body>
                 <patient-general-habits patient="patientTabs.patient"></patient-general-habits>
             </md-tab-body>
         </md-tab>
 
         <md-tab id="alimentaryHabits">
-            <md-tab-label>Alimentary Habits</md-tab-label>
+            <md-tab-label><translate>Alimentary Habits</translate></md-tab-label>
             <md-tab-body layout="row">
                 <patient-alimentary patient="patientTabs.patient"></patient-alimentary>
             </md-tab-body>
         </md-tab>
 
         <md-tab id="medicalHistory">
-            <md-tab-label>MedicalHistory</md-tab-label>
+            <md-tab-label><translate>Medical History</translate></md-tab-label>
             <md-tab-body>
                 <patient-analytics patient="patientTabs.patient"></patient-analytics>
             </md-tab-body>
         </md-tab>
 
         <md-tab id="psychological">
-            <md-tab-label>Consumption Frecuency</md-tab-label>
+            <md-tab-label><translate>Consumption Frecuency</translate></md-tab-label>
             <md-tab-body>
                 <consumption-frequency patient="patientTabs.patient"></consumption-frequency>
             </md-tab-body>

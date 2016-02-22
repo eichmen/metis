@@ -2,66 +2,66 @@
     <form name="generalHabitsForm" novalidate style="padding-top:20px">
         <div layout="row" layout-padding layout-margin layout-fill layout-wrap>
             <md-input-container flex="50">
-                <label>Smoker</label>
+                <label><translate>Smoker</translate></label>
                 <md-select ng-model="patient.generalHabits.smoker" name="smoker" required>
                     <md-option ng-repeat="item in smoker" value="{{item}}">
                         {{item}}
                     </md-option>
                 </md-select>
                 <div ng-messages="generalHabitsForm.smoker.$error" ng-if="generalHabitsForm.smoker.$touched">
-                    <div ng-message="required">Smoker is required.</div>
+                    <div ng-message="required"><translate>Smoker is required</translate></div>
                 </div>
             </md-input-container>
             <md-input-container flex="50">
-                <label>Physical Activity</label>
+                <label><translate>Physical Activity</translate></label>
                 <md-select ng-model="patient.generalHabits.physicalActivity" name="physicalActivity" required>
                     <md-option ng-repeat="item in physicalActivity" value="{{item}}">
                         {{item}}
                     </md-option>
                 </md-select>
                 <div ng-messages="generalHabitsForm.physicalActivity.$error" ng-if="generalHabitsForm.physicalActivity.$touched">
-                    <div ng-message="required">Physical Activity is required.</div>
+                    <div ng-message="required"><translate>Physical Activity is required</translate></div>
                 </div>
             </md-input-container>
             <md-input-container flex="50" ng-if="patient.gender=='Woman'">
-                <label>Pregnant</label>
+                <label><translate>Pregnant</translate></label>
                 <md-select ng-model="patient.generalHabits.pregnant" name="pregnant" required>
                     <md-option ng-repeat="item in pregnant" value="{{item}}">
                         {{item}}
                     </md-option>
                 </md-select>
                 <div ng-messages="generalHabitsForm.pregnant.$error" ng-if="generalHabitsForm.pregnant.$touched">
-                    <div ng-message="required">Pregnant is required.</div>
+                    <div ng-message="required"><translate>Pregnant is required</translate></div>
                 </div>
             </md-input-container>
             <md-input-container flex="50" ng-if="patient.gender=='Woman'"   >
-                <label>Bread feed</label>
+                <label><translate>Breast feed</translate></label>
                 <md-select ng-model="patient.generalHabits.breadFeed" name="breadFeed" required>
                     <md-option ng-repeat="item in breadFeed" value="{{item}}">
                         {{item}}
                     </md-option>
                 </md-select>
                 <div ng-messages="generalHabitsForm.breadFeed.$error" ng-if="generalHabitsForm.breadFeed.$touched">
-                    <div ng-message="required">Bread feed is required.</div>
+                    <div ng-message="required"><translate>Breast feed is required</translate></div>
                 </div>
             </md-input-container>
             <md-input-container flex="50">
-                <label>Tired</label>
+                <label><translate>Tired</translate></label>
                 <md-select ng-model="patient.generalHabits.tired" name="tired" required>
                     <md-option ng-repeat="item in tired" value="{{item}}">
                         {{item}}
                     </md-option>
                 </md-select>
                 <div ng-messages="generalHabitsForm.tired.$error" ng-if="generalHabitsForm.tired.$touched">
-                    <div ng-message="required">Tired is required.</div>
+                    <div ng-message="required"><translate>Tired is required</translate></div>
                 </div>
             </md-input-container>
             <md-input-container flex="50">
-                <label>Sleep (hours)</label>
+                <label><translate>Sleep (hours)</translate></label>
                 <input ng-model="patient.generalHabits.sleepHours" name="sleepHours" type="number" required>
 
                 <div ng-messages="generalHabitsForm.sleepHours.$error" ng-if="generalHabitsForm.sleepHours.$touched">
-                    <div ng-message="required">Sleep (hours) is required.</div>
+                    <div ng-message="required"><translate>Sleep (hours) is required</translate></div>
                 </div>
             </md-input-container>
         </div>

@@ -4,46 +4,47 @@
 
         <md-toolbar class="toolbar-bg md-primary md-tall" layout="column" layout-align="end" layout-fill>
             <div layout="row" class="md-toolbar-tools md-toolbar-tools-bottom">
-                <h3 class="md-display-1"> Sign in </h3>
+                <h3 class="md-display-1"><translate>Sign in</translate></h3>
             </div>
         </md-toolbar>
 
         <div layout="column" layout-fill layout-margin layout-padding class="white">
             <div layout="row" layout-fill layout-margin>
-                <p class="md-body-2"> Use existing account</p>
+                <p class="md-body-2"><translate>Use existing account</translate></p>
             </div>
             <div layout="row" layout-fill layout-margin layout-padding layout-wrap layout-align="center">
                 <md-button class="md-raised" style="background-color: #DC4A38;width:120px">
                     <ng-md-icon icon="google-plus-box" style="background-color: #DC4A38;"></ng-md-icon>
-                    <span style="color:white"> Google</span>
+                    <span style="color:white"><translate>Google</translate></span>
                 </md-button>
                 <md-button class="md-raised" style="background-color: #3F62B4;width:120px">
                     <ng-md-icon icon="facebook-box" style="background-color: #3F62B4;"></ng-md-icon>
-                    <span style="color:white">Facebook </span>
+                    <span style="color:white"><translate>Facebook</translate></span>
                 </md-button>
                 <md-button class="md-raised" style="background-color: #27AAE2;;width:120px">
                     <ng-md-icon icon="twitter" style="background-color: #27AAE2;"></ng-md-icon>
-                    <span style="color:white">Twitter </span>
+                    <span style="color:white"><translate>Twitter</translate></span>
                 </md-button>
             </div>
             <md-divider class="inset"></md-divider>
 
             <div layout="row" layout-fill layout-margin>
-                <p class="md-body-2"> Sign in with your email</p>
+                <p class="md-body-2"><translate>Sign in with your email</translate></p>
             </div>
 
             <form name="loginForm" layout="column" layout-fill layout-padding layout-margin>
                 <md-input-container>
-                    <label> Email </label>
+                    <label><translate>Email</translate></label>
                     <input type="text" ng-model="login.credentials.email" aria-label="email" required/>
                 </md-input-container>
                 <md-input-container>
-                    <label> Password </label>
+                    <label><translate>Password</translate></label>
                     <input type="password" ng-model="login.credentials.password" aria-label="password" required/>
                 </md-input-container>
                 <div layout="row" layout-align="space-between center">
-                    <a class="md-button" href="/resetPassword">Forgot password?</a>
-                    <md-button class="md-raised md-primary" ng-click="login.login()" aria-label="login">Sign In
+                    <a class="md-button" href="/resetPassword"><translate>Forgot password?</translate></a>
+                    <md-button class="md-raised md-primary" ng-click="login.login()" aria-label="login">
+                        <translate>Sign In</translate>
                     </md-button>
                 </div>
             </form>
@@ -52,7 +53,7 @@
             </md-toolbar>
             <md-divider></md-divider>
             <div layout="row" layout-align="center">
-                <a class="md-button" href="/register">Need an account?</a>
+                <a class="md-button" href="/register"><translate>Need an account?</translate></a>
             </div>
 
         </div>

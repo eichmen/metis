@@ -35,3 +35,13 @@ md-tabs.md-default-theme.md-primary, md-tabs.md-primary > md-tabs-wrapper {
   margin:8px;
   padding:8px;
 }
+
+.card-header {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.fixed-height {
+  height: 40px;
+}

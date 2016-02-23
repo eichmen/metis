@@ -43,7 +43,7 @@ angular.module('Metis').directive('analytic', function () {
 
             function save() {
 
-                if (this.analytic._id) {
+                if (this.analytic && this.analytic._id) {
                     Meteor.call('updateAnalytic', this.analytic, function (error, result) {
                         if (error) {
                             console.log('failed', error);

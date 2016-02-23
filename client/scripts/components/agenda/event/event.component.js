@@ -2,46 +2,49 @@ angular.module('Metis').directive('agendaEvent', function () {
     return {
         restrict: 'E',
         templateUrl: 'client/scripts/components/agenda/event/event.html',
-        controllerAs: '$scope',
+        bindToController:true,
+        controllerAs: 'eventDialog',
         scope: {
             event:'=',
             day:'='
         },
         controller: function ($scope, $mdDialog, Utils, $reactive) {
 
-            $scope.subscribe('agendaEvents');
+            $reactive(this).attach($scope);
+
+            this.subscribe('agendaEvents');
 
             /* New event */
-            if ($scope.event == null) {
+            if (this.event == null) {
                 this.newEvent = true;
-                $scope.event = {};
-                $scope.event.start = $scope.day;
-                $scope.event.end = $scope.day;
+                this.event = {};
+                this.event.start = this.day;
+                this.event.end = this.day;
 
                 /* Edit event */
             } else {
-                $scope.event = $scope.event;
+                this.event = this.event;
             }
 
-            $scope.save = save;
-            $scope.update = update;
-            $scope.closeDialog = closeDialog;
-            $scope.removeEvent = removeEvent;
+            this.save = save;
+            this.update = update;
+            this.closeDialog = closeDialog;
+            this.removeEvent = removeEvent;
 
             function save() {
-                $scope.event.owner = Meteor.userId();
-                $scope.event.stick = true;
-                AgendaEvents.insert($scope.event);
+                this.event.owner = Meteor.userId();
+                this.event.stick = true;
+                AgendaEvents.insert(this.event);
                 closeDialog();
                 Utils.toast('Event saved');
             }
 
             function update() {
                 console.log('Updating event');
-                AgendaEvents.update($scope.event._id, {
+                AgendaEvents.update(this.event._id, {
                     $set: {
-                        start: $scope.event.start,
-                        end: $scope.event.end
+                        start: this.event.start,
+                        end: this.event.end
                     }
                 })
                 closeDialog();
@@ -49,7 +52,7 @@ angular.module('Metis').directive('agendaEvent', function () {
             }
 
             function removeEvent() {
-                AgendaEvents.remove($scope.event._id);
+                AgendaEvents.remove(this.event._id);
                 closeDialog();
                 Utils.toast('Event removed');
 

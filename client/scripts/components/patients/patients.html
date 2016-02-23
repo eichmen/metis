@@ -1,11 +1,11 @@
 <md-card layout-padding>
 
-    <md-toolbar class="md-table-toolbar md-default" ng-hide="patientList.selected.length">
+    <md-toolbar layout="row" class="md-table-toolbar md-default" ng-hide="patientList.selected.length">
         <md-input-container flex>
             <label><translate>Search</translate></label>
             <input type="text" ng-model="patientList.search"/>
         </md-input-container>
-        <md-button class="md-raised md-accent" ng-click="patientList.createPatient()" aria-label="Add Patient">
+        <md-button class="md-raised md-accent white fixed-height" ng-click="patientList.createPatient()" aria-label="Add Patient">
             <md-tooltip md-direction="top" md-visible="tooltipVisible"><translate>New Patient</translate></md-tooltip>
             <translate>Add Patient</translate>
         </md-button>
@@ -23,7 +23,7 @@
         <table md-table md-row-select ng-model="patientList.selected" md-progress="patientList.deferred">
             <thead  md-head md-order="patientList.query.order" md-trigger="patientList.onOrderChange">
             <tr md-row>
-                <th md-column> <translate>Photo</translate></th>
+                <th md-column ><translate>Photo</translate></th>
                 <th md-column md-order-by="patientList.patient.name"><translate>Name</translate></th>
                 <th md-column md-order-by="patientList.patient.lastname"><translate>Lastname</translate></th>
                 <th md-column md-order-by="patientList.patient.lastConsultation">
@@ -33,7 +33,7 @@
             </tr>
             </thead>
             <tbody md-body>
-            <tr md-row md-auto-select ng-repeat="patient in patientList.patients" ng-click="patientList.enter(patient)">
+            <tr md-row md-select="patient" md-auto-select ng-repeat="patient in patientList.patients" ng-click="patientList.enter(patient)">
                 <td md-cell><img class="avatar-md-table" ng-src="{{patient.photo}}"></td>
                 <td md-cell>{{patient.name}}</td>
                 <td md-cell>{{patient.lastname}}</td>

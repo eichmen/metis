@@ -1,4 +1,9 @@
 <md-card ng-if="!patientAnalytics.analyticDetail">
+
+    <md-toolbar class="card-header-toolbar">
+        <div class="md-toolbar-tools card-header"><translate>Medical History</translate></div>
+    </md-toolbar>
+
     <md-fab-toolbar md-open="patientAnalytics.fab.isOpen" count="patientAnalytics.fab.count"
                     md-direction="{{patientAnalytics.fab.selectedDirection}}">
         <md-fab-trigger class="align-with-text">
@@ -16,29 +21,29 @@
         </md-toolbar>
     </md-fab-toolbar>
 
-    <md-data-table-container id="table-analytics">
-        <table md-data-table md-row-select="patientAnalytics.selected">
-            <thead md-order="patientAnalytics.query.order" md-trigger="patientAnalytics.onOrderChange">
-            <tr>
-                <th name="Date" order-by="date">
+    <md-table-container id="table-analytics">
+        <table md-table md-row-select ng-model="patientAnalytics.selected">
+            <thead md-head md-order="patientAnalytics.query.order" md-trigger="patientAnalytics.onOrderChange">
+            <tr md-row>
+                <th md-column name="Date" md-order-by="date">
                     <translate>Date</translate>
                 </th>
             </tr>
             </thead>
-            <tbody>
-            <tr md-auto-select ng-repeat="analytic in patientAnalytics.analytics"
+            <tbody md-body>
+            <tr md-row md-select="analytic"  md-auto-select ng-repeat="analytic in patientAnalytics.analytics"
                 ng-click="patientAnalytics.enter(analytic)">
-                <td>{{analytic.date | date:"MM/dd/yyyy"}}</td>
+                <td  md-cell>{{analytic.date | date:"MM/dd/yyyy"}}</td>
             </tr>
             </tbody>
         </table>
-    </md-data-table-container>
-    <md-data-table-pagination md-limit="patientAnalytics.perPage"
+    </md-table-container>
+    <md-table-pagination md-limit="patientAnalytics.perPage"
                               md-page="patientAnalytics.page"
                               md-total="{{patientAnalytics.analyticCount}}"
                               md-trigger="patientAnalytics.onPaginationChange">
 
-    </md-data-table-pagination>
+    </md-table-pagination>
 
 </md-card>
 

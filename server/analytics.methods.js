@@ -1,6 +1,6 @@
 Meteor.publish("analytics", function (options, patientSelected) {
     console.log("PatientSelected", patientSelected,this.userId, patientSelected);
-    Counts.publish(this, 'numberOfAnalytics', Patients.find(),
+    Counts.publish(this, 'numberOfAnalytics', Analytics.find(),
         {noReady: true});
 
     return Analytics.find({

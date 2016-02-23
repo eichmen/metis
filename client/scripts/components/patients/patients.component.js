@@ -7,61 +7,41 @@ angular.module('Metis').directive('patientList', function () {
             let vm = this;
             $reactive(vm).attach($scope);
 
+            /* Data Table variables */
             this.perPage = 5;
-            this.orderProperty = '1';
-            this.filter = {
-                options: {
-                    debounce: 500
-                }
+            this.page=1;
+            this.search='';
+            this.selected=[];
+            this.sort= {
+                name:1
             };
 
+            /* list and count list helpers */
             this.helpers({
                 patients: () => {
-                    return Patients.find({}, {sort: this.sort});
+                    return Patients.find({}, {sort: this.getReactively('sort')});
                 },
                 patientsCount: () => {
                     return Counts.get('numberOfPatients');
-                },
-                page: () => {1},
+                }});
 
-                sort: () => {
-                    name: 1
-                },
-                search: () => {''},
-
-                selected: () => {[]}
-            });
-
-            this.pageChanged = (newPage) => {
-                this.page = newPage;
-            };
-
+            /* subscription */
             this.subscribe('patients', () => {
                 return [
                     {
-                        limit: parseInt(this.perPage),
-                        skip: parseInt((this.page - 1) * this.perPage),
-                        sort: this.sort
+                        limit: parseInt(this.getReactively('perPage')),
+                        skip: parseInt((this.getReactively('page') - 1) * this.getReactively('perPage')),
+                        sort: this.getReactively('sort')
                     },
-                    this.search
+                    this.getReactively('search')
                 ]
             });
 
             this.remove = remove;
-            this.deletePatients = deletePatients;
-
             this.enter = enter;
-
             this.createPatient = createPatient;
 
-            ////////////
-
-            function deletePatients() {
-                console.log(selected);
-                angular.forEach(selected, function (value, key) {
-                    Patients.remove(value);
-                });
-            }
+            /* functions */
 
             function remove(patient) {
                 this.patients.remove(patient);

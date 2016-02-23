@@ -9,7 +9,9 @@ angular.module('Metis').directive('patientAnalytics', function () {
         controllerAs: 'patientAnalytics',
         controller: function ($scope, $reactive,$stateParams,$state) {
             $reactive(this).attach($scope);
-            console.log("Patient",this.patient);
+
+            this.patientId = $stateParams.patientId;
+
             this.analyticDetail=false;
             this.selectedAnalytic={};
 
@@ -19,24 +21,23 @@ angular.module('Metis').directive('patientAnalytics', function () {
                 selectedDirection: 'left'
             };
 
-            this.patientId = $stateParams.patientId;
-
+            /* Data Table variables */
             this.perPage = 5;
-            this.orderProperty = '1';
+            this.page=1;
+            this.search='';
+            this.selected=[];
+            this.sort= {
+                date:-1
+            };
 
+            /* Helpers */
             this.helpers({
                 analytics: () => {
                     return Analytics.find({}, {sort: this.sort});
                 },
                 analyticCount: () => {
                     return Counts.get('numberOfAnalytics');
-                },
-                page: 1,
-
-                sort: {
-                    date: -1
-                },
-                selected: []
+                }
             });
 
             console.log("numberOfAnalytics",this.analyticCount);
@@ -44,19 +45,18 @@ angular.module('Metis').directive('patientAnalytics', function () {
             this.subscribe('analytics', () => {
                 return [
                     {
-                        limit: parseInt(this.perPage),
-                        skip: parseInt((this.page - 1) * this.perPage),
-                        sort: this.sort,
-                        /*fields: {
-                            date:1
-                        }*/
-
+                        limit: parseInt(this.getReactively('perPage')),
+                        skip: parseInt((this.getReactively('page') - 1) * this.getReactively('perPage')),
+                        sort: this.getReactively('sort'),
                     },
                     this.getReactively('patientId')
                 ]
             });
 
             this.getLastAnalytic = getLastAnalytic;
+            this.enter = enter;
+            this.newAnalytic = newAnalytic;
+            this.activateListView = activateListView;
 
             function getLastAnalytic() {
 
@@ -71,7 +71,6 @@ angular.module('Metis').directive('patientAnalytics', function () {
                 });
 
             }
-            this.enter = enter;
 
             function enter(analytic) {
                 this.selectedAnalytic = analytic;
@@ -79,12 +78,10 @@ angular.module('Metis').directive('patientAnalytics', function () {
                 this.analyticDetail=true;
             }
 
-            this.newAnalytic = newAnalytic;
+
             function newAnalytic() {
                 this.analyticDetail=true;
             }
-
-            this.activateListView = activateListView;
 
             function activateListView() {
                 this.analyticDetail=false;

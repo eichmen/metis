@@ -1,7 +1,7 @@
-<div flex="100" flex-sm="100" flex-xs="100" layout="column">
+<div flex="100" layout="column">
     <md-card>
         <md-toolbar class="card-header-toolbar">
-            <div class="md-toolbar-tools"><translate>Diary Consumations</translate></div>
+            <div class="md-toolbar-tools card-header"><translate>Diary Consumations</translate></div>
         </md-toolbar>
         <div layout="column" layout-gt-sm="row" layout-padding layout-margin layout-fill>
             <md-input-container flex ng-repeat="item in alimentaryHabitsConstants track by $index">
@@ -12,38 +12,38 @@
         </div>
     </md-card>
 </div>
-<div flex="100" flex-sm="100" flex-xs="100" layout="row">
-    <md-card flex-sm="50" flex-xs="100" flex="50">
+<div  layout-gt-sm="row" layout="column">
+    <md-card flex-gt-sm="50">
         <md-toolbar class="card-header-toolbar">
-            <div class="md-toolbar-tools"><translate>Way of eating</translate></div>
+            <div class="md-toolbar-tools card-header"><translate>Way of eating</translate></div>
         </md-toolbar>
-        <div layout="row" layout-padding layout-margin layout-fill>
-            <md-input-container flex="50">
+        <div layout="column" layout-padding layout-margin layout-fill>
+            <md-input-container>
                 <label><translate>Number of eating out in a week</translate></label>
                 <input type="number" ng-model="patient.alimentaryHabits.eatOutNumber">
             </md-input-container>
-            <md-input-container flex="50">
+            <md-input-container>
                 <label><translate>Number of eating out by type</translate></label>
                 <input type="text" ng-model="patient.alimentaryHabits.eatOutResume">
             </md-input-container>
-        </div>
-        <div layout="row" layout-padding layout-margin layout-fill layout-wrap>
-            <md-input-container flex="50">
+
+
+            <md-input-container>
                 <label><translate>Number of tupper meals in a week</translate></label>
                 <input type="number" ng-model="patient.alimentaryHabits.tupperNumber">
             </md-input-container>
-            <md-input-container flex="50">
+            <md-input-container>
                 <label><translate>Number of tupper meals by type</translate></label>
                 <input type="text" ng-model="patient.alimentaryHabits.tupperResume">
             </md-input-container>
             <!-- �Para cuantas personas cocinas -->
-            <md-input-container flex="50">
+            <md-input-container>
                 <label><translate>How many people do you cook for?</translate></label>
                 <input type="text" ng-model="patient.alimentaryHabits.numberPeopleYouCook">
             </md-input-container>
 
             <!-- �Picas entre horas? -->
-            <md-input-container flex="50">
+            <md-input-container>
                 <label><translate>Do you snack?</translate></label>
                 <md-select ng-model="patient.alimentaryHabits.snackingState">
                     <md-option ng-repeat="state in snackingState" value="{{state}}">
@@ -53,7 +53,7 @@
             </md-input-container>
 
             <!-- �Cu�nta agua bebes al d�a? -->
-            <md-input-container flex="50">
+            <md-input-container>
                 <label><translate>How many water do you drink per day?</translate></label>
                 <md-select ng-model="patient.alimentaryHabits.waterState">
                     <md-option ng-repeat="state in waterState" value="{{state}}">
@@ -63,7 +63,7 @@
             </md-input-container>
 
             <!-- �Consumes bebidas alcoholicas? -->
-            <md-input-container flex="50">
+            <md-input-container>
                 <label><translate>Do you drink alcohol?</translate></label>
                 <md-select ng-model="patient.alimentaryHabits.alcoholState">
                     <md-option ng-repeat="state in alcoholState" value="{{state}}">
@@ -74,51 +74,49 @@
         </div>
     </md-card>
 
-    <md-card flex-sm="50" flex-xs="100" flex="50">
+    <md-card flex-gt-sm="50">
         <md-toolbar class="card-header-toolbar">
-            <div class="md-toolbar-tools"><translate>Way of eating</translate></div>
+            <div class="md-toolbar-tools card-header"><translate>Way of eating</translate></div>
         </md-toolbar>
-        <div layout="row" layout-padding layout-margin layout-fill>
-            <div layout="row" layout-padding layout-margin layout-wrap>
-                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.microwave"
+            <div layout="column" layout-padding layout-wrap>
+                <md-checkbox flex ng-model="patient.alimentaryHabits.microwave"
                              aria-label="Microwave"><translate>Do you use microwave?</translate>
                 </md-checkbox>
                 <!-- �Guardas tuppers en la nevera? -->
-                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.fridge"
+                <md-checkbox flex ng-model="patient.alimentaryHabits.fridge"
                              aria-label="Microwave"><translate>Do you use fridge for storing tuppers?</translate>
                 </md-checkbox>
 
                 <!-- �Cocinas para ti? -->
-                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.cook"
+                <md-checkbox flex ng-model="patient.alimentaryHabits.cook"
                              aria-label="Microwave"><translate>Do you cook your own food?</translate>
                 </md-checkbox>
 
                 <!-- �Haces t� la compra? -->
-                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.shop"
+                <md-checkbox flex ng-model="patient.alimentaryHabits.shop"
                              aria-label="Microwave"><translate>Do you buy your own groceries?</translate>
                 </md-checkbox>
 
                 <!-- �Tienes personas a tu cargo? -->
-                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.dependents"
+                <md-checkbox flex ng-model="patient.alimentaryHabits.dependents"
                              aria-label="Microwave"><translate>Do you take care of someone?</translate>
                 </md-checkbox>
 
                 <!-- �Consumes bebidas azucaradas o zumos envasados? -->
-                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.sugarDrinks"
+                <md-checkbox flex ng-model="patient.alimentaryHabits.sugarDrinks"
                              aria-label="Microwave"><translate>Do you drink sugared drinks or packaged juices?</translate>
                 </md-checkbox>
 
                 <!-- �Tomas cereales integrales (pasta, arroz, pan)? -->
-                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.wholeGrain"
+                <md-checkbox flex ng-model="patient.alimentaryHabits.wholeGrain"
                              aria-label="Microwave"><translate>Do you eat grained cereals (pasta, rice, bread)?</translate>
                 </md-checkbox>
 
                 <!-- �Comes deprisa? -->
-                <md-checkbox flex="50" ng-model="patient.alimentaryHabits.fast"
-                             aria-label="Microwave"><translate>Do you eat fast?</translate>
+                <md-checkbox flex ng-model="patient.alimentaryHabits.fast"
+                             aria-label="Microwave"><label><translate>Do you eat fast?</translate></label>
                 </md-checkbox>
 
             </div>
-        </div>
     </md-card>
 </div>

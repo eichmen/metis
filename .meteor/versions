@@ -47,6 +47,7 @@ es5-shim@4.1.14
 fastclick@1.0.7
 fourseven:scss@3.4.1
 geojson-utils@1.0.4
+gsklee:ngstorage@0.3.0
 hot-code-push@1.0.0
 html-tools@1.0.5
 htmljs@1.0.5
@@ -111,6 +112,7 @@ tmeasday:publish-counts@0.7.3
 tracker@1.0.9
 ui@1.0.8
 underscore@1.0.4
+urigo:angular@0.8.14
 url@1.0.5
 veekungx:angular-material-data-table@0.9.4
 velocity:chokidar@1.2.0_1

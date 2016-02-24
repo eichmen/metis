@@ -18,3 +18,20 @@
   opacity: 1;
   background-image: none;
 }
+.fc-scroller {
+  overflow-y: hidden;
+}
+
+.fc-day-header {
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.fc-left h2 {
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}

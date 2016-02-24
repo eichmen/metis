@@ -7,7 +7,8 @@ angular
         'gettext',
         'md.data.table',
         'ui.calendar',
-        'ngMessages'
+        'ngMessages',
+        'ngStorage'
     ])
     .config(function ($mdThemingProvider) {
         $mdThemingProvider.theme('default')

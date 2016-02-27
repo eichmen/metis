@@ -1,3 +1,37 @@
 .fc-toolbar {
   margin-top:10px;
 }
+
+.fc-widget-content,.fc-widget-header,.fc-day-header{
+  border-color: transparent !important;
+}
+
+.fc-button {
+  background-color: rgb(255,64,129);
+  color: rgb(255,255,255);
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 14px !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  text-transform: uppercase;
+  opacity: 1;
+  background-image: none;
+}
+.fc-scroller {
+  overflow-y: hidden;
+}
+
+.fc-day-header {
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.fc-left h2 {
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -2,41 +2,41 @@
 
     <md-toolbar>
         <div class="md-toolbar-tools">
-            <h2 ng-show="newEvent"><translate>New event</translate></h2>
-            <h2 ng-show="!newEvent"><translate>Edit event</translate></h2>
+            <h2 ng-show="eventDialog.newEvent"><translate>New event</translate></h2>
+            <h2 ng-show="!eventDialog.newEvent"><translate>Edit event</translate></h2>
             <span flex></span>
-            <ng-md-icon icon="clear" style="fill:white" size="24" ng-click="removeEvent()"></ng-md-icon>
+            <ng-md-icon icon="clear" style="fill:white" size="24" ng-click="eventDialog.removeEvent()"></ng-md-icon>
         </div>
     </md-toolbar>
 
     <md-input-container class="md-block">
         <label><translate>Title</translate></label>
-        <textarea ng-model="event.title" columns="1" style="min-width: 400px"></textarea>
+        <textarea ng-model="eventDialog.event.title" columns="1" style="min-width: 400px"></textarea>
     </md-input-container>
 
     <div layout layout-sm="column">
         <md-input-container flex>
             <label><translate>Start</translate></label>
-            <input type="date" ng-model="event.start" disabled/>
+            <input type="date" ng-model="eventDialog.event.start" disabled/>
         </md-input-container>
     </div>
 
     <div layout layout-sm="column">
         <md-input-container flex>
             <label><translate>Start</translate></label>
-            <input type="time" ng-model="event.start"/>
+            <input type="time" ng-model="eventDialog.event.start"/>
         </md-input-container>
         <md-input-container flex>
             <label><translate>End</translate></label>
-            <input type="time" ng-model="event.end"/>
+            <input type="time" ng-model="eventDialog.event.end"/>
         </md-input-container>
     </div>
 
     <div layout layout-align="end center">
-        <md-button class="md-raised md-primary" ng-show="newEvent" ng-click="save()">
+        <md-button class="md-raised md-primary" ng-show="eventDialog.newEvent" ng-click="eventDialog.save()">
             <translate>Save</translate>
         </md-button>
-        <md-button class="md-raised md-primary" ng-show="!newEvent" ng-click="update()">
+        <md-button class="md-raised md-primary" ng-show="!eventDialog.newEvent" ng-click="eventDialog.update()">
             <translate>Update</translate>
         </md-button>
     </div>

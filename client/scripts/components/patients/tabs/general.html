@@ -1,9 +1,11 @@
-<div flex="100" flex-sm="100" flex-xs="100" layout="row">
-    <md-card flex-sm="50" flex-xs="100" flex="50">
+<div layout-gt-sm="row" layout="column">
+
+    <md-card flex-gt-sm="50">
         <md-toolbar class="card-header-toolbar">
-            <div class="md-toolbar-tools"><translate>Personal Data</translate></div>
+            <div class="md-toolbar-tools card-header"><translate>Personal Data</translate></div>
         </md-toolbar>
-        <div layout="row" layout-padding layout-margin layout-fill layout-wrap>
+
+        <div layout-gt-sm="row" layout="column" layout-padding layout-fill layout-wrap>
             <md-input-container flex="50" class="md-block">
                 <label><translate>First Name</translate></label>
                 <input ng-model="patient.name" name="name" required>
@@ -63,12 +65,13 @@
 
         </div>
     </md-card>
-    <md-card flex-sm="50" flex-xs="100" flex="50">
+
+    <md-card flex-gt-sm="50">
         <md-toolbar class="card-header-toolbar">
-            <div class="md-toolbar-tools"><translate>Other Data</translate></div>
+            <div class="md-toolbar-tools  card-header"><translate>Other Data</translate></div>
         </md-toolbar>
-        <div layout="row" layout-padding layout-margin layout-fill layout-wrap>
-            <md-input-container flex="50" class="md-block">
+        <div layout="column" layout-padding layout-margin layout-fill layout-wrap>
+            <md-input-container class="md-block">
                 <label><translate>Children</translate></label>
                 <md-select ng-model="patient.children" name="children" required>
                     <md-option ng-repeat="item in children" value="{{item}}">
@@ -79,7 +82,7 @@
                     <div ng-message="required"><translate>Children is required</translate></div>
                 </div>
             </md-input-container>
-            <md-input-container flex="50" class="md-block">
+            <md-input-container class="md-block">
                 <label><translate>Work Shift</translate></label>
                 <md-select ng-model="patient.workShift" name="workShift" required>
                     <md-option ng-repeat="item in workShift" value="{{item}}">
@@ -90,7 +93,7 @@
                     <div ng-message="required"><translate>Work Shift is required</translate></div>
                 </div>
             </md-input-container>
-            <md-input-container flex="50" class="md-block">
+            <md-input-container class="md-block">
                 <label><translate>Profession</translate></label>
 
                 <input ng-model="patient.profession" name="profession" required>
@@ -99,7 +102,7 @@
                     <div ng-message="required"><translate>Profession is required</translate></div>
                 </div>
             </md-input-container>
-            <md-input-container flex="50" class="md-block">
+            <md-input-container class="md-block">
                 <label><translate>Work Type</translate></label>
                 <md-select ng-model="patient.workType" name="workType" required>
                     <md-option ng-repeat="item in workType" value="{{item}}">

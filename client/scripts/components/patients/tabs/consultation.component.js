@@ -9,16 +9,22 @@ angular.module('Metis').directive('patientConsultations', function () {
         controller: function ($scope, $reactive,$stateParams,$state) {
             $reactive(this).attach($scope);
 
+            this.patientId = $stateParams.patientId;
+
             this.fab = {
                 isOpen: false,
                 count: 0,
                 selectedDirection: 'left'
             };
 
-            this.patientId = $stateParams.patientId;
-
+            /* Data Table variables */
             this.perPage = 5;
-            this.orderProperty = '1';
+            this.page=1;
+            this.search='';
+            this.selected=[];
+            this.sort= {
+                date:-1
+            };
 
             this.helpers({
                 consultations: () => {
@@ -26,21 +32,15 @@ angular.module('Metis').directive('patientConsultations', function () {
                 },
                 consultCount: () => {
                     return Counts.get('numberOfConsultations');
-                },
-                page: 1,
-
-                sort: {
-                    date: -1
-                },
-                selected: []
+                }
             });
 
             this.subscribe('consultations', () => {
                 return [
                     {
-                        limit: parseInt(this.perPage),
-                        skip: parseInt((this.page - 1) * this.perPage),
-                        sort: this.sort,
+                        limit: parseInt(this.getReactively('perPage')),
+                        skip: parseInt((this.getReactively('page') - 1) * this.getReactively('perPage')),
+                        sort: this.getReactively('sort'),
                         fields: {
                             'date': 1,
                             'observations': 1,

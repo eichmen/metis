@@ -6,9 +6,9 @@ angular
         'ngMdIcons',
         'gettext',
         'md.data.table',
-        'mdPickers',
         'ui.calendar',
-        'ngMessages'
+        'ngMessages',
+        'ngStorage'
     ])
     .config(function ($mdThemingProvider) {
         $mdThemingProvider.theme('default')

@@ -21,13 +21,11 @@ sebhero:angular-material-icons
 rubenv:angular-gettext
 angular:angular-mocks
 accounts-password
-lbd41innovation:mdpickers
 meteorhacks:npm
 
 
 npm-container
 tmeasday:publish-counts
-dmgxmg:angular-material-data-table
 aldeed:collection2
 sanjo:jasmine
 velocity:html-reporter
@@ -35,4 +33,6 @@ angularui:ui-calendar
 planettraining:jquery-fullcalendar
 jss:flag-icon
 angular:angular-messages
+veekungx:angular-material-data-table
 angular:angular-material
+gsklee:ngstorage

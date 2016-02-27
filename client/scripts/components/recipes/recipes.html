@@ -2,7 +2,7 @@
 
     <md-card layout-padding>
 
-        <md-data-table-toolbar>
+        <md-toolbar>
             <md-input-container flex>
                 <label translate>Search</label>
                 <input type="text" ng-model="recipes.query.search"/>
@@ -12,33 +12,33 @@
                 <md-tooltip md-direction="top" md-visible="tooltipVisible"><translate>Add Recipe</translate></md-tooltip>
                 <ng-md-icon class="md-fab-24" icon="add" size="24"></ng-md-icon>
             </md-button>
-        </md-data-table-toolbar>
+        </md-toolbar>
 
     </md-card>
 
     <md-card layout-padding>
-        <md-data-table-container id="table-recipes" ng-class=" !(recipes.showSelected === 'true') ? 'hideSelected' : ''">
-            <table md-data-table md-row-select="selected" md-progress="deferred">
-                <thead md-order="recipes.query.order" md-trigger="recipes.onOrderChange">
-                <tr>
-                    <th name="Recipe" order-by="{{recipes.descInProperLanguage}}">
+        <md-table-container id="table-recipes" ng-class=" !(recipes.showSelected === 'true') ? 'hideSelected' : ''">
+            <table  md-table md-row-select ng-model="selected" md-progress="deferred">
+                <thead md-head md-order="recipes.query.order" md-trigger="recipes.onOrderChange">
+                <tr md-row>
+                    <th md-column  md-order-by="{{recipes.descInProperLanguage}}">
                         <translate>Name</translate>
                     </th>
-                    <th name="Group" translate>Group</th>
+                    <th md-column translate>Group</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr md-auto-select ng-repeat="recipe in recipes.recipes" ng-click="recipes.enter(recipe)">
-                    <td>{{recipe.nomenclature[recipes.currentLanguage].name}}</td>
-                    <td>{{recipe.nomenclature.english.group | translate}}</td>
+                <tbody md-body>
+                <tr  md-row md-select="recipe"  md-auto-select ng-repeat="recipe in recipes.recipes" ng-click="recipes.enter(recipe)">
+                    <td md-cell>{{recipe.nomenclature[recipes.currentLanguage].name}}</td>
+                    <td md-cell>{{recipe.nomenclature.english.group | translate}}</td>
                 </tr>
                 </tbody>
             </table>
-        </md-data-table-container>
-        <md-data-table-pagination md-limit="recipes.query.perPage"
+        </md-table-container>
+        <md-table-pagination md-limit="recipes.query.perPage"
                                   md-page="recipes.query.page"
                                   md-total="{{recipes.recipesCount}}"
-                                  md-trigger="recipes.onPaginationChange"></md-data-table-pagination>
+                                  md-trigger="recipes.onPaginationChange"></md-table-pagination>
     </md-card>
 
 </md-content>

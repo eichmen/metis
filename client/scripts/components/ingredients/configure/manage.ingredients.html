@@ -14,30 +14,31 @@
 
 
 <md-card layout-padding>
-    <md-data-table-container id="table-ingredients" ng-class=" !(manageIngredients.showSelected === 'true') ? 'hideSelected' : ''">
-        <table md-data-table md-row-select="manageIngredients.selected" md-progress="deferred">
-            <thead md-order="manageIngredients.query.order" md-trigger="manageIngredients.onOrderChange">
-            <tr>
-                <th name="Ingredient" order-by="{{manageIngredients.descInProperLanguage}}">
+    <md-table-container id="table-ingredients" ng-class=" !(manageIngredients.showSelected === 'true') ? 'hideSelected' : ''">
+        <table md-table md-row-select ng-model="manageIngredients.selected" md-progress="deferred">
+            <thead md-head md-order="manageIngredients.query.order" md-trigger="manageIngredients.onOrderChange">
+            <tr md-row>
+                <th md-column md-order-by="{{manageIngredients.descInProperLanguage}}">
                     Ingredient
                 </th>
-                <th name="Ingrediente" order-by="{{manageIngredients.descInProperLanguage}}">
+                <th md-column md-order-by="{{manageIngredients.descInProperLanguage}}">
                     Ingrediente
                 </th>
             </tr>
             </thead>
-            <tbody>
-            <tr md-auto-select ng-repeat="ingredient in manageIngredients.ingredients" ng-click="manageIngredients.enter(ingredient)">
-                <td>{{ingredient.nomenclature.english.desc}}</td>
-                <td>{{ingredient.nomenclature.spanish.desc}}</td>
+            <tbody md-body>
+            <tr md-row md-select="ingredient"  md-auto-select ng-repeat="ingredient in manageIngredients.ingredients"
+                ng-click="manageIngredients.enter(ingredient)">
+                <td md-cell>{{ingredient.nomenclature.english.desc}}</td>
+                <td md-cell>{{ingredient.nomenclature.spanish.desc}}</td>
             </tr>
             </tbody>
         </table>
-    </md-data-table-container>
-    <md-data-table-pagination md-limit="manageIngredients.query.perPage"
+    </md-table-container>
+    <md-table-pagination md-limit="manageIngredients.query.perPage"
                               md-page="manageIngredients.query.page"
                               md-total="{{manageIngredients.ingredientsCount}}"
-                              md-trigger="manageIngredients.onPaginationChange"></md-data-table-pagination>
+                              md-trigger="manageIngredients.onPaginationChange"></md-table-pagination>
 </md-card>
 
 </md-content>

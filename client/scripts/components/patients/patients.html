@@ -1,64 +1,54 @@
 <md-card layout-padding>
 
-    <md-data-table-toolbar ng-hide="patientList.selected.length" aria-hidden="false" class="" style="">
+    <md-toolbar layout="row" class="md-table-toolbar md-default" ng-hide="patientList.selected.length">
         <md-input-container flex>
             <label><translate>Search</translate></label>
             <input type="text" ng-model="patientList.search"/>
         </md-input-container>
-
-      <!--  <md-button class="md-fab" ng-click="patientList.createPatient()" aria-label="Add Patient">
-            <md-tooltip md-direction="top" md-visible="tooltipVisible">Add Patient</md-tooltip>
-            <ng-md-icon class="md-fab-24" icon="add" size="24"></ng-md-icon>
-        </md-button> -->
-
-        <md-button class="md-raised md-accent" ng-click="patientList.createPatient()" aria-label="Add Patient">
+        <md-button class="md-raised md-accent white fixed-height" ng-click="patientList.createPatient()" aria-label="Add Patient">
             <md-tooltip md-direction="top" md-visible="tooltipVisible"><translate>New Patient</translate></md-tooltip>
             <translate>Add Patient</translate>
         </md-button>
-    </md-data-table-toolbar>
+    </md-toolbar>
 
-    <md-data-table-toolbar class="alternate ng-hide" ng-show="patientList.selected.length" layout-align="space-between"
-                           aria-hidden="true">
+    <md-toolbar class="md-table-toolbar alternate ng-hide" ng-show="patientList.selected.length" layout-align="space-between"
+                aria-hidden="true">
         <div>{{patientList.selected.length}} {{patientList.selected.length > 1 ? 'items' : 'item'}} selected</div>
-
-
         <md-button class="md-raised pink" ng-click="patientList.showConfirm($event)">Delete</md-button>
-
-    </md-data-table-toolbar>
+    </md-toolbar>
 </md-card>
 
 <md-card layout-padding>
-    <md-data-table-container>
-        <table md-data-table md-row-select="patientList.selected" md-progress="patientList.deferred">
-            <thead md-order="patientList.query.order" md-trigger="patientList.onOrderChange">
-            <tr>
-                <th name="Photo"><translate>Photo</translate></th>
-                <th name="Name" order-by="patientList.patient.name"><translate>Name</translate></th>
-                <th name="Lastname" order-by="patientList.patient.lastname"><translate>Lastname</translate></th>
-                <th name="LastConsultation" order-by="patientList.patient.lastConsultation">
+    <md-table-container>
+        <table md-table md-row-select ng-model="patientList.selected" md-progress="patientList.deferred">
+            <thead  md-head md-order="patientList.query.order" md-trigger="patientList.onOrderChange">
+            <tr md-row>
+                <th md-column ><translate>Photo</translate></th>
+                <th md-column md-order-by="patientList.patient.name"><translate>Name</translate></th>
+                <th md-column md-order-by="patientList.patient.lastname"><translate>Lastname</translate></th>
+                <th md-column md-order-by="patientList.patient.lastConsultation">
                     <translate>Last Consultation</translate></th>
-                <th name="NextConsultation" order-by="patientList.patient.nextConsultation">
+                <th md-column md-order-by="patientList.patient.nextConsultation">
                     <translate>Next Consultation</translate></th>
             </tr>
             </thead>
-            <tbody>
-            <tr md-auto-select ng-repeat="patient in patientList.patients" ng-click="patientList.enter(patient)">
-                <td><img class="avatar-md-table" ng-src="{{patient.photo}}"></td>
-                <td>{{patient.name}}</td>
-                <td>{{patient.lastname}}</td>
-                <td>{{patient.lastConsultation.date | date:"dd/MM/yyyy"}}</td>
-                <td>{{patient.nextConsultation.date | date:"dd/MM/yyyy"}}</td>
-                <td>
+            <tbody md-body>
+            <tr md-row md-select="patient" md-auto-select ng-repeat="patient in patientList.patients" ng-click="patientList.enter(patient)">
+                <td md-cell><img class="avatar-md-table" ng-src="{{patient.photo}}"></td>
+                <td md-cell>{{patient.name}}</td>
+                <td md-cell>{{patient.lastname}}</td>
+                <td md-cell>{{patient.lastConsultation.date | date:"dd/MM/yyyy"}}</td>
+                <td md-cell>{{patient.nextConsultation.date | date:"dd/MM/yyyy"}}</td>
+                <td md-cell>
                     <ng-md-icon ng-show="patient.public" icon="beenhere" style="fill:#777"></ng-md-icon>
                 </td>
             </tr>
             </tbody>
         </table>
-    </md-data-table-container>
-    <md-data-table-pagination md-limit="patientList.perPage"
+        </md-table-container>
+
+    <md-table-pagination md-limit="patientList.perPage"
                               md-page="patientList.page"
                               md-total="{{patientList.patientsCount}}"
-                              md-trigger="patientList.onPaginationChange"></md-data-table-pagination>
-
-
+                              md-trigger="patientList.onPaginationChange"></md-table-pagination>
 </md-card>

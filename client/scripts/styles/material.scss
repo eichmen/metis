@@ -1,0 +1,11 @@
+md-input-container:not(.md-input-has-value) input:not(:focus) {
+  color: black !important;
+}
+
+md-input-container label:not(.md-no-float):not(.md-container-ignore),
+md-input-container .md-placeholder,
+md-select.md-default-theme .md-select-value.md-select-placeholder,
+md-select .md-select-value.md-select-placeholder{
+  color: grey !important;
+}
+
